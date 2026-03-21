@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-03-20 (Fri) — Run #3
+
+**Status**: ✅ Success  
+**Entries found**: 9 (3 YouTube, 3 X/Twitter, 3 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct), X/Twitter (fallback via DuckDuckGo — xAI credits exhausted), 小红书 (blocked by CAPTCHA), Web (Brave Search)  
+**Note**: web_search tool unavailable; xAI API credits exhausted; Google/DuckDuckGo blocked by CAPTCHA. TranscriptAPI YouTube search worked natively. Brave Search provided excellent web results.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-03-20.md`
+- HTML: `openclaw-digest-2026-03-20.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: 1 GitHub username — public info)  
+**Deployed**: `openclaw-digest-2026-03-20-08bca0cd.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-03-20-08bca0cd.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 9 new URLs added (36 total)
+
+---
+
 ## 2026-03-19 (Thu) — Run #2
 
 **Status**: ✅ Success  
