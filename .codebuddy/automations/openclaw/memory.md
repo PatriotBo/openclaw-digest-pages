@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-03-23 (Mon) — Run #5
+
+**Status**: ✅ Success  
+**Entries found**: 9 (4 YouTube, 5 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct), X/Twitter (xAI API SSL error → Brave Search fallback, no results), 小红书 (Brave Search fallback, rate limited), Web (Brave Search — excellent results)  
+**Note**: web_search tool unavailable; xAI API returned SSL error (exit code 35); Brave Search rate limited after 3 requests (CAPTCHA/429). TranscriptAPI YouTube search worked perfectly. Brave web search provided rich results before rate limiting.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-03-23.md`
+- HTML: `openclaw-digest-2026-03-23.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: 3 GitHub usernames — public info)  
+**Deployed**: `openclaw-digest-2026-03-23-c7b718d9.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-03-23-c7b718d9.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 9 new URLs added (44 total)
+
+---
+
 ## 2026-03-21 (Sat) — Run #4
 
 **Status**: ✅ Success  
