@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦀 OpenClaw 每日精选 — 2026-03-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #16161f;
+  --bg-card-hover: #1c1c28;
+  --text-primary: #e8e6f0;
+  --text-secondary: #9896a8;
+  --text-muted: #6b6980;
+  --accent: #f97316;
+  --accent-glow: rgba(249,115,22,0.25);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-weight: 400;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Ambient glow */
+.ambient-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-1 { top: -200px; left: -100px; background: #f97316; }
+.glow-2 { bottom: -200px; right: -100px; background: #3b82f6; }
+.glow-3 { top: 50%; left: 50%; transform: translate(-50%,-50%); background: #8b5cf6; width: 800px; height: 400px; opacity: 0.04; }
+
+/* Layout */
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  padding: 80px 0 48px;
+  text-align: center;
+  position: relative;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(249,115,22,0.1);
+  border: 1px solid rgba(249,115,22,0.2);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.header-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fff 0%, #e8e6f0 40%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.header .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-top: 12px;
+}
+
+.header .date-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 48px 0;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--stat-color, var(--accent));
+  opacity: 0.6;
+}
+
+.stat-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.stat-emoji { font-size: 1.5rem; margin-bottom: 8px; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Section headers */
+.source-section {
+  margin-top: 56px;
+  margin-bottom: 24px;
+}
+
+.source-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.source-section-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.source-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.source-section-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Cards */
+.entry-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 16px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.entry-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--card-accent, var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.entry-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.entry-card:hover::before { opacity: 1; }
+
+.entry-index {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.entry-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.entry-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.entry-summary {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.entry-highlight {
+  background: rgba(249,115,22,0.06);
+  border: 1px solid rgba(249,115,22,0.12);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  position: relative;
+  padding-left: 40px;
+}
+
+.entry-highlight::before {
+  content: '💡';
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  font-size: 1rem;
+}
+
+.entry-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(249,115,22,0.08);
+  border: 1px solid rgba(249,115,22,0.15);
+  transition: all 0.2s ease;
+}
+
+.entry-link:hover {
+  background: rgba(249,115,22,0.15);
+  border-color: rgba(249,115,22,0.3);
+  transform: translateX(3px);
+}
+
+.entry-link svg {
+  width: 14px; height: 14px;
+  transition: transform 0.2s ease;
+}
+.entry-link:hover svg { transform: translateX(2px); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 60px 0 40px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+.footer .footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+/* Navigation sidebar pill */
+.nav-sidebar {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.nav-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-dot:hover, .nav-dot.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+.nav-dot .nav-tooltip {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.nav-dot:hover .nav-tooltip { opacity: 1; }
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  .header { padding: 48px 0 32px; }
+  .entry-card { padding: 20px; }
+  .nav-sidebar { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<div class="ambient-glow glow-1"></div>
+<div class="ambient-glow glow-2"></div>
+<div class="ambient-glow glow-3"></div>
+
+<nav class="nav-sidebar" id="navSidebar">
+<div class="nav-dot" data-section="section-youtube" onclick="document.getElementById('section-youtube').scrollIntoView({behavior:'smooth'})">
+    <span class="nav-tooltip">🎬 YouTube</span>
+  </div>
+<div class="nav-dot" data-section="section-other" onclick="document.getElementById('section-other').scrollIntoView({behavior:'smooth'})">
+    <span class="nav-tooltip">🌐 其他</span>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="header fade-in">
+    <div class="header-badge">
+      <span class="dot"></span>
+      DAILY DIGEST
+    </div>
+    <h1>OpenClaw 每日精选</h1>
+    <div class="subtitle">今日共收录 <strong>9</strong> 条精选内容</div>
+    <div class="date-display">2026-03-25 周三 &middot; 自动生成于 21:53</div>
+  </header>
+
+  <section class="stats-grid fade-in">
+    <div class="stat-card" style="--stat-color: #FF0000">
+      <div class="stat-emoji">🎬</div>
+      <div class="stat-number">3</div>
+      <div class="stat-label">YouTube</div>
+    </div>
+    <div class="stat-card" style="--stat-color: #6B7280">
+      <div class="stat-emoji">🌐</div>
+      <div class="stat-number">6</div>
+      <div class="stat-label">其他</div>
+    </div>
+    <div class="stat-card" style="--stat-color: var(--accent)">
+      <div class="stat-emoji">📊</div>
+      <div class="stat-number">9</div>
+      <div class="stat-label">Total</div>
+    </div>
+  </section>
+
+  <section class="source-section fade-in" id="section-youtube">
+    <div class="source-section-header">
+      <div class="source-section-icon" style="background: rgba(255,0,0,0.06); border: 1px solid rgba(255,0,0,0.15)">🎬</div>
+      <div class="source-section-title">YouTube</div>
+      <div class="source-section-count">3 条</div>
+    </div>
+    <div class="entry-card fade-in" style="--card-accent: #FF0000">
+        <div class="entry-index">No.01</div>
+        <div class="entry-title">The Ultimate Beginner's Guide to OpenClaw (2026 March Edition)</div>
+        <div class="entry-meta"><span>✍️ Metics Media</span><span>📅 2026-03-11</span></div>
+        <div class="entry-summary">Metics Media 发布了一份长达近 1 小时的 OpenClaw 终极新手指南，覆盖从安装部署到 Skills 系统、模型配置、渠道接入的完整流程。视频已获超 57 万次观看，成为 OpenClaw 入门领域的标杆级教程。</div>
+        <div class="entry-highlight">近 1 小时系统性教学，涵盖 2026 年 3 月最新版本特性；57 万观看量证明了社区对高质量入门内容的旺盛需求</div>
+        <a class="entry-link" href="https://www.youtube.com/watch?v=st534T7-mdE" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #FF0000">
+        <div class="entry-index">No.02</div>
+        <div class="entry-title">OpenClaw 3.22 Just Changed AI Agents Forever</div>
+        <div class="entry-meta"><span>✍️ AI News Today | Julian Goldie Podcast</span><span>📅 2026-03-24</span></div>
+        <div class="entry-summary">AI News Today 频道第一时间解读 OpenClaw 3.22 重大更新——内置 ClawHub 插件市场、移除旧浏览器扩展改用 existing-session 模式、新增 SSH 沙箱后端等。视频认为这是 AI Agent 领域的里程碑式版本。</div>
+        <div class="entry-highlight">对 3.22 版本核心变更的快速深度解读；从 AI Agent 行业角度分析 ClawHub 生态意义</div>
+        <a class="entry-link" href="https://www.youtube.com/watch?v=HGDpzlXkHNs" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #FF0000">
+        <div class="entry-index">No.03</div>
+        <div class="entry-title">OpenClaw 3.23 Update Will Change Your LIFE</div>
+        <div class="entry-meta"><span>✍️ Build In Public</span><span>📅 2026-03-24</span></div>
+        <div class="entry-summary">Build In Public 频道体验 OpenClaw 3.23 更新，展示了浏览器 MCP 连接稳定性提升、ClawHub 认证修复和 AI 模型网关优化等 10+ 项核心改进。视频通过实际演示说明新版在日常使用中的流畅度飞跃。</div>
+        <div class="entry-highlight">实测 3.23 修复效果；展示 macOS 上浏览器自动化的稳定性改善；从用户体验角度评价版本质量</div>
+        <a class="entry-link" href="https://www.youtube.com/watch?v=82iZAY__uIg" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div>
+  </section>
+
+  <section class="source-section fade-in" id="section-other">
+    <div class="source-section-header">
+      <div class="source-section-icon" style="background: rgba(107,114,128,0.06); border: 1px solid rgba(107,114,128,0.15)">🌐</div>
+      <div class="source-section-title">其他</div>
+      <div class="source-section-count">6 条</div>
+    </div>
+    <div class="entry-card fade-in" style="--card-accent: #6B7280">
+        <div class="entry-index">No.04</div>
+        <div class="entry-title">时隔 11 天，OpenClaw 2026.3.23 发布：内置 ClawHub 插件/技能市场</div>
+        <div class="entry-meta"><span>✍️ 小众软件</span><span>📅 2026-03-24</span></div>
+        <div class="entry-summary">小众软件详细报道了 OpenClaw 3.22 和 3.23 双版本连发事件——3.22 因遗漏控制台打包导致白屏，3.23 紧急修复。核心亮点包括 ClawHub 内置、插件 SDK 重构、Claude 市场支持、SSH sandbox 等 50+ 项改动。</div>
+        <div class="entry-highlight">详尽的中文版本更新分析；揭示了开发节奏背后的'先发后修'故事；覆盖安全、架构、生态三大维度</div>
+        <a class="entry-link" href="https://www.appinn.com/openclaw-2026-3-22/" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #6B7280">
+        <div class="entry-index">No.05</div>
+        <div class="entry-title">OpenClaw 2026.3.22 版本更新深度解读：安全大幅增强</div>
+        <div class="entry-meta"><span>✍️ Rang's Note</span><span>📅 2026-03-23</span></div>
+        <div class="entry-summary">Rang's Note 从架构师视角深度解析 3.22 版本——插件分发从 npm 转向 ClawHub、旧环境变量（CLAWBOT_*/MOLTBOT_*）彻底清除、exec 审批与 allowlist 收紧、Webhook 验签强化。文章系统性梳理了安全边界变更。</div>
+        <div class="entry-highlight">安全领域全方位升级分析；堵住了 Windows 下 file://、UNC、SMB 凭据泄露风险；架构视角的迁移指南</div>
+        <a class="entry-link" href="https://wurang.net/posts/openclaw-2026-3-22-release/" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #6B7280">
+        <div class="entry-index">No.06</div>
+        <div class="entry-title">OpenClaw Docker 部署完全指南：从零搭建你的私有 AI Agent</div>
+        <div class="entry-meta"><span>✍️ OfoxAI</span><span>📅 2026-03-23</span></div>
+        <div class="entry-summary">OfoxAI 发布了一篇面向国内用户的 Docker 部署实战指南，涵盖环境准备、一键安装脚本、国内网络优化（镜像加速+API 聚合）、Agent 沙箱配置、多平台接入等完整流程，并附 15 个常见问题解答。</div>
+        <div class="entry-highlight">专为国内网络环境优化的部署方案；强调生产环境沙箱必开原则；模型路由分级策略降低成本</div>
+        <a class="entry-link" href="https://ofox.ai/zh/blog/openclaw-docker-deployment-guide-2026/" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #6B7280">
+        <div class="entry-index">No.07</div>
+        <div class="entry-title">OpenClaw v3.23 重磅更新：浏览器更稳、ClawHub 更顺、AI 更智能</div>
+        <div class="entry-meta"><span>✍️ CSDN 博主</span><span>📅 2026-03-24</span></div>
+        <div class="entry-summary">CSDN 博主详细拆解 v3.23 的 10+ 项核心优化：Chrome MCP 连接稳定性修复、macOS 认证配置修正、OpenRouter 定价无限递归 Bug 修复、Mistral 模型 422 错误修复。16 位贡献者参与，vincentkoc 贡献了 14 项跨 6 子系统的修复。</div>
+        <div class="entry-highlight">技术细节详尽的版本修复分析；揭示了社区协作的力量——单一贡献者跨 6 个子系统修复</div>
+        <a class="entry-link" href="https://blog.csdn.net/weixin_44741855/article/details/159419238" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #6B7280">
+        <div class="entry-index">No.08</div>
+        <div class="entry-title">【谨慎更新】OpenClaw 大版本更新：上线 ClawHub 技能市场</div>
+        <div class="entry-meta"><span>✍️ Linux.do 社区</span><span>📅 2026-03-23</span></div>
+        <div class="entry-summary">Linux.do 社区发布了 3.22 版本的使用警告帖——ClawHub 技能市场作为核心变更正式上线，但控制台打包遗漏引发社区热议。帖子建议用户等待 3.23 修复版再升级，并讨论了新版插件 SDK 的迁移成本。</div>
+        <div class="entry-highlight">开源社区的第一手使用反馈；真实的升级踩坑记录；体现了 OpenClaw 社区的技术讨论氛围</div>
+        <a class="entry-link" href="https://linux.do/t/topic/1803715" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div><div class="entry-card fade-in" style="--card-accent: #6B7280">
+        <div class="entry-index">No.09</div>
+        <div class="entry-title">OpenClaw 双版本连发：v2026.3.22 + v2026.3.23 合并更新指南</div>
+        <div class="entry-meta"><span>✍️ 知乎</span><span>📅 2026-03-24</span></div>
+        <div class="entry-summary">知乎作者编写了一份完整的 3.22 + 3.23 合并迁移指南——覆盖 Memory 安全默认值变更（autoCapture 默认禁用）、Prompt 注入防护、Watcher 限制等安全变更，以及 ClawHub 认证、浏览器模式切换等升级步骤。</div>
+        <div class="entry-highlight">实用的合并升级指南；安全默认值变更解读——autoCapture 禁用防止 PII 数据泄露</div>
+        <a class="entry-link" href="https://zhuanlan.zhihu.com/p/2019717855818556673" target="_blank" rel="noopener noreferrer">
+            查看原文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+      </div>
+  </section>
+
+  <footer class="footer fade-in">
+    <div class="footer-brand">🦀 OpenClaw Daily Digest</div>
+    <div>由 OpenClaw Daily Digest Skill 自动生成 &middot; Powered by WorkBuddy</div>
+  </footer>
+</div>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Back to top
+const btn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('show', window.scrollY > 400);
+});
+
+// Nav dots active state
+const sections = document.querySelectorAll('.source-section');
+const dots = document.querySelectorAll('.nav-dot');
+const secObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      dots.forEach(d => d.classList.remove('active'));
+      const dot = document.querySelector(`.nav-dot[data-section="${e.target.id}"]`);
+      if (dot) dot.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => secObserver.observe(s));
+
+// Staggered card animation
+document.querySelectorAll('.entry-card').forEach((card, i) => {
+  card.style.transitionDelay = `${i * 0.05}s`;
+});
+</script>
+</body>
+</html>
