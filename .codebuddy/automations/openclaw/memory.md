@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-03-26 (Thu) — Run #8
+
+**Status**: ✅ Success  
+**Entries found**: 9 (3 YouTube, 6 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API credits exhausted → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API credits still exhausted. TranscriptAPI YouTube search worked perfectly. Today's theme: OpenClaw 3.24 release reviews, WeChat ClawBot plugin, Notion integration, production-grade deployment guide.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-03-26.md`
+- HTML: `openclaw-digest-2026-03-26.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: 1 public GitHub repo link)  
+**Deployed**: `openclaw-digest-2026-03-26-1fa25a59.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-03-26-1fa25a59.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 9 new URLs added
+
+---
+
 ## 2026-03-25 (Wed) — Run #7
 
 **Status**: ✅ Success  
