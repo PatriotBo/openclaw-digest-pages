@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-03-25 (Wed) — Run #7
+
+**Status**: ✅ Success  
+**Entries found**: 9 (3 YouTube, 6 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API credits exhausted → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API credits still exhausted. TranscriptAPI YouTube search worked perfectly. web_search provided rich results for blog/news sources. Today's theme: OpenClaw 3.22/3.23 double release — ClawHub marketplace, security hardening, browser stability fixes.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-03-25.md`
+- HTML: `openclaw-digest-2026-03-25.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean — 1 false positive excluded, P2: clean)  
+**Deployed**: `openclaw-digest-2026-03-25-d62fb44b.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-03-25-d62fb44b.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 9 new URLs added (62 total)
+
+---
+
 ## 2026-03-24 (Tue) — Run #6
 
 **Status**: ✅ Success  
