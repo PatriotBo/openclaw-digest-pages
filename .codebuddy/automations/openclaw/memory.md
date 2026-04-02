@@ -35,6 +35,26 @@
 
 ---
 
+## 2026-04-01 (Tue) — Run #8
+
+**Status**: ✅ Success  
+**Entries found**: 9 (3 YouTube, 6 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API empty response → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API returned empty response. TranscriptAPI YouTube search worked perfectly. web_search provided rich results for blog/news sources. Today's theme: v2026.3.28 deep dives, multi-agent collaboration, RAG skill building, mainstream media coverage (CGTN, ColdFusion, NetworkChuck).
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-04-01.md`
+- HTML: `openclaw-digest-2026-04-01.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: 1 GitHub username — public info)  
+**Deployed**: `openclaw-digest-2026-04-01-4de0b89a.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-04-01-4de0b89a.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 9 new URLs added (71 total)
+
+---
+
 ## 2026-03-25 (Wed) — Run #7
 
 **Status**: ✅ Success  
