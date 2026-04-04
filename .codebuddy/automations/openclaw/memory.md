@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-04-03 (Fri) — Run #10
+
+**Status**: ✅ Success  
+**Entries found**: 6 (3 YouTube, 3 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API credits exhausted → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API still returning permission error (no credits). TranscriptAPI YouTube search worked perfectly. web_search provided rich results for blog/news sources. Today's theme: OpenClaw v2026.4.2 全面发布 — Task Flow 恢复、exec 默认 YOLO 模式、before_agent_reply 钩子、会话路由插件化、多平台增强（Android/飞书/Matrix/WhatsApp）、安全加固.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-04-03.md`
+- HTML: `openclaw-digest-2026-04-03.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: clean)  
+**Deployed**: `openclaw-digest-2026-04-03-7f5dfdbc.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-04-03-7f5dfdbc.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 6 new URLs added
+
+---
+
 ## 2026-04-02 (Wed) — Run #9
 
 **Status**: ✅ Success  
