@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-04-04 (Sat) — Run #11
+
+**Status**: ✅ Success  
+**Entries found**: 6 (3 YouTube, 3 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API credits exhausted → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API still returning permission error (no credits). TranscriptAPI YouTube search worked perfectly. web_search provided rich results for blog/news sources. Today's theme: ColdFusion 深度纪录片解析 OpenClaw 崛起、Anthropic vs OpenClaw 竞争格局、脱离 Claude 替代方案、腾讯云部署教程、v2026.4.2 深度解读、阿里云百炼免费API部署.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-04-04.md`
+- HTML: `openclaw-digest-2026-04-04.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: clean)  
+**Deployed**: `openclaw-digest-2026-04-04-8dd092da.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-04-04-8dd092da.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 6 new URLs added
+
+---
+
 ## 2026-04-03 (Fri) — Run #10
 
 **Status**: ✅ Success  
