@@ -15,6 +15,26 @@
 
 ---
 
+## 2026-04-05 (Sun) — Run #12
+
+**Status**: ✅ Success  
+**Entries found**: 6 (3 YouTube, 3 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API credits exhausted → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API still returning permission error (no credits). TranscriptAPI YouTube search worked perfectly. web_search provided rich results for blog/news sources. Today's theme: OpenClaw 3小时商业化课程、10小时多Agent深度教程、v2026.4.1 版本更新解析与深度评测、CNCERT安全指南下的三套部署方案.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-04-05.md`
+- HTML: `openclaw-digest-2026-04-05.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: clean)  
+**Deployed**: `openclaw-digest-2026-04-05-048b29be.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-04-05-048b29be.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 6 new URLs added
+
+---
+
 ## 2026-04-04 (Sat) — Run #11
 
 **Status**: ✅ Success  
