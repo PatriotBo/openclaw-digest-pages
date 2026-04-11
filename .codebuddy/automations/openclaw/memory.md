@@ -1,6 +1,14 @@
-# OpenClaw Daily Digest — Automation Memory
+# AI Daily Digest — Automation Memory
 
 ## ⚠️ 制度变更记录
+
+### 2026-04-08: 搜索范围扩展为全 AI 领域
+
+**变更内容**: 用户要求将每日日报从纯 OpenClaw 内容扩展为更广泛的 AI 领域内容。  
+**新覆盖范围**: 大模型 (LLMs)、AI Agent (含 OpenClaw)、AI 编码工具、AI 产品发布、AI 行业新闻、AI 研究突破  
+**自动化名称**: "OpenClaw 每日日报" → "AI 每日日报"  
+**报告文件名模式**: `openclaw-digest-*` → `ai-digest-*`  
+**其他不变**: 调度时间 (每日 21:30)、部署流程 (GitHub Pages + 企业微信)、敏感信息审查制度均保持不变。
 
 ### 2026-03-19: 敏感信息审查制度生效
 
@@ -12,6 +20,26 @@
 3. **等待用户明确确认** 后才能执行部署（P0 必须脱敏，P1 需用户判断）
 
 此规则为 `always` 类型，每次任务执行时自动加载。
+
+---
+
+## 2026-04-08 (Wed) — Run #13
+
+**Status**: ✅ Success  
+**Entries found**: 6 (3 YouTube, 3 Other/Web)  
+**Platforms searched**: YouTube (TranscriptAPI direct — excellent), X/Twitter (xAI API credits exhausted → web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results)  
+**Note**: xAI API still returning permission error (no credits). TranscriptAPI YouTube search worked perfectly. web_search provided rich results for blog/news sources. Today's theme: OpenClaw 4.7 权限隔离与Sandbox 2.0、Anthropic封禁事件与多模型Fallback应对、4.5全模态能力革新、CNCERT安全指南三套部署方案、小红书数据抓取实战.
+
+**Reports generated**:
+- MD: `openclaw-digest-2026-04-08.md`
+- HTML: `openclaw-digest-2026-04-08.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: clean)  
+**Deployed**: `openclaw-digest-2026-04-08-9d167325.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-04-08-9d167325.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+**Dedup DB**: 6 new URLs added
 
 ---
 
