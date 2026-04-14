@@ -23,6 +23,26 @@
 
 ---
 
+## 2026-04-11 (Sat) — Run #14
+
+**Status**: ✅ Success  
+**Entries found**: 8 (3 YouTube, 5 Web/Blog)  
+**Topics covered**: OpenClaw 2026.4.10 release, GPT-6 confirmed Apr 14, DeepSeek V4 Expert Mode, AI Coding Tools (Cursor/Claude Code/Copilot横评), 腾讯QClaw V2 + 面壁智能融资, OpenClaw ACP 2.0 paradigm shift  
+**Platforms searched**: YouTube (TranscriptAPI — excellent results), X/Twitter (web_search fallback — no direct x.com results), 小红书 (web_search fallback — no direct results), Web (web_search — excellent results for both EN/CN sources)  
+**Note**: First run using `ai-digest-*` filename pattern. Rich content week: GPT-6 pre-release buzz, DeepSeek V4 dual-mode launch, OpenClaw 2026.4.10 with Active Memory plugin and Codex provider, plus heavy AI industry funding activity in China.
+
+**Reports generated**:
+- MD: `ai-digest-2026-04-11.md`
+- HTML: `ai-digest-2026-04-11.html`
+
+**Sensitive info review**: ✅ Passed (P0: clean, P1: clean, P2: 1 public GitHub repo link)  
+**Deployed**: `openclaw-digest-2026-04-11-94249146.html`  
+**Public URL**: https://patriotbo.github.io/openclaw-digest-pages/openclaw-digest-2026-04-11-94249146.html  
+**WeChat push**: ✅ Summary mode successful  
+**Local server**: Running at localhost:9527  
+
+---
+
 ## 2026-04-08 (Wed) — Run #13
 
 **Status**: ✅ Success  

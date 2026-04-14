@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🤖 AI 每日精选 — 2026-04-14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #16161f;
+  --bg-card-hover: #1c1c28;
+  --text-primary: #e8e6f0;
+  --text-secondary: #9896a8;
+  --text-muted: #6b6980;
+  --accent: #6366f1;
+  --accent-glow: rgba(99,102,241,0.25);
+  --accent-secondary: #f97316;
+  --accent-secondary-glow: rgba(249,115,22,0.25);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-weight: 400;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  border-radius: 2px;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.header .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+.header .date-badge {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 18px;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.stat-card .stat-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.stat-card .stat-number { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }
+.stat-card .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+/* Section */
+.section {
+  margin-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.section-icon.video { background: rgba(255,0,0,0.12); }
+.section-icon.web { background: rgba(99,102,241,0.12); }
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 20px;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 0 2px 2px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card.video-card::before { background: #ff0000; }
+.card.web-card::before { background: var(--accent); }
+
+.card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.card:hover::before { opacity: 1; }
+
+.card-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-summary {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.card-insight {
+  background: rgba(99,102,241,0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.card-insight .insight-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.card-insight p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.card-link:hover {
+  color: var(--accent-secondary);
+  gap: 10px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Tag */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-bottom: 8px;
+}
+
+.tag-agent { background: rgba(99,102,241,0.12); color: #818cf8; }
+.tag-llm { background: rgba(249,115,22,0.12); color: #fb923c; }
+.tag-coding { background: rgba(34,197,94,0.12); color: #4ade80; }
+.tag-industry { background: rgba(236,72,153,0.12); color: #f472b6; }
+.tag-product { background: rgba(14,165,233,0.12); color: #38bdf8; }
+.tag-security { background: rgba(239,68,68,0.12); color: #f87171; }
+
+/* Highlight banner for top story */
+.top-story-banner {
+  background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(99,102,241,0.08));
+  border: 1px solid rgba(249,115,22,0.2);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.top-story-banner .banner-emoji { font-size: 2rem; margin-bottom: 8px; }
+.top-story-banner .banner-text { color: var(--accent-secondary); font-weight: 700; font-size: 1.05rem; }
+.top-story-banner .banner-sub { color: var(--text-secondary); font-size: 0.88rem; margin-top: 6px; }
+
+@media (max-width: 600px) {
+  .container { padding: 40px 16px 60px; }
+  .card { padding: 20px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <h1>AI 每日精选</h1>
+    <p class="subtitle">AI Daily Digest — 大模型 · Agent · 编程工具 · 行业动态</p>
+    <span class="date-badge">2026-04-14 Monday</span>
+  </header>
+
+  <!-- Top Story Banner -->
+  <div class="top-story-banner">
+    <div class="banner-emoji">🥔</div>
+    <div class="banner-text">今日头条：GPT-6 "Spud" 正式发布日</div>
+    <div class="banner-sub">200 万 token 上下文 · 性能暴涨 40% · 双重推理架构 · 超级 Agent 引擎</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-icon">📰</div>
+      <div class="stat-number">8</div>
+      <div class="stat-label">精选内容</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🎬</div>
+      <div class="stat-number">3</div>
+      <div class="stat-label">视频</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🌐</div>
+      <div class="stat-number">5</div>
+      <div class="stat-label">Web / 博客</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔥</div>
+      <div class="stat-number">8+</div>
+      <div class="stat-label">新模型发布</div>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon video">🎬</div>
+      <h2 class="section-title">视频</h2>
+    </div>
+
+    <!-- Card 1 -->
+    <article class="card video-card">
+      <div class="card-number">#01</div>
+      <span class="tag tag-llm">大模型</span>
+      <span class="tag tag-security">安全</span>
+      <h3>AI 圈王炸！Claude Mythos 震撼预览 + DeepSeek V4 演示曝光 + 智谱 GLM-5.1 强势登场</h3>
+      <div class="card-meta">
+        <span>📺 Bilibili</span>
+        <span>📅 2026-04-13</span>
+      </div>
+      <p class="card-summary">本期视频浓缩了本周 AI 模型领域的三大爆炸性新闻：(1) Anthropic 发布 Claude Mythos Preview，CyberGym 安全基准 83.1% 超越人类专家（66.6%），仅向 AWS、Apple、Microsoft 等约 50 家关键基础设施伙伴开放；(2) DeepSeek V4 架构论文泄露，万亿参数 MoE 架构，首次深度适配华为昇腾 910C；(3) 智谱 AI GLM-5.1 以 MIT 开源许可发布，在 SWE-Bench Pro 上击败 GPT-5.4 和 Claude Opus 4.6。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>三个模型代表了三条截然不同的路径——Anthropic "太强不敢发"的安全门控、DeepSeek 国产算力自主替代、智谱彻底开源对抗闭源巨头。</p>
+      </div>
+      <a class="card-link" href="https://www.bilibili.com/video/BV1raQbByE5N/" target="_blank">查看原文 →</a>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card video-card">
+      <div class="card-number">#02</div>
+      <span class="tag tag-industry">行业动态</span>
+      <span class="tag tag-llm">大模型</span>
+      <h3>AI 日报 2026.4.12：DeepSeek V4 官宣 + Sam Altman 住宅遭燃烧弹袭击</h3>
+      <div class="card-meta">
+        <span>📺 Bilibili</span>
+        <span>📅 2026-04-12</span>
+        <span>⏱ 5.5 分钟</span>
+      </div>
+      <p class="card-summary">精选 13 条行业资讯。两大头条：(1) OpenAI CEO Sam Altman 旧金山住宅遭燃烧弹攻击，嫌疑人被控谋杀未遂，Altman 未受伤并发布博客反思 AI 安全与公众情绪；(2) DeepSeek V4 正式官宣 4 月下旬发布，万亿参数规模，华为昇腾深度适配，动态稀疏注意力使 128K 上下文推理速度提升 8.3 倍。此外还覆盖 Meta Muse Spark 发布、微软 Copilot Agent 更新等。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>Altman 遇袭事件标志着 AI 争议已从线上舆论延伸到物理世界，凸显了 AI 领导者面临的新型安全挑战。</p>
+      </div>
+      <a class="card-link" href="https://www.bilibili.com/video/BV1NVDDB5EAC/" target="_blank">查看原文 →</a>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card video-card">
+      <div class="card-number">#03</div>
+      <span class="tag tag-llm">大模型</span>
+      <h3>GPT-6 今天发布！DeepSeek V4 下周上线！2026 AI 竞赛白热化</h3>
+      <div class="card-meta">
+        <span>📝 知乎</span>
+        <span>📅 2026-04-14</span>
+      </div>
+      <p class="card-summary">本周 AI 圈两件大事同步引爆：(1) GPT-6 定档 4 月 14 日（今天），200 万 token 上下文 + 原生全模态统一架构 + 超级 Agent 引擎，将 ChatGPT、Codex 和 Atlas 合而为一；(2) DeepSeek V4 官宣 4 月下旬发布，万亿参数 + 国产算力适配。两大旗舰模型发布时间高度重叠，AI 竞争进入最激烈的正面对抗阶段。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>GPT-6 vs DeepSeek V4 的"顶峰相见"不仅是性能对决，更是两种路径的对抗——美国的闭源超大模型路线 vs 中国的开源 + 国产算力路线。</p>
+      </div>
+      <a class="card-link" href="https://zhuanlan.zhihu.com/p/2027390859146970341" target="_blank">查看原文 →</a>
+    </article>
+  </section>
+
+  <!-- Web Section -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon web">🌐</div>
+      <h2 class="section-title">Web / 博客</h2>
+    </div>
+
+    <!-- Card 4 -->
+    <article class="card web-card">
+      <div class="card-number">#04</div>
+      <span class="tag tag-llm">大模型</span>
+      <span class="tag tag-product">产品发布</span>
+      <h3>GPT-6 "Spud" 正式发布：200 万 token、性能暴涨 40%、定价 $2.50/M 输入</h3>
+      <div class="card-meta">
+        <span>👤 fazm.ai</span>
+        <span>📅 2026-04-11</span>
+        <span>📍 fazm.ai/blog</span>
+      </div>
+      <p class="card-summary">OpenAI 旗舰模型 GPT-6（代号"Spud"/"土豆"）4 月 14 日全球上线。核心参数：编码/推理/Agent 性能超 GPT-5.4 达 40%+；200 万 token 上下文；System-1（快速）+ System-2（慢思考）双重推理架构，幻觉率降至 0.1% 以下；融合 ChatGPT + Codex + Atlas 的超级 Agent 引擎；定价 $2.50/M 输入、$12.00/M 输出。同期发布的还有 Gemma 4（Apache 2.0）、GLM-5.1（MIT）、Qwen 3.6-Plus（百万上下文）、Llama 4 Scout（千万 token 上下文）等。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>4 月堪称"LLM 超级发布月"——8+ 主要模型同期上线，开源模型已在特定基准上追平甚至超越闭源巨头，AI 模型竞争进入白热化阶段。</p>
+      </div>
+      <a class="card-link" href="https://fazm.ai/blog/new-llm-releases-april-2026" target="_blank">查看原文 →</a>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card web-card">
+      <div class="card-number">#05</div>
+      <span class="tag tag-llm">大模型</span>
+      <h3>DeepSeek V4 核心架构曝光：万亿参数 + 华为昇腾适配 + DSA 动态稀疏注意力</h3>
+      <div class="card-meta">
+        <span>👤 暗夜独行</span>
+        <span>📅 2026-04-13</span>
+        <span>📍 apisitlee.com</span>
+      </div>
+      <p class="card-summary">DeepSeek V4 架构论文泄露，三大核心突破：(1) MoE-Routing v2：128 个专家动态激活 8-12 个，简单任务用 5% 参数、复杂推理用 35%，实际算力 ≈ 85B 稠密模型，成本降 40%；(2) 动态稀疏注意力 (DSA)：复杂度从 O(n²) 降至 O(n log n)，128K 推理速度 ↑8.3x，显存 ↓67%；(3) 华为昇腾 910C/910B 深度定制，从底层硬件到软件栈全面适配，中国 AI 基础设施"去英伟达化"成为工程现实。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>DSA 让消费级显卡（RTX 4090）也能跑 100K+ 上下文，昇腾适配让政企客户获得合规可控的首选方案——这是工程优化驱动的真正突破。</p>
+      </div>
+      <a class="card-link" href="https://apisitlee.com/deepseek-v4-trillion-parameter-architecture-huawei-ascend/" target="_blank">查看原文 →</a>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="card web-card">
+      <div class="card-number">#06</div>
+      <span class="tag tag-llm">大模型</span>
+      <span class="tag tag-security">安全</span>
+      <h3>Claude Mythos：强到不敢公开发布的模型与 Project Glasswing 安全倡议</h3>
+      <div class="card-meta">
+        <span>👤 whatllm.org</span>
+        <span>📅 2026-04-08</span>
+        <span>📍 whatllm.org</span>
+      </div>
+      <p class="card-summary">Anthropic 于 4 月 7 日发布了有史以来最强模型 Claude Mythos Preview，但做出了史无前例的决定——不向公众开放。CyberGym 安全基准 83.1% 超越人类专家（66.6%），能发现 OS 内核和大型代码库中 27 年未被检测的漏洞。仅通过 Project Glasswing 向约 50 家关键基础设施组织开放防御性使用。定价 $25/$125 per M tokens。社区质疑其可能采用了字节跳动 Seed 团队的"循环语言模型"架构。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>首次有主流 AI 实验室承认"构建了过于强大而无法公开发布的模型"——安全门控正式成为前沿模型发布的新范式，"能力越大、限制越严"。</p>
+      </div>
+      <a class="card-link" href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank">查看原文 →</a>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="card web-card">
+      <div class="card-number">#07</div>
+      <span class="tag tag-coding">AI 编程</span>
+      <h3>2026 年 4 月 AI 编程工具终极横评：Claude Code 领跑、Cursor 3 体验最佳</h3>
+      <div class="card-meta">
+        <span>👤 CSDN AI 编程社区</span>
+        <span>📅 2026-04-10</span>
+        <span>📍 aicoding.csdn.net</span>
+      </div>
+      <p class="card-summary">深度横评五大 AI 编程工具。SWE-bench 得分：Claude Code 80.8%（领跑）、Cursor 3 72.3%、Windsurf 68.5%、Copilot 65.2%、Trae 58.3%。Claude Code 以 200 万 token 上下文和完整 Agent 自主性（任务分解→终端操作→错误重试→诊断）领跑深度编程；Cursor 3 以多 Agent 并行和流畅 UX 成为日常开发首选；Copilot 凭 SOC2/GDPR 合规守住企业市场；Trae（字节）完全免费成为学生首选。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>竞争焦点已转向"Agent 自主性"——Claude Code 能独立完成全流程，而 Copilot 仍需人工确认。选工具本质上是在选 Agent 能力的深度。</p>
+      </div>
+      <a class="card-link" href="https://aicoding.csdn.net/69d85d2a0a2f6a37c59e30c3.html" target="_blank">查看原文 →</a>
+    </article>
+
+    <!-- Card 8 -->
+    <article class="card web-card">
+      <div class="card-number">#08</div>
+      <span class="tag tag-agent">AI Agent</span>
+      <span class="tag tag-industry">行业动态</span>
+      <h3>AI-Weekly #212：Altman 遇袭、Copilot 借鉴 OpenClaw、Meta Muse Spark、企业 AI 加速</h3>
+      <div class="card-meta">
+        <span>👤 AI-Weekly</span>
+        <span>📅 2026-04-14</span>
+        <span>📍 ai-weekly.ai</span>
+      </div>
+      <p class="card-summary">本周 AI 行业全景速览：(1) Sam Altman 旧金山住宅遭燃烧弹攻击，嫌疑人被控谋杀未遂；(2) 微软 Copilot 受 OpenClaw 启发测试 AI Agent 模式，目标成为"始终在线"的自主任务处理器；(3) Meta 发布 Muse Spark（Superintelligence Labs 首个模型）；(4) Anthropic 推出 Claude Cowork 企业版和 Managed Agents API；(5) OpenAI 推出 ChatGPT Pro（$100/月）+ Upwork 合作；(6) Zuckerberg 正在开发能替代本人开会的 AI 替身。</p>
+      <div class="card-insight">
+        <div class="insight-label">💡 核心看点</div>
+        <p>微软 Copilot 公开承认借鉴 OpenClaw 的 Agent 模式——商业巨头从"竞争对手"变成"学习者"，这是开源 AI Agent 框架影响力的里程碑式验证。</p>
+      </div>
+      <a class="card-link" href="https://ai-weekly.ai/newsletter-04-14-2026/" target="_blank">查看原文 →</a>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>AI 每日精选 — 自动生成于 2026-04-14 21:30</p>
+    <p style="margin-top:8px">覆盖 YouTube、B站、X/Twitter、小红书及网络公开来源</p>
+    <p style="margin-top:8px">Powered by <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a> Daily Digest Automation</p>
+  </footer>
+
+</div>
+</body>
+</html>
