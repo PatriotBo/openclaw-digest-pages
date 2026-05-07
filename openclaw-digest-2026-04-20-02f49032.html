@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 日报 — 2026年4月20日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface-hover: #1a1a26;
+            --border: #2a2a3a;
+            --text: #e8e8f0;
+            --text-secondary: #9090a8;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --green: #00d2a0;
+            --orange: #ffa94d;
+            --red: #ff6b6b;
+            --blue: #74b9ff;
+            --pink: #fd79a8;
+            --yellow: #ffeaa7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .hero {
+            position: relative;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            background: var(--surface-hover);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(108, 92, 231, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .card:nth-child(1)::before { background: var(--red); }
+        .card:nth-child(2)::before { background: var(--blue); }
+        .card:nth-child(3)::before { background: var(--orange); }
+        .card:nth-child(4)::before { background: var(--pink); }
+        .card:nth-child(5)::before { background: var(--green); }
+        .card:nth-child(6)::before { background: var(--yellow); }
+        .card:nth-child(7)::before { background: var(--accent-light); }
+        .card:nth-child(8)::before { background: #00cec9; }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent-light);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tag-model { background: rgba(108, 92, 231, 0.15); color: var(--accent-light); }
+        .tag-product { background: rgba(0, 210, 160, 0.15); color: var(--green); }
+        .tag-industry { background: rgba(255, 169, 77, 0.15); color: var(--orange); }
+        .tag-security { background: rgba(255, 107, 107, 0.15); color: var(--red); }
+        .tag-coding { background: rgba(116, 185, 255, 0.15); color: var(--blue); }
+        .tag-china { background: rgba(255, 234, 167, 0.15); color: var(--yellow); }
+        .tag-opensource { background: rgba(0, 206, 201, 0.15); color: #00cec9; }
+        .tag-agent { background: rgba(253, 121, 168, 0.15); color: var(--pink); }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .card-body strong {
+            color: var(--text);
+        }
+
+        .card-body ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-box {
+            background: rgba(108, 92, 231, 0.08);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .card-links {
+            margin-top: 1.25rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            background: rgba(108, 92, 231, 0.08);
+            border: 1px solid rgba(108, 92, 231, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .card-link:hover {
+            background: rgba(108, 92, 231, 0.2);
+            border-color: var(--accent);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 2.5rem 1rem 2rem; }
+            .hero h1 { font-size: 1.75rem; }
+            .card { padding: 1.5rem; }
+            .card-title { font-size: 1.1rem; }
+            .stats-bar { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="date-badge">
+                <span>📅</span>
+                <span>2026年4月20日 · 周一</span>
+            </div>
+            <h1>AI 日报</h1>
+            <p class="hero-subtitle">
+                Claude Opus 4.7 登顶编码基准 · GPT-5.4-Cyber 网安专用模型 · Meta 万人裁员 All-in AI · 具身智能融资狂飙 · AI 代理基础设施军备赛
+            </p>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">精选条目</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">12+</div>
+                    <div class="stat-label">信息源</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">EN/CN</div>
+                    <div class="stat-label">双语覆盖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- Entry 1 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">01</div>
+                <h2 class="card-title">Claude Opus 4.7 发布：编码能力登顶，安全博弈白热化</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-model">🧠 大模型</span>
+                <span class="tag tag-security">🔒 AI 安全</span>
+            </div>
+            <div class="card-body">
+                <p>Anthropic 上周正式发布 Claude Opus 4.7，编码基准 SWE-bench 得分飙升至 <strong>87.6%</strong>，成为目前公开可用模型中的编码之王。视觉能力也获得大幅提升。</p>
+                <div class="highlight-box">
+                    内部版本 <strong>Claude Mythos Preview</strong>（得分 93.9%）因触发 ASL-4 最高安全协议，仅限 50 家联盟机构内部访问，成为史上首个"因太强而不敢公开"的大模型。
+                </div>
+                <p>英国 AI 安全研究所 (AISI) 评估显示，Mythos 是首个完成 <strong>32 步</strong>模拟网络攻击的模型，CTF 挑战成功率达 73%，直接引发了美国财政部长与五大银行 CEO 的紧急闭门会议。</p>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://www.neuralbuddies.com/p/ai-news-recap-april-17-2026" target="_blank">📰 AI News Recap</a>
+                <a class="card-link" href="https://blog.csdn.net/yifan99/article/details/160280571" target="_blank">📰 AI 新闻周报</a>
+            </div>
+        </article>
+
+        <!-- Entry 2 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">02</div>
+                <h2 class="card-title">ChatGPT 深度分析模式上线，Gemini API 价格腰斩</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-product">🚀 产品发布</span>
+                <span class="tag tag-model">🧠 大模型</span>
+            </div>
+            <div class="card-body">
+                <p>OpenAI 在 ChatGPT 中新增<strong>"深度分析模式"</strong>（放大镜图标），专为长文档和复杂数据表格设计：能交叉比对 20 页以上报告，自动指出数据矛盾，生成带引用的深度洞察。</p>
+                <p>与此同时，Google 将 <strong>Gemini 2.0 Pro API 价格降至原来的 50%</strong>，被业界视为中小开发者集成大模型的黄金窗口期。Google 还推出了 Mac 原生 Gemini 桌面应用（Option+Space 快捷呼出），集成图像生成 Nano Banana 和视频生成 Veo。</p>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://aiproducthub.cn/wpnote/ai-updates-april-2026-chatgpt-gemini-claude/" target="_blank">📰 AI 产品库详情</a>
+            </div>
+        </article>
+
+        <!-- Entry 3 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">03</div>
+                <h2 class="card-title">GPT-5.4-Cyber：OpenAI 首个网安专用模型</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-security">🔒 AI 安全</span>
+                <span class="tag tag-model">🧠 大模型</span>
+            </div>
+            <div class="card-body">
+                <p>OpenAI 发布 <strong>GPT-5.4-Cyber</strong>，专为网络安全防御者微调：</p>
+                <ul>
+                    <li><strong>降低拒绝阈值</strong>：允许安全研究人员执行合法的安全测试操作</li>
+                    <li><strong>二进制逆向工程</strong>：无需源代码即可分析恶意软件</li>
+                    <li><strong>可信网络访问 (TAC) 机制</strong>：个人和组织需经验证才能获取权限</li>
+                    <li>前身 Codex Security 已协助修复超 <strong>3,000</strong> 个高危漏洞</li>
+                </ul>
+                <p>此举被视为对 Claude Mythos 强大攻击能力的直接回应——AI 安全领域正式进入"能力即武器"的博弈新阶段。</p>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://www.neuralbuddies.com/p/ai-news-recap-april-17-2026" target="_blank">📰 NeuralBuddies</a>
+            </div>
+        </article>
+
+        <!-- Entry 4 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">04</div>
+                <h2 class="card-title">Meta 裁员万人 All-in AI，Muse Spark 首款闭源模型发布</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-industry">📊 行业动态</span>
+                <span class="tag tag-model">🧠 大模型</span>
+            </div>
+            <div class="card-body">
+                <p>Meta 计划于 5 月全球裁员 <strong>10%</strong>（约 8,000 人），战略核心是"用算力换人力"，全力投入 AI。</p>
+                <p>与裁员同步，Meta Superintelligence Labs 发布了 <strong>Muse Spark</strong>——Meta 有史以来<strong>首款闭源大模型</strong>，一改此前 Llama 家族全开源策略。Muse Spark 在多模态理解和医学问答表现突出，发布后 Meta AI 应用下载量从 App Store 第 57 位飙升至<strong>第 5 位</strong>。</p>
+                <div class="highlight-box">
+                    这标志着 Meta 正式结束"全部开源"路线，转向"开源+闭源"双轨并行。
+                </div>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://blog.csdn.net/yifan99/article/details/160280571" target="_blank">📰 AI 新闻周报</a>
+            </div>
+        </article>
+
+        <!-- Entry 5 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">05</div>
+                <h2 class="card-title">Claude Code 30 连发 vs OpenClaw "Dreaming" 记忆革命</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-coding">💻 编码工具</span>
+                <span class="tag tag-agent">🤖 AI Agent</span>
+            </div>
+            <div class="card-body">
+                <p><strong>Claude Code</strong> 在 5 周内从 v2.1.69 迭代至 v2.1.101（30+ 次发布），创下最密集发布周期：</p>
+                <ul>
+                    <li>NO_FLICKER 渲染引擎：提示渲染周期减少 <strong>74%</strong></li>
+                    <li>PID 命名空间隔离：防止代理子进程互相窥探</li>
+                    <li>Claude Managed Agents 云服务上线：<strong>$0.08/代理运行小时</strong></li>
+                    <li>新增 <code>/team-onboarding</code> 命令：自动生成团队快速入门</li>
+                </ul>
+                <p><strong>OpenClaw</strong> v2026.4.15 接入 Opus 4.7 为默认模型，集成 Gemini TTS，重构 LanceDB 云端记忆存储。核心创新 <strong>REM Backfill</strong> 记忆巩固算法——灵感源自生物睡眠机制，将对话日志通过"梦境整合"转化为结构化持久记忆。</p>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://fazm.ai/blog/ai-agent-news-april-2026-claude-code-openclaw" target="_blank">📰 Agent Race</a>
+                <a class="card-link" href="https://www.jdon.com/91478-openclaw-2026-4-15-opus47-geminitts-lancedb-rag.html" target="_blank">📰 OpenClaw v2026.4.15</a>
+            </div>
+        </article>
+
+        <!-- Entry 6 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">06</div>
+                <h2 class="card-title">中国 AI 密集发布：阿里 4 天连发 4 款，具身智能融资破 200 亿</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-china">🇨🇳 国产 AI</span>
+                <span class="tag tag-industry">📊 行业动态</span>
+            </div>
+            <div class="card-body">
+                <p><strong>阿里通义</strong>一周内密集发布 4 款核心模型（Qwen3.6-Plus、Qwen3.5-Omni、Wan2.7-Image/Video），完成多模态全栈布局，并推出千问 AI 眼镜 S1 和零门槛 AI 开发工具"秒悟"（Meoo）。</p>
+                <p><strong>具身智能融资狂飙</strong>：Q1 国内披露融资超 <strong>50 起</strong>，累计约 200 亿元。宇树科技、银河通用、智平方估值破百亿。优必选 Walker S 已进驻富士康/比亚迪产线，Figure AI F.02 在宝马工厂连续运行 11 个月。</p>
+                <div class="highlight-box">
+                    日均 Token 调用量突破 <strong>140 万亿</strong>，中国牵头的具身智能领域首个国际标准成功立项。
+                </div>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://blog.csdn.net/yifan99/article/details/160280571" target="_blank">📰 AI 新闻周报</a>
+                <a class="card-link" href="https://www.sohu.com/a/1010838825_122523043" target="_blank">📰 搜狐报道</a>
+            </div>
+        </article>
+
+        <!-- Entry 7 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">07</div>
+                <h2 class="card-title">AI 安全与治理：全球监管进入精细化落地</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-security">🔒 AI 安全</span>
+                <span class="tag tag-industry">📊 治理</span>
+            </div>
+            <div class="card-body">
+                <p>本周多条安全线索交织：</p>
+                <ul>
+                    <li><strong>UCLA 研究</strong>：仅 10 分钟的 AI 依赖即可开始削弱人类心智表现</li>
+                    <li><strong>微软代理治理工具包</strong>：首个覆盖全部 10 项 OWASP 代理风险的开源工具包（MIT），延迟 p99 &lt; 0.1ms</li>
+                    <li><strong>Visa Intelligent Commerce Connect</strong>：支持 4 种代理支付协议，为自主代理购买铺路</li>
+                    <li><strong>欧盟反垄断</strong>：拟强制 Meta 恢复第三方 AI 接入 WhatsApp</li>
+                    <li><strong>工信部</strong>：发布制造业高价值场景，建设特色智能体</li>
+                    <li>新词 <strong>"Workslop"</strong> 诞生：指 AI 生成的看似华丽实则空洞的工作成果</li>
+                </ul>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://www.neuralbuddies.com/p/ai-news-recap-april-17-2026" target="_blank">📰 NeuralBuddies</a>
+                <a class="card-link" href="https://kersai.com/ai-breakthroughs-april-2026-models-funding-shifts/" target="_blank">📰 Kersai</a>
+            </div>
+        </article>
+
+        <!-- Entry 8 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">08</div>
+                <h2 class="card-title">开源生态爆发：Gemma 4、DeepGEMM、Thunderbolt、Evolver</h2>
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-opensource">🌐 开源</span>
+                <span class="tag tag-agent">🤖 AI Agent</span>
+            </div>
+            <div class="card-body">
+                <p>本周 GitHub Trending 涌现多个重要开源项目：</p>
+                <ul>
+                    <li><strong>Google Gemma 4</strong>（Apache 2.0）：31B 密集模型大幅超越前代，零成本基础模型</li>
+                    <li><strong>DeepSeek DeepGEMM</strong>：FP8 GEMM 内核库，细粒度缩放优化 LLM 推理效率</li>
+                    <li><strong>Thunderbird Thunderbolt</strong>：将 AI 控制权交还用户——自选模型、数据所有权、无供应商锁定</li>
+                    <li><strong>Evolver</strong>（EvoMap）：基于基因组进化协议 (GEP) 的 AI 智能体自进化引擎</li>
+                    <li><strong>OpenAI Agents SDK</strong>：官方轻量级多代理编排 Python 框架</li>
+                    <li><strong>Omi</strong>（BasedHardware）：能看屏幕、听对话的开源"第二大脑"</li>
+                </ul>
+            </div>
+            <div class="card-links">
+                <a class="card-link" href="https://aitoolly.com/ai-news/2026-04-20" target="_blank">📰 AIToolly</a>
+                <a class="card-link" href="https://fazm.ai/blog/ai-agent-news-april-2026-claude-code-openclaw" target="_blank">📰 Fazm.ai</a>
+            </div>
+        </article>
+
+    </div>
+
+    <footer class="footer">
+        <p>AI 日报 · 由自动化流水线生成 · 数据来源包括 Web 搜索、GitHub Trending、行业博客及中文科技媒体</p>
+        <p style="margin-top: 0.5rem; color: #555;">Run #18 · 2026-04-20 21:30 CST</p>
+    </footer>
+</body>
+</html>
