@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 日报 — 2026年5月13日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface-hover: #1a1a25;
+  --border: #1e1e2e;
+  --text: #e4e4e7;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+  --accent: #818cf8;
+  --accent-glow: rgba(129, 140, 248, 0.15);
+  --accent-hot: #f472b6;
+  --green: #34d399;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --cyan: #22d3ee;
+  --orange: #fb923c;
+  --purple: #a78bfa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 3rem 0 2.5rem;
+  position: relative;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+}
+
+.date-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #e4e4e7 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.8rem;
+}
+
+.header .subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  margin: 1.5rem 0 2.5rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(129, 140, 248, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(129, 140, 248, 0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--accent-glow);
+}
+
+.card-number {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.card-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.2rem 0.6rem;
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.tag.hot { background: rgba(244, 114, 182, 0.1); border-color: rgba(244, 114, 182, 0.2); color: var(--accent-hot); }
+.tag.green { background: rgba(52, 211, 153, 0.1); border-color: rgba(52, 211, 153, 0.2); color: var(--green); }
+.tag.amber { background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.2); color: var(--amber); }
+.tag.cyan { background: rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.2); color: var(--cyan); }
+.tag.orange { background: rgba(251, 146, 60, 0.1); border-color: rgba(251, 146, 60, 0.2); color: var(--orange); }
+.tag.purple { background: rgba(167, 139, 250, 0.1); border-color: rgba(167, 139, 250, 0.2); color: var(--purple); }
+.tag.red { background: rgba(248, 113, 113, 0.1); border-color: rgba(248, 113, 113, 0.2); color: var(--red); }
+
+.card-body p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+}
+
+.card-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.why-important {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(129, 140, 248, 0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.why-important .label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.why-important p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.card-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.card-links a {
+  padding: 0.3rem 0.7rem;
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.card-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.footer p {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 1rem; }
+  .header h1 { font-size: 1.6rem; }
+  .card { padding: 1.5rem; }
+  .stats-bar { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="date-badge">
+    <span class="dot"></span>
+    2026年5月13日 · 星期三 · Run #22
+  </div>
+  <h1>AI 日报</h1>
+  <p class="subtitle">Agent 范式从概念走向实践，硬件、交互和商业模式正在同步重构。今天的主旋律：当 AI 真正好用之后，成本控制和人机交互的底层范式就成了新战场。</p>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-value">8</div>
+    <div class="stat-label">收录条目</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">15</div>
+    <div class="stat-label">搜索 & 抓取</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">EN/CN</div>
+    <div class="stat-label">双语覆盖</div>
+  </div>
+</div>
+
+<!-- Card 1 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🖱️</div>
+    <div>
+      <div class="card-number">No.1 · 人机交互</div>
+      <h2>Google DeepMind 发布 Magic Pointer：用 Gemini 重塑 50 年鼠标交互范式</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag hot">今日发布</span>
+    <span class="tag cyan">I/O 2026</span>
+    <span class="tag">DeepMind</span>
+  </div>
+  <div class="card-body">
+    <p>Google DeepMind 在今天凌晨的 Android Show | I/O Edition 上正式发布 <strong>Magic Pointer</strong>——一个用 Gemini 多模态能力驱动的全新鼠标指针交互范式。光标不只识别"指到了什么"，还理解"为什么这对用户重要"。</p>
+    <p>支持通过动作、语音和自然简写控制屏幕交互，不打断原有操作流。首批搭载 Magic Pointer 的 Googlebook 预计 2026 年秋季上市，合作 OEM 包括宏碁、华硕、戴尔、惠普和联想，同步在 Chrome 浏览器灰度推送。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>鼠标指针这个沿用了 50+ 年的交互原语，第一次被 AI 从底层重新定义。如果做到了，这比任何聊天框式 AI 助手的改变都更深远——它让 AI 融入你已有的操作习惯，而不是强迫你适应新的交互方式。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://deepmind.google/blog/ai-pointer/" target="_blank">DeepMind Blog</a>
+    <a href="https://www.ithome.com/0/949/877.htm" target="_blank">IT之家</a>
+    <a href="https://www.marktechpost.com/2026/05/13/google-deepmind-introduces-an-ai-enabled-mouse-pointer-powered-by-gemini-that-captures-visual-and-semantic-context-around-the-cursor/" target="_blank">MarkTechPost</a>
+  </div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🎙️</div>
+    <div>
+      <div class="card-number">No.2 · 前沿模型</div>
+      <h2>Thinking Machines Lab 发布"交互模型"：Mira Murati 首秀，200ms 微回合实时交互</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag hot">重磅首发</span>
+    <span class="tag purple">Mira Murati</span>
+    <span class="tag">新品类</span>
+  </div>
+  <div class="card-body">
+    <p>前 OpenAI CTO Mira Murati 创办的 <strong>Thinking Machines Lab</strong> 终于公布了成立一年多来的第一个核心技术方向——<strong>交互模型（Interaction Models）</strong>。这不是又一个聊天机器人，而是要彻底打破"一问一答"的回合制范式。</p>
+    <p>首个模型 <strong>TML-Interaction-Small</strong>：276B MoE 架构（每次激活 12B），以 200ms 的"微回合"持续接收多模态信息，支持用户实时打断。系统拆分为前后台——前台维持低延迟交互流，后台执行深度推理和工具调用。AI 能同时听、看、说、被打断、反应和思考。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>现有"实时语音 AI"方案本质上都是在传统回合制大模型外面套 VAD 外壳。TML 是第一个从模型架构层面原生支持连续交互的方案——不是更好的聊天机器人，而是真正的实时协作伙伴，开辟全新产品品类。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.unite.ai/thinking-machines-lab-ships-first-model-with-200ms-real-time-interaction/" target="_blank">Unite.AI</a>
+    <a href="https://finance.sina.com.cn/tech/roll/2026-05-12/doc-inhxrfsq9953276.shtml" target="_blank">新浪科技</a>
+    <a href="https://www.oschina.net/news/439957/thinkingmachines-ai-interaction-models" target="_blank">开源中国</a>
+  </div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🧑‍💻</div>
+    <div>
+      <div class="card-number">No.3 · AI 编程</div>
+      <h2>Claude Code 推出 Agent View：AI 编程进入"多线程调度"时代</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag green">Research Preview</span>
+    <span class="tag">Anthropic</span>
+    <span class="tag cyan">开发工具</span>
+  </div>
+  <div class="card-body">
+    <p>Anthropic 为 Claude Code 上线 <strong>Agent View</strong> 功能（Research Preview）。核心变化：开发者从"一次盯一个终端窗口"进化为在一个可视化面板中<strong>同时调度和管理多个并行 AI 编程会话</strong>。</p>
+    <p>一个命令打开面板，可以看到所有运行中 Agent 的状态（执行中/等待回复/已完成），直接在列表中"插话"回复并推进任务。支持后台挂起，不再被单线程对话阻塞。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>AI 编程工具从"对话式辅助"正式向"工程执行集群"演进。竞争已经从"哪个补全最准"升级到"并行任务调度和工程流程编排"。Claude Code 正在从"更聪明的终端"变成"AI 工程团队的控制中心"。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.36kr.com/p/3805919033171460" target="_blank">36氪</a>
+    <a href="https://juejin.cn/post/7638677860153753636" target="_blank">掘金</a>
+    <a href="https://blockchain.news/news/claude-code-agent-view-launch" target="_blank">Blockchain News</a>
+  </div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">💸</div>
+    <div>
+      <div class="card-number">No.4 · 行业警示</div>
+      <h2>Uber 四个月烧光全年 AI 预算：当"太好用"变成"太烧钱"</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag red">成本失控</span>
+    <span class="tag amber">$3.4B</span>
+    <span class="tag">企业 AI</span>
+  </div>
+  <div class="card-body">
+    <p>Uber 在 2025 年 12 月部署 Claude Code，<strong>到 2026 年 4 月就耗尽了全年 AI 工具预算</strong>。CTO Praveen Neppalli Naga 向管理层汇报：<strong>95%</strong> 工程师月活使用 AI 工具、<strong>70%</strong> 新代码由 AI 生成、每位工程师月均成本 $500–$2,000，预计全年烧掉 $3.4B。</p>
+    <p>更讽刺的后续：有企业开始将 <strong>token 消耗量纳入员工绩效考核</strong>，催生"表演性工作"——为了 KPI 大量调用 AI，而非真正提升效率。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>这是 AI 工具从"采纳"跨入"大规模使用"后的第一个系统性成本失控案例。传统 SaaS per-seat 预算模型在按量计费的 AI 时代彻底失效。问题不是 AI 太贵，而是 AI 太好用导致用量爆炸——一种全新的"成功灾难"。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.36kr.com/p/3804834517278214" target="_blank">36氪</a>
+    <a href="https://www.neican.ai/insights/uber-aiai-20260512084003104-1/" target="_blank">AI内参</a>
+    <a href="https://www.agent-wars.com/news/2026-05-01-uber-ai-budget-claude-code-four-months" target="_blank">Agent Wars</a>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🛒</div>
+    <div>
+      <div class="card-number">No.5 · AI 电商</div>
+      <h2>千问 × 淘宝全链路打通：全球首个"AI 代理式电商"闭环上线</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag green">全球首发</span>
+    <span class="tag orange">阿里巴巴</span>
+    <span class="tag">Agent 电商</span>
+  </div>
+  <div class="card-body">
+    <p>5 月 11 日，阿里巴巴官宣<strong>千问与淘宝全面打通</strong>——全球超大规模电商平台与顶级大模型应用的首次深度融合。两条路径同时开放：千问 App 中对话直接完成淘宝商品挑选、对比和下单；淘宝 App 中点击"千问 AI 购物助手"完成全流程购物。</p>
+    <p>核心突破：<strong>从商品推荐到下单、支付的全链路闭环</strong>——AI 不再只是帮你搜东西，而是替你完成整个购买决策和执行。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>电商从"AI 辅助搜索"正式进入"AI 代理式购物"时代。当 AI Agent 可以替用户做购买决策，传统搜索排名、广告竞价、导购内容的价值链都会被重构。阿里率先打通，京东和拼多多必须跟进。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.news.cn/tech/20260511/b94c26581d9c41ea8c3fd3b383ab2939/c.html" target="_blank">新华网</a>
+    <a href="https://tech.cnr.cn/techgd/20260511/t20260511_527616444.shtml" target="_blank">央广网</a>
+    <a href="https://www.thepaper.cn/newsDetail_forward_33154628" target="_blank">澎湃新闻</a>
+  </div>
+</div>
+
+<!-- Card 6 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🔬</div>
+    <div>
+      <div class="card-number">No.6 · AI 安全</div>
+      <h2>Anthropic 发布自然语言自编码器（NLA）：把 Claude 的"想法"翻译成人话</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag purple">可解释性</span>
+    <span class="tag">Anthropic</span>
+    <span class="tag cyan">HN 331 分</span>
+  </div>
+  <div class="card-body">
+    <p>Anthropic 发布论文《Natural Language Autoencoders Produce Unsupervised Explanations of LLM Activations》，提出全新的<strong>无监督可解释性方法 NLA</strong>。由两个 LLM 模块组成：一个"编码器"将内部激活转为自然语言，一个"解码器"再将描述还原回激活。</p>
+    <p>实际效果：补全对联时可展示模型如何理解韵律对仗规则。在检测隐藏动机方面，发现率提升 <strong>4 倍</strong>以上。Hacker News 热度 331 分，100+ 评论。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>AI 安全和可解释性的重大突破。以往解读模型内部状态需要专业研究员手动解码复杂向量表示，NLA 让任何人都能直接"阅读" AI 的思维过程。在 AI 能力越来越强的今天，理解它在"想什么"比让它更聪明更重要。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.anthropic.com/research/natural-language-autoencoders" target="_blank">Anthropic Research</a>
+    <a href="https://transformer-circuits.pub/2026/nla/" target="_blank">论文原文</a>
+    <a href="https://www.marktechpost.com/2026/05/08/anthropic-introduces-natural-language-autoencoders-that-convert-claudes-internal-activations-directly-into-human-readable-text-explanations/" target="_blank">MarkTechPost</a>
+  </div>
+</div>
+
+<!-- Card 7 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🏢</div>
+    <div>
+      <div class="card-number">No.7 · 行业震荡</div>
+      <h2>AI 驱动裁员潮：Meta 8000 人 + GitLab 重组 + AI 占裁员总数 26%</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag red">裁员潮</span>
+    <span class="tag amber">8,000 人</span>
+    <span class="tag">就业影响</span>
+  </div>
+  <div class="card-body">
+    <p>三条裁员新闻在同一周汇聚：<strong>Meta</strong> 确认 5 月 20 日起裁 8,000 人（10%），冻结 6,000 空缺岗位，将 $115-135B 重定向至 AI 基建；<strong>GitLab</strong> 宣布大规模裁员并终结标志性 CREDIT 价值观（HN 608 分）；<strong>CBS 报告</strong>显示 4 月 AI 相关裁员 21,490 人，<strong>占总裁员数 26%</strong>，连续第二个月成为裁员最大驱动因素。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>AI 不再只是"可能影响就业"的远期话题。当 26% 的裁员直接由 AI 驱动、Meta 用裁人省下的钱建 AI 超算中心时，"AI 替代论"正在从预言变成统计数据。GitLab 连公司文化框架都一起扔掉了。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/" target="_blank">CBS News</a>
+    <a href="https://thenextweb.com/news/meta-layoffs-may-2026-ai-restructuring-thousands" target="_blank">The Next Web</a>
+    <a href="https://insightcrunch.com/2026/04/25/meta-layoffs-may-2026-8000-jobs-cut-ai-pivot/" target="_blank">Insight Crunch</a>
+  </div>
+</div>
+
+<!-- Card 8 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">🔧</div>
+    <div>
+      <div class="card-number">No.8 · 技术趋势</div>
+      <h2>技术范式"复古化"：为了让 AI Agent 跑得更好，开发者拥抱 CLI 和原生 HTML</h2>
+    </div>
+  </div>
+  <div class="card-meta">
+    <span class="tag purple">趋势洞察</span>
+    <span class="tag">Agent 架构</span>
+    <span class="tag green">开发范式</span>
+  </div>
+  <div class="card-body">
+    <p>一个反直觉趋势正在浮现：为提升 AI Agent 执行效率，开发者正<strong>重新拥抱 CLI、HTML 等"复古"技术</strong>，主动剥离 SPA 框架、复杂 API 网关、多层中间件等沉重抽象层，回归确定性更强的一手协议和接口。</p>
+    <p>底层逻辑：AI Agent 执行任务时，每一层抽象都是潜在失败点。CLI 命令的 I/O 确定性远高于 GUI 操作；原生 HTML 比 React SPA 更容易被 AI 理解；直接 HTTP 调用比 SDK 封装调用更可靠。</p>
+    <div class="why-important">
+      <div class="label">为什么重要</div>
+      <p>AI 时代的软件设计原则可能与过去 15 年的"现代化"方向相反。为人设计的软件要更多抽象，为 AI Agent 设计的软件要更少抽象。软件工程正在分裂为两条路线：面向人类的体验层和面向 Agent 的执行层。</p>
+    </div>
+  </div>
+  <div class="card-links">
+    <a href="https://www.neican.ai/morningnews/2026-05-13-ai-2026-05-13-/" target="_blank">AI内参</a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>AI 日报 by WorkBuddy — 每日 21:30 自动生成 · 数据来源：Web 多源聚合</p>
+</div>
+
+</div>
+</body>
+</html>
