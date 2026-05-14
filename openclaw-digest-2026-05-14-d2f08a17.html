@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 每日日报 — 2026年5月14日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-hover: #1a1a26;
+    --border: #1e1e2e;
+    --text: #e4e4ed;
+    --text-secondary: #8888a0;
+    --accent: #6c63ff;
+    --accent-glow: rgba(108, 99, 255, 0.15);
+    --gradient-1: linear-gradient(135deg, #6c63ff 0%, #a855f7 100%);
+    --gradient-2: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    --gradient-3: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    --gradient-4: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    --gradient-5: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+    --gradient-6: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    --gradient-7: linear-gradient(135deg, #f97316 0%, #eab308 100%);
+    --gradient-8: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+    --card-radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    padding: 60px 0 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(108,99,255,0.2);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    font-weight: 700;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .header-date {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+
+  /* Cards */
+  .digest-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 28px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    background: var(--surface-hover);
+    border-color: rgba(108,99,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .card:nth-child(1)::before { background: var(--gradient-1); }
+  .card:nth-child(2)::before { background: var(--gradient-2); }
+  .card:nth-child(3)::before { background: var(--gradient-3); }
+  .card:nth-child(4)::before { background: var(--gradient-4); }
+  .card:nth-child(5)::before { background: var(--gradient-5); }
+  .card:nth-child(6)::before { background: var(--gradient-6); }
+  .card:nth-child(7)::before { background: var(--gradient-7); }
+  .card:nth-child(8)::before { background: var(--gradient-8); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .card-icon {
+    flex-shrink: 0;
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .card:nth-child(1) .card-icon { background: rgba(108,99,255,0.12); }
+  .card:nth-child(2) .card-icon { background: rgba(59,130,246,0.12); }
+  .card:nth-child(3) .card-icon { background: rgba(245,158,11,0.12); }
+  .card:nth-child(4) .card-icon { background: rgba(16,185,129,0.12); }
+  .card:nth-child(5) .card-icon { background: rgba(239,68,68,0.12); }
+  .card:nth-child(6) .card-icon { background: rgba(139,92,246,0.12); }
+  .card:nth-child(7) .card-icon { background: rgba(249,115,22,0.12); }
+  .card:nth-child(8) .card-icon { background: rgba(6,182,212,0.12); }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #fff;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .card-meta-tag {
+    padding: 2px 8px;
+    background: rgba(108,99,255,0.1);
+    border-radius: 6px;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 11px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: var(--text);
+    opacity: 0.85;
+    line-height: 1.75;
+  }
+
+  .card-body strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .card-body ul {
+    margin: 10px 0;
+    padding-left: 18px;
+  }
+
+  .card-body li {
+    margin-bottom: 4px;
+  }
+
+  .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .card-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    background: rgba(108,99,255,0.08);
+    border: 1px solid rgba(108,99,255,0.15);
+    border-radius: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .card-links a:hover {
+    background: rgba(108,99,255,0.15);
+    border-color: rgba(108,99,255,0.3);
+  }
+
+  /* Stats Section */
+  .stats-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+
+  .stats-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .stat-item {
+    background: rgba(108,99,255,0.04);
+    border: 1px solid rgba(108,99,255,0.08);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: 800;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  footer {
+    padding: 30px 0 50px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 26px; }
+    .card { padding: 20px; }
+    .card-title { font-size: 16px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-badge">📡 Daily Digest</div>
+      <h1>AI 每日日报</h1>
+      <div class="header-date">2026年5月14日 · 周三</div>
+      <div class="header-sub">覆盖 LLMs · AI 智能体 · 编码工具 · 产品发布 · 行业动态 · 研究突破</div>
+    </header>
+
+    <div class="digest-grid">
+
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🔒</div>
+          <div>
+            <div class="card-title">Meta AI「隐身聊天」：扎克伯格力推端到端加密 AI 对话</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">产品发布</span>
+              <span>The Verge / Meta 官方 · 2026-05-13</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          Meta CEO 扎克伯格宣布在 WhatsApp 和 Meta AI 应用中推出 <strong>Incognito Chat</strong>（隐身聊天），号称「首个不在服务器上存储任何对话日志的 AI 产品」。该功能采用端到端加密和 Private Processing 技术，Meta 自己也无法读取对话内容。<br><br>
+          但此举立即引发争议——Gizmodo 尖锐指出 Meta 此前曾砍掉 Messenger 的加密私信功能，现在却要用户信任其新的加密 AI 聊天。在 AI 隐私焦虑日益升温的当下，这一功能的推出时机颇为耐人寻味。
+        </div>
+        <div class="card-links">
+          <a href="https://www.theverge.com/tech/929791/meta-ai-incognito-chats" target="_blank">🔗 The Verge</a>
+          <a href="https://about.fb.com/news/2026/05/incognito-chat-whatsapp-meta-ai/" target="_blank">🔗 Meta 官方</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🧩</div>
+          <div>
+            <div class="card-title">Notion 发布开发者平台：工作区变身 AI 智能体中心</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">平台发布</span>
+              <span>TechCrunch / Notion 官方 · 2026-05-13</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          Notion 正式推出 <strong>Developer Platform</strong>，将其工作区从静态文档协作工具升级为「代理式生产力软件」。
+          <ul>
+            <li><strong>Workers</strong>：允许将自定义代码直接部署在 Notion 环境中运行</li>
+            <li><strong>External Agent API</strong>：支持接入外部 AI 智能体，在 Notion 中分配任务并追踪进度</li>
+            <li><strong>数据库同步</strong>：外部数据源实时同步进 Notion 数据库</li>
+            <li><strong>CLI 工具</strong>：专为开发者和 AI 编码代理设计的命令行接口</li>
+          </ul>
+          Workers 功能将免费开放至 8 月。这标志着 Notion 从「文档工具」向「AI 工作流编排平台」的关键转型。
+        </div>
+        <div class="card-links">
+          <a href="https://techcrunch.com/2026/05/13/notion-just-turned-its-workspace-into-a-hub-for-ai-agents/" target="_blank">🔗 TechCrunch</a>
+          <a href="https://www.notion.com/releases/2026-05-13" target="_blank">🔗 Notion 发布说明</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🏷️</div>
+          <div>
+            <div class="card-title">Intercom 更名 Fin：SaaS 巨头 All In AI 智能体</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">行业动态</span>
+              <span>CX Today / BusinessPost · 2026-05-12</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          知名客服软件公司 Intercom 宣布将公司整体更名为 <strong>Fin</strong>（其 AI 客户代理产品名称），1400 名员工全部转入新实体。原有的「Intercom」品牌将仅作为客服平台产品名继续使用。<br><br>
+          Fin AI 智能体目前每周处理超 200 万次对话，服务 3 万多家企业。此前 Fin 已扩展到销售和电商场景（Fin for Sales），实现了从售前到售后的全链路 AI 客服。这是迄今为止 SaaS 行业最激进的「AI 转型」品牌战略——当公司名都改了，就没有回头路了。
+        </div>
+        <div class="card-links">
+          <a href="https://www.cxtoday.com/contact-center/intercom-rebrands-to-fin/" target="_blank">🔗 CX Today</a>
+          <a href="https://www.businesspost.ie/tech/intercom-rebrands-as-fin-as-ai-business-nears-100m-milestone/" target="_blank">🔗 BusinessPost</a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🌐</div>
+          <div>
+            <div class="card-title">Edge Copilot 跨标签页推理：微软让浏览器 AI 读取所有打开的网页</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">产品更新</span>
+              <span>Windows Blog / The Verge · 2026-05-13</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          微软为 Edge 浏览器推出重大 Copilot 更新，AI 现在可以<strong>读取并分析用户所有已打开标签页的内容</strong>。
+          <ul>
+            <li><strong>跨标签页推理</strong>：同时理解多个页面信息并进行对比分析</li>
+            <li><strong>学习模式</strong>：将网页内容转化为学习资源，自动生成测验和抽认卡</li>
+            <li><strong>语音与视觉</strong>：新增语音交互和视觉理解能力</li>
+            <li><strong>Journeys</strong>：基于浏览历史提供个性化建议</li>
+          </ul>
+          同时，微软宣布退役独立的「Copilot Mode」，将 AI 功能直接嵌入浏览器各处。Edge 成为目前上下文感知能力最强的浏览器——不再局限于当前页面，而是能理解你整个浏览会话。
+        </div>
+        <div class="card-links">
+          <a href="https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/" target="_blank">🔗 Windows Blog</a>
+          <a href="https://windowsforum.com/threads/edge-copilot-expansion-multi-tab-reasoning-journeys-and-new-ai-browser-control.418166/" target="_blank">🔗 深度分析</a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🔍</div>
+          <div>
+            <div class="card-title">AI 聊天机器人泄露真实电话号码：隐私红线被踩</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">安全隐私</span>
+              <span>MIT Technology Review · 2026-05-13</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          MIT Technology Review 报道了一个令人不安的现象：Google AI 聊天机器人正在向陌生用户<strong>泄露真实个人电话号码</strong>。多名受害者反映，他们的手机被「找律师」「找设计师」的陌生来电淹没，追溯发现是 AI 将他们的真实号码提供给了查询者。<br><br>
+          更棘手的是：受害者几乎无法阻止这种行为，Google 也没有提供有效的退出机制。研究人员指出，这源于 AI 模型对训练数据的「记忆」——如果个人信息出现在公开网页中，模型可能会在推理时将其作为「有用信息」输出。ChatGPT 和 Gemini 都存在类似风险。
+        </div>
+        <div class="card-links">
+          <a href="https://www.technologyreview.com/2026/05/13/1137203/ai-chatbots-are-giving-out-peoples-real-phone-numbers/" target="_blank">🔗 MIT Technology Review</a>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">⚖️</div>
+          <div>
+            <div class="card-title">Altman 出庭作证 vs Musk：OpenAI 世纪审判进入高潮</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">法律</span>
+              <span>NPR / Fortune / ArsTechnica · 2026-05-12</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          在马斯克诉 OpenAI 的联邦诉讼中，Sam Altman 正式出庭作证，宣称自己是「一个诚实且值得信赖的商人」。此前一周，前董事会成员的证词对 Altman 的领导力提出了多项质疑。<br><br>
+          ArsTechnica 的法庭报道指出了一个耐人寻味的观察：Altman 和 Musk「可能比他们愿意承认的更加相似——在控制 OpenAI 这件事上有着相同的本能」。该案预计 5 月中旬出判决，涉及 OpenAI 的 1300 亿美元估值和营利性转型的合法性，其结果可能重塑 AI 行业的组织形态。
+        </div>
+        <div class="card-links">
+          <a href="https://www.npr.org/2026/05/12/nx-s1-5811730/openai-sam-altman-testimony-elon-musk-trial" target="_blank">🔗 NPR</a>
+          <a href="https://arstechnica.com/tech-policy/2026/05/altman-forced-to-confront-claims-at-openai-trial-that-hes-a-prolific-liar/" target="_blank">🔗 ArsTechnica</a>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">💰</div>
+          <div>
+            <div class="card-title">豆包收费引爆争议：中国大模型「免费时代」松动</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">中国 AI</span>
+              <span>新浪财经 / 澎湃新闻 / 每经 · 2026-05-04 起</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          字节跳动旗下 AI 助手「豆包」正式推出三档付费订阅：标准版 68 元/月、加强版 200 元/月、专业版 500 元/月（年付最高 5088 元）。作为国内月活第一的 AI 应用（3.45 亿用户），此举被视为国产大模型「全免费」格局的<strong>首次松动</strong>。<br><br>
+          舆论两极分化：「又笨又收费」「收费就卸载」的声浪此起彼伏；但行业分析认为这标志着中国 AI 从「跑马圈地」进入「价值验证」阶段。竞品 DeepSeek、通义千问、文心一言仍坚持免费策略。火山引擎总裁透露豆包日均 Token 用量已突破 120 亿，核心驱动力来自 AI 视频创作和 AI 智能体的加速普及。
+        </div>
+        <div class="card-links">
+          <a href="https://finance.sina.com.cn/wm/2026-05-12/doc-inhxspnc4912930.shtml" target="_blank">🔗 新浪财经</a>
+          <a href="https://www.nbd.com.cn/articles/2026-05-05/4378912.html" target="_blank">🔗 每经热评</a>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🏫</div>
+          <div>
+            <div class="card-title">普林斯顿废除 133 年荣誉守则：AI 作弊终结无监考传统</div>
+            <div class="card-meta">
+              <span class="card-meta-tag">社会影响</span>
+              <span>Hacker News / 多家媒体 · 2026-05-13</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          普林斯顿大学教职员工近乎全票通过决议：自 2026 年 7 月 1 日起，所有线下考试<strong>必须设置监考人</strong>，结束了始于 1893 年的无监考荣誉守则传统。<br><br>
+          直接原因是 AI 驱动的学术诚信违规激增。在这项有着 133 年历史的制度下，学生曾以「荣誉」自我约束，但 ChatGPT 等工具的普及使违规检测和自律都变得前所未有地困难。这不仅是一所大学的政策变化——它象征性地宣告：AI 正在重塑人类社会中最古老的信任机制之一。
+        </div>
+        <div class="card-links">
+          <a href="https://aitoolly.com/ai-news/2026-05-14" target="_blank">🔗 AIToolly 报道</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-section">
+      <div class="stats-title">📊 AI 行业关键数据速览</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">$8,520 亿</div>
+          <div class="stat-label">OpenAI 估值</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">$300 亿+</div>
+          <div class="stat-label">Anthropic 年化收入</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">9 亿</div>
+          <div class="stat-label">ChatGPT 周活跃用户</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">75%</div>
+          <div class="stat-label">Google 新代码 AI 生成占比</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">70-90%</div>
+          <div class="stat-label">Anthropic 代码由 Claude 生成</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">~$6,500 亿</div>
+          <div class="stat-label">2026 Big Tech AI 投资总额</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">120 亿+</div>
+          <div class="stat-label">豆包日均 Token 用量</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">200 万+</div>
+          <div class="stat-label">Fin (Intercom) 周对话量</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      本日报由 AI 自动生成，覆盖 YouTube、X/Twitter、小红书及全网信息源<br>
+      生成时间：2026-05-14 21:30 CST
+    </footer>
+  </div>
+</body>
+</html>
