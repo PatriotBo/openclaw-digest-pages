@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年5月17日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface-2: #1a1a26;
+            --border: #2a2a3a;
+            --text: #e8e8f0;
+            --text-muted: #8888a0;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --hot: #ef4444;
+            --green: #22c55e;
+            --amber: #f59e0b;
+            --cyan: #06b6d4;
+            --purple: #a855f7;
+            --pink: #ec4899;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            border-radius: 2px;
+        }
+        .header .date-badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: var(--accent);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e8e8f0 0%, #a0a0c0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .header .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Theme Banner */
+        .theme-banner {
+            background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(168,85,247,0.08) 100%);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0 2.5rem;
+        }
+        .theme-banner h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .theme-banner p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Entry Cards */
+        .entry {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            transition: border-color 0.2s;
+        }
+        .entry:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .entry-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--surface-2);
+        }
+        .entry-meta {
+            flex: 1;
+        }
+        .entry-num {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .entry h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 0.15rem;
+        }
+        .entry-source {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .source-tag {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background: var(--surface-2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+        .entry-body {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+        .entry-body strong {
+            color: var(--text);
+        }
+        .entry-body ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .entry-body li {
+            margin-bottom: 0.3rem;
+        }
+        .entry-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: var(--accent);
+            font-size: 0.82rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .entry-link:hover { text-decoration: underline; }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .kw {
+            font-size: 0.7rem;
+            color: var(--accent);
+            background: var(--accent-glow);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(99,102,241,0.15);
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.75rem 0;
+            font-size: 0.82rem;
+        }
+        .data-table th, .data-table td {
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .data-table td {
+            color: var(--text);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            margin: 0.75rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            padding: 0.4rem 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.56rem;
+            top: 0.75rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .timeline-time {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.82rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        /* Color accents for different entries */
+        .entry[data-color="hot"] .entry-icon { background: rgba(239,68,68,0.1); }
+        .entry[data-color="cyan"] .entry-icon { background: rgba(6,182,212,0.1); }
+        .entry[data-color="amber"] .entry-icon { background: rgba(245,158,11,0.1); }
+        .entry[data-color="green"] .entry-icon { background: rgba(34,197,94,0.1); }
+        .entry[data-color="purple"] .entry-icon { background: rgba(168,85,247,0.1); }
+        .entry[data-color="pink"] .entry-icon { background: rgba(236,72,153,0.1); }
+
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .entry { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="date-badge">2026 年 5 月 17 日 · 周六 · Run #25</div>
+            <h1>AI 每日日报</h1>
+            <p class="subtitle">大模型 · AI Agent · 编码工具 · 产品发布 · 行业动态 · 研究突破</p>
+        </header>
+
+        <div class="theme-banner">
+            <h3>📡 今日主题</h3>
+            <p>AI 编码工具的"军备竞赛"全面爆发——OpenAI vs Anthropic 小时级补贴博弈、xAI Grok Build 正式入局、GitHub Copilot 计费模式转型、中国四强开源模型的成本压力。整个 AI 编码市场正从"技术竞争"进入"生态+价格+用户争夺"的全维度战争。</p>
+        </div>
+
+        <!-- Entry 1 -->
+        <article class="entry" data-color="hot">
+            <div class="entry-header">
+                <div class="entry-icon">🔥</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 01</div>
+                    <h2>OpenAI 与 Anthropic 补贴大战：编码 AI 进入白热化抢人模式</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">ITBear</span>
+                <span class="source-tag">DRANIXJ's Blog</span>
+                <span class="source-tag">新浪财经</span>
+            </div>
+            <div class="entry-body">
+                <p>GPT-5.5 发布仅三周，<strong>GPT-5.6 内部测试代码已被曝光</strong>，首批检查点已启动验证，预计下月亮相。OpenAI 同步测试 "ultrafast 模式"，可将 Codex 推理速度提升 2-3 倍。5 月 14 日当天上演了小时级博弈：</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">上午</span> — Ramp AI Index 显示 Anthropic 企业采用率（34.4%）首超 OpenAI（32.3%）
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">+4h</span> — OpenAI 宣布迁移至 Codex 的企业可获 <strong>2 个月免费</strong>（价值 $400），取消座位费 → 3h 内 2000 名开发者完成迁移
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">+5h</span> — Anthropic 回敬 Claude Code <strong>周限制 +50%</strong>（限时至 7/13）
+                    </div>
+                </div>
+                <p>编码 AI 赛道已进入"不抢就输"的白热化状态，<strong>开发者成为最大受益者</strong>。</p>
+                <a class="entry-link" href="https://www.itbear.com.cn/html/2026-05/1339410.html" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">GPT-5.6</span>
+                <span class="kw">Codex</span>
+                <span class="kw">补贴战</span>
+                <span class="kw">企业采用率</span>
+                <span class="kw">ultrafast 模式</span>
+            </div>
+        </article>
+
+        <!-- Entry 2 -->
+        <article class="entry" data-color="cyan">
+            <div class="entry-header">
+                <div class="entry-icon">🤖</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 02</div>
+                    <h2>xAI 发布 Grok Build：马斯克正式入局 AI 编码代理赛道</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">IT 之家</span>
+                <span class="source-tag">投中网</span>
+                <span class="source-tag">ChooseAI</span>
+            </div>
+            <div class="entry-body">
+                <p>xAI 于 5 月 15 日发布 <strong>Grok Build Early Beta</strong>，马斯克旗下首款 Agentic CLI 编码工具，直接对标 Claude Code：</p>
+                <ul>
+                    <li><strong>Plan Mode</strong>：先生成执行计划，用户可逐步审核、修改或重写，批准后以 Diff 形式展示变更</li>
+                    <li><strong>Skills + MCP</strong>：支持 AGENTS.md、插件、hooks、MCP 服务</li>
+                    <li><strong>无头模式</strong>：可在脚本和自动化流程中运行</li>
+                    <li><strong>ACP CLI</strong>：完整 Agent Communication Protocol 支持</li>
+                </ul>
+                <p>仅限 SuperGrok Heavy 订阅用户（$300/月）使用。马斯克在中国访问期间仍在 X 上站台，但有消息称 SpaceX 内部员工对 Grok 编程工具的使用意愿并不高。</p>
+                <a class="entry-link" href="https://www.ithome.com/0/950/678.htm" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">Grok Build</span>
+                <span class="kw">xAI</span>
+                <span class="kw">CLI</span>
+                <span class="kw">Plan Mode</span>
+                <span class="kw">MCP</span>
+            </div>
+        </article>
+
+        <!-- Entry 3 -->
+        <article class="entry" data-color="amber">
+            <div class="entry-header">
+                <div class="entry-icon">💰</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 03</div>
+                    <h2>AI 用量大变阵：从"自助餐"到 Token 计价的行业转型</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">DRANIXJ's Blog</span>
+                <span class="source-tag">Anthropic</span>
+                <span class="source-tag">CSDN</span>
+            </div>
+            <div class="entry-body">
+                <p>两周内三大平台相继改变计费规则，标志着 AI 编码工具从"自助餐式订阅"向精细化 Token 计价转型：</p>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>平台</th><th>变动</th><th>时间</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Anthropic</strong></td><td>Claude Code 5h 限额翻倍 → 周限额 +50%；Agent SDK Credit 独立计费</td><td>5/6 + 5/13</td></tr>
+                        <tr><td><strong>OpenAI</strong></td><td>企业版 Codex 2 个月免费 + 取消座位费</td><td>5/14</td></tr>
+                        <tr><td><strong>GitHub Copilot</strong></td><td>6/1 转向 AI Credit 计费，Premium request 用完直接停止</td><td>6/1</td></tr>
+                    </tbody>
+                </table>
+                <p>核心逻辑：<strong>Agentic 时代的算力消耗远超传统 Chat 场景</strong>，无限制的 flat-rate 已不可持续。Agent SDK Credit 把第三方 Agent（如 OpenClaw）的消耗从订阅池中剥离，实行独立计费。</p>
+                <a class="entry-link" href="https://dranixj.com/articles/ai-industry-pricing-shift-2026-may" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">Token 计费</span>
+                <span class="kw">Agent SDK Credit</span>
+                <span class="kw">rate limit</span>
+                <span class="kw">Copilot</span>
+                <span class="kw">订阅模式</span>
+            </div>
+        </article>
+
+        <!-- Entry 4 -->
+        <article class="entry" data-color="green">
+            <div class="entry-header">
+                <div class="entry-icon">🏭</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 04</div>
+                    <h2>2026 全球人工智能终端展：深圳展示 AI 硬件生态全貌</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">太平洋科技</span>
+                <span class="source-tag">深圳新闻网</span>
+                <span class="source-tag">新浪财经</span>
+            </div>
+            <div class="entry-body">
+                <p>5 月 14-16 日，WAIDE 在深圳会展中心开幕，"端启未来·万物新生"主题，<strong>15 个国家 500+ 企业</strong>参展，首日专业观众突破 <strong>3 万人次</strong>。</p>
+                <p>重磅首发：</p>
+                <ul>
+                    <li><strong>腾讯 Robotics X</strong>：发布并开源 <strong>RoboFusion 机器人本体互连技术体系</strong>，业界首个"一线到底"全栈 IP 化方案</li>
+                    <li><strong>亿达科创</strong>：边缘 AI 具身智能决策系统，无网弱网下毫秒级自主作业</li>
+                    <li><strong>叩玄科技</strong>：AI 桌面机器人，多模态大模型 + 视觉感知情感交互</li>
+                    <li><strong>铨兴科技</strong>：AI 超显存融合方案，破解端侧推理算存瓶颈</li>
+                </ul>
+                <p>深圳 2025 年 AI 核心产业规模约 <strong>2200 亿元</strong>，计划 2026 年达 <strong>8000 亿元</strong>。</p>
+                <a class="entry-link" href="https://www.pconline.com.cn/zhizao/2150/21507711.html" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">深圳</span>
+                <span class="kw">AI 终端</span>
+                <span class="kw">RoboFusion</span>
+                <span class="kw">具身智能</span>
+                <span class="kw">端侧推理</span>
+            </div>
+        </article>
+
+        <!-- Entry 5 -->
+        <article class="entry" data-color="purple">
+            <div class="entry-header">
+                <div class="entry-icon">🧠</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 05</div>
+                    <h2>MiniMax Agent 升级更名 Mavis：多智能体团队协作成标配</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">搜狐</span>
+                <span class="source-tag">CSDN</span>
+                <span class="source-tag">AIBase</span>
+            </div>
+            <div class="entry-body">
+                <p>5 月 13 日，MiniMax 官宣 Agent 产品全面升级并更名为 <strong>Mavis</strong>（MiniMax as a Jarvis），核心引入 <strong>Agent Teams</strong> 多智能体团队协作：</p>
+                <ul>
+                    <li><strong>多角色并行</strong>：同时召唤一组不同角色的 AI 智能体，文本生成、数据校验、格式优化等同步推进</li>
+                    <li><strong>Team Engine</strong>：底层协作引擎支撑角色分配、信息互通、任务流转</li>
+                    <li><strong>订阅整合</strong>：合并 TokenPlan 与 AgentPlan，简化计费</li>
+                </ul>
+                <p>这标志着 AI Agent 产品从"单兵作战"向"团队协同"进化，多智能体协作正在成为行业标配。</p>
+                <a class="entry-link" href="https://www.sohu.com/a/1022662201_121956424" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">Mavis</span>
+                <span class="kw">MiniMax</span>
+                <span class="kw">Agent Teams</span>
+                <span class="kw">多智能体协作</span>
+                <span class="kw">Team Engine</span>
+            </div>
+        </article>
+
+        <!-- Entry 6 -->
+        <article class="entry" data-color="pink">
+            <div class="entry-header">
+                <div class="entry-icon">🔬</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 06</div>
+                    <h2>Anthropic 将 AI 对齐工具 Petri 3.0 捐赠给 Meridian Labs</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">Anthropic</span>
+                <span class="source-tag">Winbuzzer</span>
+                <span class="source-tag">ChaoBro</span>
+            </div>
+            <div class="entry-body">
+                <p>Anthropic 于 5 月 8 日将开源 AI 对齐评估工具 <strong>Petri</strong>（Parallel Exploration Tool for Risky Interactions）的开发权转交非营利组织 <strong>Meridian Labs</strong>，并发布 3.0 版本。</p>
+                <p>Petri 是一个自动化审计框架，使用 AI Agent 测试目标模型在欺骗、有害合作等场景下的行为。<strong>英国 AI 安全研究所（UK AISI）已在使用 Petri 测试每一个 Claude 模型</strong>。Meridian Labs 旗下还拥有 Inspect 和 Scout 等工具。</p>
+                <p>此举意义重大：Anthropic 主动将自研安全工具"去中心化"，使其不再受单一公司利益左右。</p>
+                <a class="entry-link" href="https://www.anthropic.com/research/donating-open-source-petri" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">Petri</span>
+                <span class="kw">对齐评估</span>
+                <span class="kw">Meridian Labs</span>
+                <span class="kw">AI 安全</span>
+                <span class="kw">开源</span>
+            </div>
+        </article>
+
+        <!-- Entry 7 -->
+        <article class="entry" data-color="amber">
+            <div class="entry-header">
+                <div class="entry-icon">📊</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 07</div>
+                    <h2>Ramp AI Index：Anthropic 企业采用率首次超越 OpenAI</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">VentureBeat</span>
+                <span class="source-tag">Ramp</span>
+            </div>
+            <div class="entry-body">
+                <p>Ramp AI Index 5 月版数据：Anthropic 企业采用率在 4 月上升 3.8% 至 <strong>34.4%</strong>，OpenAI 下降 2.9% 至 <strong>32.3%</strong>——这是 Anthropic 首次在企业市场超越 OpenAI。</p>
+                <p>但 VentureBeat 指出三大威胁可能抹去这一领先：</p>
+                <ul>
+                    <li><strong>激励错位</strong>：Claude Code 高使用量依赖大额补贴，长期可持续性存疑</li>
+                    <li><strong>服务降级</strong>：快速扩张可能导致质量下降（SpaceX 算力仍在磨合）</li>
+                    <li><strong>成本上升</strong>：Agent SDK Credit 分账制可能让部分用户反弹</li>
+                </ul>
+                <p>整体 AI 采用率继续攀升，企业 AI 工具支出同比增长超过 <strong>300%</strong>。</p>
+                <a class="entry-link" href="https://venturebeat.com/technology/anthropic-finally-beat-openai-in-business-ai-adoption-but-3-big-threats-could-erase-its-lead" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">Ramp AI Index</span>
+                <span class="kw">企业采用率</span>
+                <span class="kw">Anthropic</span>
+                <span class="kw">OpenAI</span>
+                <span class="kw">市场份额</span>
+            </div>
+        </article>
+
+        <!-- Entry 8 -->
+        <article class="entry" data-color="hot">
+            <div class="entry-header">
+                <div class="entry-icon">🇨🇳</div>
+                <div class="entry-meta">
+                    <div class="entry-num">ENTRY 08</div>
+                    <h2>中国 AI 编码四强同台：12 天内四家实验室齐发开源编码模型</h2>
+                </div>
+            </div>
+            <div class="entry-source">
+                <span class="source-tag">AIToolsRecap</span>
+                <span class="source-tag">BestBlogs</span>
+                <span class="source-tag">CSDN</span>
+            </div>
+            <div class="entry-body">
+                <p>5 月初 12 天内，四家中国 AI 实验室密集发布开源编码模型，集体达到西方前沿模型的 Agent 编码能力，但推理成本不到 Claude Opus 4.7 的三分之一：</p>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>模型</th><th>实验室</th><th>亮点</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>GLM-5.1</strong></td><td>智谱 AI</td><td>MIT 协议，中英双语编码优化</td></tr>
+                        <tr><td><strong>M2.7</strong></td><td>MiniMax</td><td>长上下文 + 多模态 Agent</td></tr>
+                        <tr><td><strong>Kimi K2.6</strong></td><td>月之暗面</td><td>Coding Challenge 专项优化</td></tr>
+                        <tr><td><strong>DeepSeek V4</strong></td><td>幻方量化</td><td>万亿参数 MoE，华为昇腾适配</td></tr>
+                    </tbody>
+                </table>
+                <p>这波发布标志着<strong>"中国阵营 + 开源 + 极低成本 + 长程 Agent"</strong>四合一，对西方闭源模型的定价策略形成结构性压力——也是 OpenAI/Anthropic 补贴战的深层驱动力之一。</p>
+                <a class="entry-link" href="https://www.bestblogs.dev/explore/topics/china-flagship-llm-2026-spring" target="_blank">阅读原文 →</a>
+            </div>
+            <div class="keywords">
+                <span class="kw">GLM-5.1</span>
+                <span class="kw">Kimi K2.6</span>
+                <span class="kw">DeepSeek V4</span>
+                <span class="kw">M2.7</span>
+                <span class="kw">开源编码模型</span>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p>AI 每日日报 · 数据来源：web_search 多轮搜索 + web_fetch 深度抓取 · EN/CN 双语覆盖</p>
+            <p style="margin-top: 0.3rem;">生成时间：2026-05-17 21:30 CST · Run #25</p>
+        </footer>
+    </div>
+</body>
+</html>
