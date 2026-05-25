@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年5月25日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface-2: #1a1a2e;
+            --border: #2a2a3e;
+            --text: #e8e8f0;
+            --text-dim: #9898b0;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --green: #10b981;
+            --orange: #f59e0b;
+            --red: #ef4444;
+            --blue: #3b82f6;
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+        header .date {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+        header .theme {
+            margin-top: 16px;
+            padding: 12px 20px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        .entry {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: border-color 0.2s;
+        }
+        .entry:hover {
+            border-color: var(--accent);
+        }
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .entry-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface-2);
+            border-radius: 10px;
+        }
+        .entry-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .entry-meta {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-top: 4px;
+        }
+        .entry-body {
+            color: var(--text);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+        .entry-body p { margin-bottom: 12px; }
+        .entry-body strong { color: #fff; font-weight: 600; }
+        .data-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .data-list li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        .data-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+        .tag-hardware { background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3); }
+        .tag-funding { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .tag-china { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .tag-legal { background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3); }
+        .tag-platform { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .tag-tools { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .tag-opensource { background: rgba(236, 72, 153, 0.15); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.3); }
+        .tag-research { background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3); }
+        .source-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--accent);
+            font-size: 0.82rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .source-link:hover { opacity: 1; text-decoration: underline; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.85rem;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td { color: var(--text); }
+        .summary-section {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-top: 40px;
+        }
+        .summary-section h2 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px; }
+            header h1 { font-size: 1.5rem; }
+            .entry { padding: 20px; }
+            .entry-title { font-size: 1.05rem; }
+            table { font-size: 0.78rem; }
+            th, td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 每日日报</h1>
+            <div class="date">2026年5月25日 · 周日 · Run #29</div>
+            <div class="theme">📡 本期主题：Computex 2026 前夜、Anthropic 登顶估值、全球AI大会杭州开幕</div>
+        </header>
+
+        <!-- Entry 1 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🔥</div>
+                <div>
+                    <div class="entry-title">NVIDIA Vera Rubin — 台湾史上最大供应链动员</div>
+                    <div class="entry-meta">TechTimes / DigiTimes / CNBC · 2026-05-24</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-hardware">硬件</span>
+                <p>NVIDIA CEO 黄仁勋于5月23日抵达台湾，比 Computex 2026 正式开幕提前一周，专程拜访台积电魏哲家主席。黄仁勋公开称 Vera Rubin 是"计算历史上最大的产品"，将动员台湾150+家供应链伙伴进入"非常忙碌的下半年"。</p>
+                <ul class="data-list">
+                    <li>NVIDIA Q1 FY27 营收 <strong>$81.6B</strong>（创历史新高）</li>
+                    <li>预测 CPU 市场规模将达 <strong>$2000亿</strong>，明确表示"包含中国市场"</li>
+                    <li>Vera Rubin 单系统200万零件，35x Blackwell 吞吐量</li>
+                    <li>中国市场份额降至零（受出口管制），但仍视中国为长期市场</li>
+                </ul>
+                <a class="source-link" href="https://www.techtimes.com/articles/317079/20260524/nvidia-computex-2026-jensen-huang-flies-tsmc-vera-rubin-ramp-strains-taiwan-supply-chain.htm" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 2 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">💰</div>
+                <div>
+                    <div class="entry-title">Anthropic 融资超$300亿即将交割 — $9000亿估值超越OpenAI</div>
+                    <div class="entry-meta">Bloomberg / Yahoo Finance / TechTimes · 2026-05-23</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-funding">融资</span>
+                <p>据 Bloomberg 报道，Anthropic 最早将于下周完成其最新一轮融资交割，总额可能超过 $300亿，估值突破 $9000亿（pre-money），正式超越 OpenAI（$8520亿）成为全球最有价值的AI创业公司。</p>
+                <ul class="data-list">
+                    <li>领投方：Sequoia、Dragoneer、Altimeter、Greenoaks 联合领投</li>
+                    <li>Anthropic Q2 年化收入已超 <strong>$10.9B</strong>，且首次盈利</li>
+                    <li>AI领域<strong>史上最大单笔私募融资</strong></li>
+                    <li>从2月 $380B 估值到5月 $900B，仅用3个月翻倍</li>
+                </ul>
+                <a class="source-link" href="https://opentools.ai/news/anthropic-closing-30-billion-funding-900-billion-valuation" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 3 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🇨🇳</div>
+                <div>
+                    <div class="entry-title">GAITC 2026 全球人工智能技术大会杭州开幕 — 重磅清单发布</div>
+                    <div class="entry-meta">人民网 / 中新网 / 凤凰网 · 2026-05-24</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-china">中国</span>
+                <p>5月23-24日，由中国人工智能学会（CAAI）主办的 GAITC 2026 在杭州未来科技城开幕，主题为"交叉、融合、相生、共赢"。这是该大会第七次落地杭州，汇聚国内外顶尖科学家和产业领袖。</p>
+                <ul class="data-list">
+                    <li>📋 <strong>《人工智能关键能力清单1.0》</strong> 正式发布</li>
+                    <li>🏛️ 国家级人工智能（关键应用）产业知识产权运营中心揭牌</li>
+                    <li>💰 2026年度 CAAI-蚂蚁科研基金（AGI专项）发布</li>
+                    <li>🚀 2026全球人工智能创新创业大赛启动</li>
+                    <li>主旨报告：潘云鹤、戴琼海、于海斌等顶级学者主讲</li>
+                </ul>
+                <a class="source-link" href="https://biz.ifeng.com/c/8tO2smiIXez" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 4 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">⚖️</div>
+                <div>
+                    <div class="entry-title">Musk v. Altman 世纪审判落幕 — 陪审团不到2小时全票驳回</div>
+                    <div class="entry-meta">TechCrunch / WIRED / NPR / CNBC · 2026-05-18</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-legal">法律</span>
+                <p>Oakland 联邦法院9人陪审团以全票一致裁定，驳回马斯克对 OpenAI 及 Sam Altman 的所有诉讼请求。陪审团仅用不到2小时即达成裁决，法官随后直接采纳为最终判决。</p>
+                <ul class="data-list">
+                    <li>核心理由：诉讼"提交过晚"（超过诉讼时效）</li>
+                    <li>马斯克诉求：解除Altman职务、指控违背非营利使命</li>
+                    <li>马斯克回应：称"技术性问题"，誓言上诉</li>
+                    <li>影响：移除OpenAI 2年法律阴云，为其<strong>9月 IPO</strong> 扫清障碍</li>
+                </ul>
+                <a class="source-link" href="https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 5 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🤖</div>
+                <div>
+                    <div class="entry-title">Google I/O 2026 余震 — Agent时代正式开启</div>
+                    <div class="entry-meta">Google Blog / TechCrunch / AP News · 2026-05-19~20</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-platform">平台</span>
+                <p>Google I/O 2026 于5月19-20日举行，宣告进入"Agentic Era"。每个核心产品都获得了Agent能力升级。</p>
+                <ul class="data-list">
+                    <li><strong>Gemini 3.5 Flash</strong>：Agent-first 设计，超越 3.1 Pro</li>
+                    <li><strong>Gemini Spark</strong>：全天候持续运行的AI代理助手</li>
+                    <li><strong>Antigravity 2.0</strong>：编码Agent平台，"$1000 token建OS"</li>
+                    <li>月处理 <strong>3.2千万亿 token</strong>，同比增长7x</li>
+                    <li>跨所有AI产品 <strong>9B MAU</strong>（月活跃用户）</li>
+                </ul>
+                <a class="source-link" href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-collection/" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 6 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">⚔️</div>
+                <div>
+                    <div class="entry-title">七雄争霸：AI编码Agent竞争进入白热化</div>
+                    <div class="entry-meta">Lush Binary / devFlokers / Codersera · 2026-05-20~23</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-tools">工具</span>
+                <p>截至2026年5月，AI编码Agent赛道已形成七强格局，每家都在疯狂迭代：</p>
+                <table>
+                    <thead>
+                        <tr><th>工具</th><th>核心优势</th><th>最新动态</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Claude Code</strong></td><td>SWE-bench 80.8%</td><td>Managed Agents $0.08/hr</td></tr>
+                        <tr><td><strong>Antigravity 2.0</strong></td><td>全栈Agent</td><td>I/O 2026 发布</td></tr>
+                        <tr><td><strong>OpenAI Codex</strong></td><td>GPT-5.5驱动</td><td>移动端预览开放</td></tr>
+                        <tr><td><strong>Cursor 3.4</strong></td><td>7M+ MAU</td><td>团队可配Agent环境</td></tr>
+                        <tr><td><strong>Kiro (AWS)</strong></td><td>企业合规</td><td>Spec-driven开发</td></tr>
+                        <tr><td><strong>Copilot</strong></td><td>生态集成</td><td>6月AI Credit计费</td></tr>
+                        <tr><td><strong>Windsurf</strong></td><td>5并行Agent</td><td>Agent Command Center</td></tr>
+                    </tbody>
+                </table>
+                <p>另：<strong>Composer 2.5</strong>（Cursor自研，SWE-Bench 79.8%，成本仅Opus 1/10）+ <strong>Grok Build CLI</strong>（xAI首个编码Agent）。</p>
+                <a class="source-link" href="https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 7 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🐙</div>
+                <div>
+                    <div class="entry-title">OpenClaw v2026.5.19-beta.1 — defineToolPlugin 框架发布</div>
+                    <div class="entry-meta">devFlokers / GitHub · 2026-05-19</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-opensource">开源</span>
+                <p>OpenClaw 本周发布最新beta版本，GitHub星数已超 <strong>302,000</strong>（28天增长+42,000），继续保持2026年增速最快的开源项目地位。</p>
+                <ul class="data-list">
+                    <li>🆕 <strong>defineToolPlugin 框架</strong>：类型化工具插件开发框架</li>
+                    <li>🎨 <strong>meme-maker 技能</strong>：Agent本地生成视觉内容</li>
+                    <li>💻 Mac应用设置页面重新设计</li>
+                    <li>已集成50+服务（WhatsApp、Signal、iMessage等）</li>
+                    <li>核心理念：完全本地运行 + 自主编写新技能</li>
+                </ul>
+                <a class="source-link" href="https://www.devflokers.com/blog/open-source-ai-projects-may-2026-roundup" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Entry 8 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🧬</div>
+                <div>
+                    <div class="entry-title">开源AI新范式：从"拼参数"到"拼智能密度"</div>
+                    <div class="entry-meta">devFlokers / Codersera · 2026-05-23</div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <span class="tag tag-research">研究</span>
+                <p>2026年5月，AI开源社区出现明确的架构转向信号——不再追求参数量最大化，而是聚焦"智能密度"（每单位计算量的能力输出）。</p>
+                <ul class="data-list">
+                    <li><strong>ZAYA1-8B</strong>（Apache 2.0）：推理仅激活7.6亿参数，性能媲美400亿级</li>
+                    <li><strong>SubQ 1M-Preview</strong>：首个商业化非Transformer架构，1200万token上下文</li>
+                    <li><strong>Turbo Quant</strong>（Google）：大幅减少KV缓存内存开销</li>
+                    <li>Forrester：25%企业AI项目将在Q3暂停评估ROI</li>
+                </ul>
+                <a class="source-link" href="https://www.devflokers.com/blog/open-source-ai-projects-may-2026-roundup" target="_blank">→ 阅读原文</a>
+            </div>
+        </article>
+
+        <!-- Summary -->
+        <div class="summary-section">
+            <h2>📊 本期总结</h2>
+            <table>
+                <thead>
+                    <tr><th>维度</th><th>关键信号</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>硬件</strong></td><td>NVIDIA Vera Rubin 台湾供应链全面动员，$81.6B营收新高</td></tr>
+                    <tr><td><strong>融资</strong></td><td>Anthropic $9000亿超越OpenAI，AI估值泡沫继续膨胀</td></tr>
+                    <tr><td><strong>政策/学术</strong></td><td>GAITC杭州开幕，关键能力清单1.0，蚂蚁AGI基金</td></tr>
+                    <tr><td><strong>法律</strong></td><td>Musk v. Altman 全票驳回，OpenAI IPO障碍扫清</td></tr>
+                    <tr><td><strong>平台</strong></td><td>Google I/O宣布Agent时代，3.2千万亿token月处理量</td></tr>
+                    <tr><td><strong>工具</strong></td><td>七大编码Agent同台竞技，Composer 2.5达到前沿性能</td></tr>
+                    <tr><td><strong>开源</strong></td><td>OpenClaw 302K星，defineToolPlugin生态扩展</td></tr>
+                    <tr><td><strong>架构</strong></td><td>智能密度＞参数量，非Transformer架构首次商业化</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>AI 每日日报 · 自动生成于 2026-05-25 21:30 CST</p>
+            <p style="margin-top: 8px; opacity: 0.6;">Powered by WorkBuddy Automation</p>
+        </footer>
+    </div>
+</body>
+</html>
