@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年6月2日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #222240;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6a6a80;
+            --accent-1: #6366f1;
+            --accent-2: #8b5cf6;
+            --accent-3: #ec4899;
+            --accent-4: #06b6d4;
+            --accent-5: #10b981;
+            --accent-6: #f59e0b;
+            --border: #2a2a40;
+            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --gradient-2: linear-gradient(135deg, #ec4899, #f59e0b);
+            --gradient-3: linear-gradient(135deg, #06b6d4, #10b981);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        .header-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .header-theme {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Entry Cards */
+        .entry {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .entry:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+        }
+
+        .entry-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .entry:nth-child(1) .entry-number { background: var(--gradient-1); }
+        .entry:nth-child(2) .entry-number { background: var(--gradient-2); }
+        .entry:nth-child(3) .entry-number { background: var(--gradient-3); }
+        .entry:nth-child(4) .entry-number { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .entry:nth-child(5) .entry-number { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+        .entry:nth-child(6) .entry-number { background: linear-gradient(135deg, #10b981, #06b6d4); }
+        .entry:nth-child(7) .entry-number { background: linear-gradient(135deg, #ef4444, #f59e0b); }
+        .entry:nth-child(8) .entry-number { background: linear-gradient(135deg, #6366f1, #06b6d4); }
+
+        .entry-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .entry-tag {
+            font-size: 0.72rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-1);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .entry-tag.red { background: rgba(236, 72, 153, 0.15); color: var(--accent-3); }
+        .entry-tag.green { background: rgba(16, 185, 129, 0.15); color: var(--accent-5); }
+        .entry-tag.yellow { background: rgba(245, 158, 11, 0.15); color: var(--accent-6); }
+        .entry-tag.cyan { background: rgba(6, 182, 212, 0.15); color: var(--accent-4); }
+
+        .entry h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            padding-right: 3rem;
+        }
+
+        .entry-body {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
+        }
+
+        .entry-body p {
+            margin-bottom: 0.6rem;
+        }
+
+        .entry-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .entry-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            background: rgba(99, 102, 241, 0.08);
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-1);
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .entry-insight {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(139, 92, 246, 0.08);
+            border-left: 3px solid var(--accent-2);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Data Table */
+        .data-section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .data-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.7rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .data-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            color: var(--text-secondary);
+        }
+
+        .data-table td:last-child {
+            color: var(--accent-1);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .footer a {
+            color: var(--accent-1);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            .header { padding: 2rem 1.2rem; }
+            .header h1 { font-size: 1.6rem; }
+            .entry { padding: 1.5rem; }
+            .entry h2 { font-size: 1.1rem; }
+            .entry-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-date">2026年6月2日 · 周一 · Run #31</div>
+            <h1>AI 每日日报</h1>
+            <p class="header-theme">三重爆发——Anthropic IPO、NVIDIA RTX Spark、Microsoft Build 2026 同日引爆 AI 产业链</p>
+        </div>
+
+        <div class="entries">
+            <!-- Entry 1 -->
+            <div class="entry">
+                <div class="entry-number">1</div>
+                <div class="entry-meta">
+                    <span class="entry-tag red">AI 行业</span>
+                    <span class="entry-tag">融资 / IPO</span>
+                </div>
+                <h2>Anthropic 机密提交 S-1，冲刺万亿美元 IPO</h2>
+                <div class="entry-body">
+                    <p>Anthropic 于6月1日向 SEC 机密提交 S-1 招股书，距其完成 <strong>650亿美元 Series H 融资</strong>（投后估值 9650亿美元）仅4天。年化营收突破 470亿美元，首次实现季度营业利润。</p>
+                    <p>投资方阵容：红杉、Dragoneer、Altimeter、Greenoaks、微软、英伟达、Founders Fund。目标秋季上市，与 SpaceX、OpenAI 形成"三巨头 IPO 超级周期"。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">$965B</div><div class="stat-label">估值</div></div>
+                    <div class="stat-item"><div class="stat-value">$65B</div><div class="stat-label">Series H</div></div>
+                    <div class="stat-item"><div class="stat-value">$47B</div><div class="stat-label">年化营收</div></div>
+                    <div class="stat-item"><div class="stat-value">5年</div><div class="stat-label">成立至 IPO</div></div>
+                </div>
+                <div class="entry-insight">从成立到准 IPO 仅5年，从首轮到接近万亿仅27个月——人类商业史上最快的价值创造轨迹之一。</div>
+            </div>
+
+            <!-- Entry 2 -->
+            <div class="entry">
+                <div class="entry-number">2</div>
+                <div class="entry-meta">
+                    <span class="entry-tag yellow">AI 芯片</span>
+                    <span class="entry-tag">硬件</span>
+                </div>
+                <h2>NVIDIA GTC 台北：RTX Spark 芯片正面挑战苹果</h2>
+                <div class="entry-body">
+                    <p>黄仁勋发布 <strong>RTX Spark</strong>——NVIDIA 首款 Arm 架构 PC 芯片，直接叫板苹果 M 系列。搭载 20 CPU 核心（联发科联合设计）+ 6,144 CUDA 核心（Blackwell 架构）+ 128GB RAM。</p>
+                    <p>同时宣布 <strong>Vera Rubin</strong> AI 超算平台正式量产、Nemotron 3 Ultra 模型，并与微软联合发布首批 NVIDIA 芯片 Windows PC。秋季上市。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">6,144</div><div class="stat-label">CUDA 核心</div></div>
+                    <div class="stat-item"><div class="stat-value">128GB</div><div class="stat-label">内存</div></div>
+                    <div class="stat-item"><div class="stat-value">20核</div><div class="stat-label">Arm CPU</div></div>
+                    <div class="stat-item"><div class="stat-value">2026秋</div><div class="stat-label">上市时间</div></div>
+                </div>
+                <div class="entry-insight">NVIDIA 40年首次进入 PC CPU 市场——6144 CUDA 核心塞进笔记本意味着本地 AI 推理能力的质变。</div>
+            </div>
+
+            <!-- Entry 3 -->
+            <div class="entry">
+                <div class="entry-number">3</div>
+                <div class="entry-meta">
+                    <span class="entry-tag">AI 编码</span>
+                    <span class="entry-tag green">平台</span>
+                </div>
+                <h2>Microsoft Build 2026：Project Polaris 切断 OpenAI 依赖</h2>
+                <div class="entry-body">
+                    <p>微软发布自研编码模型 <strong>Project Polaris</strong>（MoE 架构），HumanEval/MBPP 超越 GPT-4 Turbo，8月起成为 Copilot 默认模型。正式开启"后 OpenAI 时代"。</p>
+                    <p><strong>Windows Agent Framework v1.0</strong> 以 MIT 开源，代理成为 OS 一等公民。还发布 Copilot Workspace GA（Fleet/Autopilot 自主模式）、WSL 3、DirectML 2.0。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">MIT</div><div class="stat-label">WAF 开源</div></div>
+                    <div class="stat-item"><div class="stat-value">85%</div><div class="stat-label">Agent Store 分成</div></div>
+                    <div class="stat-item"><div class="stat-value">2,500</div><div class="stat-label">现场开发者</div></div>
+                    <div class="stat-item"><div class="stat-value">$1,099</div><div class="stat-label">门票价格</div></div>
+                </div>
+                <div class="entry-insight">微软自研 Polaris 替代 GPT-4 Turbo + Azure 引入 Claude——自 2023 年 OpenAI 投资以来最大的战略转向。</div>
+            </div>
+
+            <!-- Entry 4 -->
+            <div class="entry">
+                <div class="entry-number">4</div>
+                <div class="entry-meta">
+                    <span class="entry-tag cyan">AI 硬件</span>
+                    <span class="entry-tag">产业</span>
+                </div>
+                <h2>Computex 2026 开幕：1500 家企业、33 国齐聚"AI Together"</h2>
+                <div class="entry-body">
+                    <p>6月2日 Computex 2026 在台北正式开展。NVIDIA/Qualcomm/Intel/AMD 四大芯片巨头齐发 AI PC 与加速器新品，6000个展位创历史新高。</p>
+                    <p>黄仁勋声称 NVIDIA 供应链将帮助台湾 GDP 增长"近10%"。NVIDIA 与微软联合发布首批 Arm 架构 Windows PC（Surface + Dell）。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">1,500</div><div class="stat-label">参展企业</div></div>
+                    <div class="stat-item"><div class="stat-value">6,000</div><div class="stat-label">展位</div></div>
+                    <div class="stat-item"><div class="stat-value">33</div><div class="stat-label">参展国家</div></div>
+                    <div class="stat-item"><div class="stat-value">45年</div><div class="stat-label">展会历史</div></div>
+                </div>
+                <div class="entry-insight">Computex 从 PC 展完全转型为 AI 算力展。NVIDIA/高通/Intel 三方同发 Arm 芯片，x86 地位被系统性动摇。</div>
+            </div>
+
+            <!-- Entry 5 -->
+            <div class="entry">
+                <div class="entry-number">5</div>
+                <div class="entry-meta">
+                    <span class="entry-tag red">AI 编码</span>
+                    <span class="entry-tag yellow">定价</span>
+                </div>
+                <h2>GitHub Copilot Token 计费上线：月费暴涨 25 倍引发开发者反弹</h2>
+                <div class="entry-body">
+                    <p>6月1日起 Copilot 从 $29/月固定费切换为按 Token 计费，部分重度用户月费飙升至约 <strong>$750</strong>。使用 o1 等高成本推理模型或大型重构是暴增主因。</p>
+                    <p>Reddit/X 上 "#WhatAJoke" 热议。微软回应：Build 2026 发布的 Polaris 模型将降低 Token 成本，提供3个月回退期。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">$29→$750</div><div class="stat-label">极端案例月费</div></div>
+                    <div class="stat-item"><div class="stat-value">25x</div><div class="stat-label">最大涨幅</div></div>
+                    <div class="stat-item"><div class="stat-value">6/1</div><div class="stat-label">生效日期</div></div>
+                </div>
+                <div class="entry-insight">从订阅到 Token 计费标志"真实成本透明化"——Agentic 工作负载让无限订阅不可持续，将加速 Claude Code/Cursor 用户迁移。</div>
+            </div>
+
+            <!-- Entry 6 -->
+            <div class="entry">
+                <div class="entry-number">6</div>
+                <div class="entry-meta">
+                    <span class="entry-tag green">AI Agent</span>
+                    <span class="entry-tag">融资</span>
+                </div>
+                <h2>Cognition (Devin) 融资 10 亿美元，营收年增 1230%</h2>
+                <div class="entry-body">
+                    <p>AI 编码 Agent Devin 开发商 Cognition 完成 10亿美元融资，投后估值 260亿美元（8个月增长 155%）。年化营收从 $3700万飙至 <strong>$4.92亿</strong>。</p>
+                    <p>企业客户包括高盛、梅赛德斯-奔驰、NASA、桑坦德银行。超过 90% 的内部代码由 Devin 自行编写。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">$26B</div><div class="stat-label">估值</div></div>
+                    <div class="stat-item"><div class="stat-value">1,230%</div><div class="stat-label">营收增速</div></div>
+                    <div class="stat-item"><div class="stat-value">90%+</div><div class="stat-label">代码自产率</div></div>
+                    <div class="stat-item"><div class="stat-value">52x</div><div class="stat-label">收入倍数</div></div>
+                </div>
+                <div class="entry-insight">"AI 替代初级开发者"已从概念进入规模商业验证。$260B vs $492M ARR ≈ 52x——市场对 AI 编码 Agent 估值极度激进。</div>
+            </div>
+
+            <!-- Entry 7 -->
+            <div class="entry">
+                <div class="entry-number">7</div>
+                <div class="entry-meta">
+                    <span class="entry-tag red">AI 安全</span>
+                    <span class="entry-tag">网络攻击</span>
+                </div>
+                <h2>首次 LLM Agent 自主网络攻击被记录：不到 1 小时窃取 AWS 数据库</h2>
+                <div class="entry-body">
+                    <p>Sysdig 记录了<strong>首次 LLM Agent 完全自主执行后渗透攻击</strong>：利用 CVE-2026-48710（"BadHost"）Starlette Host 头注入漏洞，自主完成漏洞发现→代码生成→提权→数据窃取全链路。</p>
+                    <p>影响范围：数百万 AI Agent 服务器、FastAPI、vLLM、LiteLLM、MCP 服务器。全程无人工干预，总耗时不到 1 小时。补丁已发布。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">&lt;1h</div><div class="stat-label">攻击耗时</div></div>
+                    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">人工干预</div></div>
+                    <div class="stat-item"><div class="stat-value">百万+</div><div class="stat-label">受影响服务器</div></div>
+                </div>
+                <div class="entry-insight">AI Agent 不仅能发现漏洞，还能自主完成整个攻击链——AI 安全从"假设性威胁"正式升级为"生产环境现实"。</div>
+            </div>
+
+            <!-- Entry 8 -->
+            <div class="entry">
+                <div class="entry-number">8</div>
+                <div class="entry-meta">
+                    <span class="entry-tag cyan">AI 行业</span>
+                    <span class="entry-tag green">中国</span>
+                </div>
+                <h2>中国 AI 产业报告：6000+ 企业、1.2万亿规模，2026 为转折之年</h2>
+                <div class="entry-body">
+                    <p>2026世界智能产业博览会（天津，5/28-31）发布《中国新一代人工智能科技产业发展报告2026》：AI 企业超 <strong>6000家</strong>，核心产业规模突破 <strong>1.2万亿元</strong>（同比+30%）。</p>
+                    <p>国产开源大模型全球累计下载量突破 100亿次。中国已成为 AI 专利最大拥有国。报告宣告2026年为"转折之年"——大模型、智能体与具身智能大量走向应用。</p>
+                </div>
+                <div class="entry-stats">
+                    <div class="stat-item"><div class="stat-value">6,000+</div><div class="stat-label">AI 企业</div></div>
+                    <div class="stat-item"><div class="stat-value">¥1.2万亿</div><div class="stat-label">核心产业规模</div></div>
+                    <div class="stat-item"><div class="stat-value">100亿+</div><div class="stat-label">开源下载量</div></div>
+                    <div class="stat-item"><div class="stat-value">30%</div><div class="stat-label">同比增长</div></div>
+                </div>
+                <div class="entry-insight">Anthropic 冲刺万亿、NVIDIA 发 AI PC 的同一天，中国用数据证明其 AI 规模化已不容忽视——6000+企业构成硅谷平行的第二极。</div>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="data-section">
+            <h3>📊 今日核心数据一览</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>指标</th><th>数值</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Anthropic 估值</td><td>$965B（全球最贵 AI 公司）</td></tr>
+                    <tr><td>Anthropic 年化营收</td><td>$47B</td></tr>
+                    <tr><td>NVIDIA RTX Spark CUDA 核心</td><td>6,144</td></tr>
+                    <tr><td>Cognition (Devin) 年化营收</td><td>$492M（1230% YoY）</td></tr>
+                    <tr><td>GitHub Copilot 极端月费</td><td>~$750（原 $29）</td></tr>
+                    <tr><td>中国 AI 核心产业规模</td><td>¥1.2万亿</td></tr>
+                    <tr><td>中国 AI 企业数量</td><td>6,000+</td></tr>
+                    <tr><td>Computex 2026 参展商</td><td>1,500家 / 33国</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>AI 每日日报 · 2026-06-02 · 数据来源: TechCrunch, Bloomberg, CNBC, TechRadar, 36Kr, 新华社, Sysdig, ChatForest</p>
+            <p style="margin-top: 0.5rem;">Powered by WorkBuddy Automation</p>
+        </div>
+    </div>
+</body>
+</html>
