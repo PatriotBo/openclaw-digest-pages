@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年6月5日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --bg: #0f0f23;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #1f1f35;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-bright: #f8fafc;
+            --accent-red: #ef4444;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-yellow: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --accent-orange: #f97316;
+            --border: #2d2d4a;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e2e8f0 0%, #818cf8 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .header .date {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            position: relative;
+        }
+
+        /* Theme Banner */
+        .theme-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+        }
+
+        .theme-banner h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .theme-banner p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .theme-banner strong {
+            color: var(--text-bright);
+        }
+
+        /* News Cards */
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+        }
+
+        .news-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .news-card-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .news-card:nth-child(1) .news-card-number { background: var(--accent-red); }
+        .news-card:nth-child(2) .news-card-number { background: var(--accent-blue); }
+        .news-card:nth-child(3) .news-card-number { background: var(--accent-green); }
+        .news-card:nth-child(4) .news-card-number { background: var(--accent-purple); }
+        .news-card:nth-child(5) .news-card-number { background: var(--accent-orange); }
+        .news-card:nth-child(6) .news-card-number { background: var(--accent-cyan); }
+        .news-card:nth-child(7) .news-card-number { background: var(--accent-pink); }
+        .news-card:nth-child(8) .news-card-number { background: var(--accent-yellow); }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            line-height: 1.4;
+        }
+
+        .news-card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .news-card-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .news-card-body {
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .news-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0;
+        }
+
+        .news-card-body ul li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+        }
+
+        .news-card-body ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .news-card-body strong {
+            color: var(--text-bright);
+            font-weight: 600;
+        }
+
+        .news-card-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+
+        .news-card-table th {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-card-table td {
+            padding: 0.5rem 0.8rem;
+            border-bottom: 1px solid rgba(45, 45, 74, 0.5);
+            color: var(--text);
+        }
+
+        .news-card-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .analysis-box {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .analysis-box strong {
+            color: var(--primary-light);
+        }
+
+        /* Summary */
+        .summary {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .summary h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-item {
+            padding: 1rem 1.25rem;
+            background: rgba(15, 15, 35, 0.5);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .summary-item h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .summary-conclusion {
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.8;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            .header { padding: 2rem 1.25rem; }
+            .header h1 { font-size: 1.6rem; }
+            .news-card { padding: 1.5rem; }
+            .news-card-title { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">📡 AI Daily Digest #32</div>
+            <h1>AI 每日日报</h1>
+            <p class="date">2026年6月5日 · 周四</p>
+        </header>
+
+        <div class="theme-banner">
+            <h2>📌 本期主题</h2>
+            <p><strong>"监管+自研+基建"三重共振</strong> — Trump 签署 AI 行政令要求前沿模型预审、微软 Build 2026 发布 7 款 MAI 自研模型脱离 OpenAI 依赖、COMPUTEX 2026 收官日确认 Agentic AI 产业转型、Anthropic IPO 申请与 S-1 机密递交推动万亿美元估值竞赛进入倒计时。</p>
+        </div>
+
+        <div class="news-cards">
+            <!-- Card 1 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">1</div>
+                    <h3 class="news-card-title">🇺🇸 Trump 签署 AI 行政令：前沿模型须自愿向政府预审</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 White House / CNBC / CBS News</span>
+                    <span>📅 2026-06-02</span>
+                </div>
+                <div class="news-card-body">
+                    <p>美国总统特朗普签署行政令《促进先进人工智能创新与安全》(Executive Order 14409)，核心要求：</p>
+                    <ul>
+                        <li><strong>自愿预审框架</strong>：AI 开发者可自愿在发布前 30 天将前沿模型提交联邦机构安全评估</li>
+                        <li><strong>分类基准测试</strong>：NSA 建立机密基准，识别前沿模型网络攻击能力等级</li>
+                        <li><strong>AI 网络安全交换中心</strong>：覆盖乡村医院、社区银行等关键基础设施</li>
+                        <li><strong>明确禁止强制许可</strong>：不构成任何强制性预审或许可要求</li>
+                        <li><strong>刑事优先起诉</strong>：DOJ 优先起诉利用 AI 非法入侵系统的犯罪行为</li>
+                    </ul>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>拜登 AI 行政令被撤销后首个系统性 AI 安全政策。"自愿"框架巧妙平衡安全与创新——既给政府审视前沿模型的窗口，又避免强制许可阻碍创新。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">2</div>
+                    <h3 class="news-card-title">🏢 微软 Build 2026：7 款 MAI 自研模型发布，正式"去 OpenAI 化"</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 Microsoft AI / CNBC / 腾讯新闻</span>
+                    <span>📅 2026-06-02</span>
+                </div>
+                <div class="news-card-body">
+                    <p>微软由 Mustafa Suleyman 率队发布 7 款自研 MAI 模型：</p>
+                    <table class="news-card-table">
+                        <thead>
+                            <tr><th>模型</th><th>定位</th><th>亮点</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>MAI-Thinking-1</td><td>旗舰推理</td><td>SWE Bench Pro 匹配 Claude Opus 4.6</td></tr>
+                            <tr><td>MAI-Code-1-Flash</td><td>低延迟编程</td><td>原生部署于 VS Code / Copilot</td></tr>
+                            <tr><td>MAI-Image-2.5</td><td>图像生成</td><td>Arena ELO 超越 Nano Banana Pro</td></tr>
+                            <tr><td>MAI-Transcribe-1.5</td><td>音频转录</td><td>43 种语言低延迟</td></tr>
+                            <tr><td>MAI-Voice-2</td><td>语音合成</td><td>15 个新增语言区域</td></tr>
+                            <tr><td>MAI-Video-1</td><td>视频生成</td><td>多轮编辑</td></tr>
+                            <tr><td>MAI-Embed-2</td><td>嵌入检索</td><td>企业 RAG 优化</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>微软"Project Polaris"全面落地。MAI-Code-1-Flash 直接替换 Copilot 中的 GPT-4 Turbo，标志着微软-OpenAI 关系进入"合作但竞争"新阶段。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">3</div>
+                    <h3 class="news-card-title">📡 COMPUTEX 2026 收官：Agentic AI 取代芯片性能成产业主线</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 Counterpoint Research / 凤凰科技 / InfoTechLead</span>
+                    <span>📅 2026-06-02~05</span>
+                </div>
+                <div class="news-card-body">
+                    <p>COMPUTEX 2026 以"AI Together"为主题，1500 家企业、6000 展位、33 国参展：</p>
+                    <ul>
+                        <li><strong>NVIDIA</strong>：Vera Rubin 全面量产 + RTX Spark AI PC + Nemotron 3 Ultra + GR00T N2 机器人 + DLSS 4.5</li>
+                        <li><strong>Intel</strong>：新一代 Xeon-D AI 服务器芯片 + Gaudi 4 加速器</li>
+                        <li><strong>AMD</strong>：MI450X AI 加速卡 + Ryzen AI Pro 系列</li>
+                        <li><strong>Qualcomm + ASUS</strong>：80 TOPS AI Mini PC</li>
+                        <li><strong>Micron</strong>：HBM4 内存正式量产</li>
+                    </ul>
+                    <div class="analysis-box">
+                        <strong>Counterpoint 洞察：</strong>AI 产业竞争正从"芯片性能比拼"转向"完整 AI 平台生态"——从芯片到 Agent 部署的端到端方案成为关键。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">4</div>
+                    <h3 class="news-card-title">📄 Anthropic 机密递交 S-1：秋季 IPO 目标估值万亿美元</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 TechCrunch / AP / CNN / Fortune</span>
+                    <span>📅 2026-06-01</span>
+                </div>
+                <div class="news-card-body">
+                    <p>Anthropic 向 SEC 机密递交 S-1 招股书：</p>
+                    <table class="news-card-table">
+                        <thead>
+                            <tr><th>指标</th><th>数据</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>最新估值</td><td>$965B（H 轮 $65B 后）</td></tr>
+                            <tr><td>目标 IPO 估值</td><td>突破 $1T</td></tr>
+                            <tr><td>承销商</td><td>高盛 + 摩根大通</td></tr>
+                            <tr><td>时间表</td><td>最快 2026 秋季</td></tr>
+                            <tr><td>ARR</td><td>$47B</td></tr>
+                            <tr><td>盈利状态</td><td>首次季度盈利</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>从"低调研究实验室"到"万亿 IPO"仅 3.5 年。S-1 递交时间恰在 Trump AI 行政令前一天，可能有意在新监管框架落地前锁定窗口。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">5</div>
+                    <h3 class="news-card-title">💻 OpenAI Codex 扩展：从编程 Agent 进化为企业工作流平台</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 The AI Track / OpenAI</span>
+                    <span>📅 2026-06-02</span>
+                </div>
+                <div class="news-card-body">
+                    <p>OpenAI 为 Codex 添加三大企业级功能：</p>
+                    <ul>
+                        <li><strong>Sites</strong>：Agent 可直接生成、部署和管理完整网站</li>
+                        <li><strong>Annotations</strong>：代码审查中的智能批注系统，支持团队协作</li>
+                        <li><strong>Enterprise Workflow Plugins</strong>：将 Agent 能力扩展至非编程业务流程</li>
+                    </ul>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>Codex 正从"AI 编程助手"变为"AI 企业操作系统"。Sites 对标 Vercel + AI，Workflow Plugins 瞄准 Zapier/Make 自动化市场。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">6</div>
+                    <h3 class="news-card-title">🇨🇳 DeepSeek V4.1 定档 6 月：首次多模态 + 企业级工具集成</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 AI Product Hub / CSDN / 腾讯新闻</span>
+                    <span>📅 2026-05-26 宣布</span>
+                </div>
+                <div class="news-card-body">
+                    <p>DeepSeek V4.1 确认 6 月发布，三大核心升级：</p>
+                    <ul>
+                        <li><strong>首次多模态</strong>：集成图像和音频理解能力</li>
+                        <li><strong>企业级工具链</strong>：原生集成代码执行、网络搜索、文件处理</li>
+                        <li><strong>融资背景</strong>：梁文锋自掏 200 亿领投，首轮 500 亿创中国 AI 史上最大单笔</li>
+                    </ul>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>V4 以极低价格（Claude Opus 4.7 的 1/8）冲击市场，V4.1 加上多模态后将进一步压缩西方厂商定价空间。500 亿融资表明"不融资"标签已彻底撕下。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">7</div>
+                    <h3 class="news-card-title">🇪🇺 欧盟提出《云与人工智能发展法案》：数据主权 + 主权计算</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 欧盟委员会 / devFlokers</span>
+                    <span>📅 2026-06-03</span>
+                </div>
+                <div class="news-card-body">
+                    <p>欧盟正式提出 Cloud and AI Development Act：</p>
+                    <ul>
+                        <li><strong>数据本地化</strong>：欧洲公民数据 AI 处理须在境内完成</li>
+                        <li><strong>主权计算生态</strong>：建立独立云基础设施和 AI 训练集群</li>
+                        <li><strong>影响范围</strong>：所有在欧盟运营的 AI 公司均需合规</li>
+                    </ul>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>继 EU AI Act 之后再出重拳，直接瞄准基础设施层。Anthropic/OpenAI 要么在欧洲建数据中心，要么面临退出市场风险。
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="news-card">
+                <div class="news-card-header">
+                    <div class="news-card-number">8</div>
+                    <h3 class="news-card-title">📊 斯坦福 2026 AI 指数：中美差距仅 2.7%，初级开发岗减少 20%</h3>
+                </div>
+                <div class="news-card-meta">
+                    <span>📰 Stanford HAI / devFlokers</span>
+                    <span>📅 2026年6月</span>
+                </div>
+                <div class="news-card-body">
+                    <table class="news-card-table">
+                        <thead>
+                            <tr><th>指标</th><th>数据</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>中美顶级模型性能差距</td><td>仅 2.7%</td></tr>
+                            <tr><td>Grok 4 训练碳排放</td><td>72,816 吨 CO₂（= 17,000 辆车全年）</td></tr>
+                            <tr><td>2025 年 AI 企业投资</td><td>$581B（私人 +130%）</td></tr>
+                            <tr><td>初级软件开发岗位</td><td>减少近 20%</td></tr>
+                            <tr><td>赴美 AI 访问学者</td><td>自 2017 年下降 89%</td></tr>
+                            <tr><td>中国政府 AI 投入</td><td>$912B（2000-2023）</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="analysis-box">
+                        <strong>分析：</strong>"2.7% 差距"最具冲击力——中国 AI 能力层面已基本追平，而成本仅为 1/3-1/8。初级开发岗减少 20% 是 AI 对就业冲击的最新实证。
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Summary -->
+        <section class="summary">
+            <h2>📌 本日总结</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>🏛️ 监管落地</h3>
+                    <p>Trump AI 行政令（自愿预审）+ 欧盟云法案（数据主权）= 全球 AI 监管框架同步收紧</p>
+                </div>
+                <div class="summary-item">
+                    <h3>🔧 自研加速</h3>
+                    <p>微软 7 款 MAI（脱离 OpenAI）+ DeepSeek V4.1（多模态追赶）= 垂直整合成为生存必需</p>
+                </div>
+                <div class="summary-item">
+                    <h3>🏗️ 基建竞赛</h3>
+                    <p>COMPUTEX 全产业链（NVIDIA/Intel/AMD）+ Anthropic 万亿 IPO = 从"模型即产品"转向"平台即壁垒"</p>
+                </div>
+            </div>
+            <p class="summary-conclusion">
+                <strong>核心矛盾：</strong>当监管要求"预审"，企业却在"加速自研"——这两者之间的张力将定义 2026 下半年 AI 产业走向。
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>AI 每日日报 #32 · 生成时间: 2026-06-05 21:30 CST</p>
+        </footer>
+    </div>
+</body>
+</html>
