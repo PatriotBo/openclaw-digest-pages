@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年6月9日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #141420;
+            --surface-hover: #1a1a2e;
+            --border: #2a2a3e;
+            --text: #e8e8f0;
+            --text-muted: #8888a8;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --green: #10b981;
+            --orange: #f59e0b;
+            --red: #ef4444;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 50%, #24243e 100%);
+            padding: 80px 24px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(99,102,241,0.08) 0%, transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #e8e8f0 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .date {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .hero .theme {
+            display: inline-block;
+            background: var(--accent-glow);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 24px;
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            color: #a5b4fc;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        
+        .entry {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .entry:hover {
+            background: var(--surface-hover);
+            border-color: rgba(99,102,241,0.3);
+            box-shadow: 0 8px 32px rgba(99,102,241,0.08);
+            transform: translateY(-2px);
+        }
+        
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .entry-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-glow);
+            border-radius: 12px;
+        }
+        
+        .entry-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .entry-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tag-apple { background: rgba(99,102,241,0.15); color: #a5b4fc; }
+        .tag-china { background: rgba(239,68,68,0.15); color: #fca5a5; }
+        .tag-funding { background: rgba(245,158,11,0.15); color: #fcd34d; }
+        .tag-model { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+        .tag-tools { background: rgba(139,92,246,0.15); color: #c4b5fd; }
+        .tag-infra { background: rgba(59,130,246,0.15); color: #93c5fd; }
+        .tag-data { background: rgba(236,72,153,0.15); color: #f9a8d4; }
+        
+        .entry-body { color: var(--text-muted); font-size: 0.95rem; }
+        .entry-body ul { padding-left: 20px; margin: 8px 0; }
+        .entry-body li { margin-bottom: 6px; }
+        .entry-body strong { color: var(--text); font-weight: 500; }
+        
+        .entry-significance {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: rgba(99,102,241,0.06);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #a5b4fc;
+        }
+        
+        .entry-source {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .entry-source a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .entry-source a:hover { text-decoration: underline; }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background: rgba(99,102,241,0.1);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #a5b4fc;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(42,42,62,0.5);
+            color: var(--text-muted);
+        }
+        
+        .data-table tr:hover td { background: rgba(99,102,241,0.03); }
+        
+        .quick-news {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 40px;
+        }
+        
+        .quick-news h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .quick-news-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(42,42,62,0.5);
+            align-items: flex-start;
+        }
+        
+        .quick-news-item:last-child { border-bottom: none; }
+        
+        .quick-news-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 640px) {
+            .hero { padding: 60px 16px 40px; }
+            .hero h1 { font-size: 1.8rem; }
+            .container { padding: 24px 16px; }
+            .entry { padding: 20px; }
+            .entry-header { flex-direction: column; gap: 8px; }
+            .entry-title { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>AI 每日日报</h1>
+            <div class="date">2026年6月9日 · 周一</div>
+            <div class="theme">🍎 苹果 WWDC 全面拥抱 AI + 中国大模型调用量全球碾压式领先</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Entry 1 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🍎</div>
+                <div class="entry-title">苹果 WWDC 2026：Siri 换脑 Gemini，iOS 27 全面 AI 化</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-apple">WWDC</span>
+                <span class="tag tag-model">Gemini</span>
+            </div>
+            <div class="entry-body">
+                <p>库克卸任前的"谢幕之作"——苹果发布自 2011 年以来对 Siri 最彻底的重构：</p>
+                <ul>
+                    <li><strong>Siri 变身独立 App</strong>：类 ChatGPT 聊天界面，支持跨应用操作、屏幕感知、个人情境理解</li>
+                    <li><strong>底层切换 Gemini</strong>：苹果与 Google 合作定制（国行暂不支持）</li>
+                    <li><strong>第三方模型自由切换</strong>：ChatGPT、Claude 可设为默认引擎</li>
+                    <li><strong>iOS 27 AI 三件套</strong>：相机 Visual Intelligence、相册 AI 扩图/重构/消除、自然语言图片编辑</li>
+                    <li><strong>macOS Golden Gate</strong>：Safari 智能标签整理、自然语言快捷指令、系统级语法检查</li>
+                    <li><strong>性能飞跃</strong>：内存 -20%，续航 +1-2h，AirDrop +80%</li>
+                </ul>
+            </div>
+            <div class="entry-significance">苹果选择 Gemini 而非 GPT 是对 Google-Apple 联盟的巨大加码，同时开放第三方接口定位为"AI 操作系统"而非"AI 模型厂商"。</div>
+            <div class="entry-source">来源：<a href="https://finance.sina.com.cn/roll/2026-06-09/doc-iniatxxe3470802.shtml" target="_blank">ZOL / 新浪财经</a></div>
+        </div>
+        
+        <!-- Entry 2 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🧠</div>
+                <div class="entry-title">苹果发布 Core AI 框架：开发者可在设备端部署自定义 AI 模型</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-apple">WWDC</span>
+                <span class="tag tag-tools">Developer</span>
+            </div>
+            <div class="entry-body">
+                <ul>
+                    <li><strong>Core AI 框架</strong>：为 Apple 芯片统一内存 + 神经网络引擎优化，支持设备端自定义模型部署</li>
+                    <li><strong>新 Xcode 集成 Agent 编码工作流</strong>：AI 辅助开发成为一等公民</li>
+                    <li><strong>Foundation Models 框架升级</strong>：突破文本限制，支持多模态 AI 应用</li>
+                    <li><strong>Python 工具链</strong>：模型转换/创作/优化完整生态</li>
+                </ul>
+            </div>
+            <div class="entry-significance">Core AI 给开源模型（DeepSeek/Llama/Qwen）在 Apple 设备上的本地部署打开了官方通道——不做最强模型，做最好的模型运行环境。</div>
+            <div class="entry-source">来源：<a href="https://developer.apple.com/videos/play/wwdc2026/324/" target="_blank">Apple Developer</a></div>
+        </div>
+        
+        <!-- Entry 3 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🇨🇳</div>
+                <div class="entry-title">中国大模型调用量连续 6 周全球第一：前 5 占 4 席，Claude 跌出前五</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-china">China</span>
+                <span class="tag tag-data">Data</span>
+            </div>
+            <div class="entry-body">
+                <p>OpenRouter 6月1-7日数据，中国模型全面碾压：</p>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>排名</th><th>模型</th><th>周调用量</th><th>环比</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>DeepSeek-V4-Flash</strong></td><td>3.69 万亿</td><td>+19%</td></tr>
+                        <tr><td>2</td><td><strong>腾讯 Hy3</strong></td><td>2.94 万亿</td><td>-3%</td></tr>
+                        <tr><td>3</td><td><strong>MiniMax M3</strong></td><td>2.50 万亿</td><td>🆕</td></tr>
+                        <tr><td>4</td><td><strong>小米 MiMo-V2.5</strong></td><td>2.19 万亿</td><td>+50%</td></tr>
+                    </tbody>
+                </table>
+                <ul>
+                    <li>全球总量 36.1 万亿 Token，连续七周上涨</li>
+                    <li>中国 14.19 万亿（+27.49%）vs 美国 3.2 万亿（-24.53%）</li>
+                    <li>Claude Sonnet 4.6 / Opus 4.7 双双跌出前五</li>
+                </ul>
+            </div>
+            <div class="entry-significance">开发者在用钱包投票：性能够用 + 价格低 1/3~1/8 = 碾压式迁移。中国模型占据全球调用量绝对主导地位。</div>
+            <div class="entry-source">来源：<a href="https://www.21jingji.com/article/20260608/herald/8c5e88efd82496d28202b1a72b343e1a.html" target="_blank">21经济网 / 每日经济新闻</a></div>
+        </div>
+        
+        <!-- Entry 4 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">💰</div>
+                <div class="entry-title">DeepSeek 首轮 500 亿元融资即将完成：腾讯 100 亿、宁德时代 50 亿</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-funding">Funding</span>
+                <span class="tag tag-china">China</span>
+            </div>
+            <div class="entry-body">
+                <ul>
+                    <li><strong>融资规模</strong>：约 500 亿元（$74 亿），创国内 AI 单笔新高</li>
+                    <li><strong>估值</strong>：3500-4000 亿元（$520-590 亿）</li>
+                    <li><strong>核心投资方</strong>：腾讯（100 亿）、宁德时代（50 亿）、国家 AI 产业基金</li>
+                    <li><strong>其他谈判方</strong>：网易、京东，投资方总数 < 10 家</li>
+                    <li><strong>估值飙升</strong>：年初 $100 亿 → V4 爆发后 $590 亿（约 5 个月 6x）</li>
+                </ul>
+            </div>
+            <div class="entry-significance">互联网（腾讯）+ 新能源（宁德时代）+ 主权资本三方齐入，DeepSeek 从"技术黑马"晋升为国家级 AI 基础设施。</div>
+            <div class="entry-source">来源：<a href="https://finance.sina.com.cn/tech/roll/2026-06-03/doc-iniacnus0895836.shtml" target="_blank">路透社 / TechWeb</a></div>
+        </div>
+        
+        <!-- Entry 5 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🚀</div>
+                <div class="entry-title">MiniMax M3：国内首个编程 + 1M 上下文 + 多模态三合一旗舰模型</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-model">Model</span>
+                <span class="tag tag-china">开源</span>
+            </div>
+            <div class="entry-body">
+                <ul>
+                    <li><strong>三合一</strong>：前沿 Coding + 1M 上下文 + 原生多模态——国内首个兼备</li>
+                    <li><strong>自研 MSA 架构</strong>：CUDA 内核加速 9.4 倍</li>
+                    <li><strong>SWE-Bench Pro</strong>：超 GPT-5.5 和 Gemini 3.1 Pro，接近 Claude Opus 4.7</li>
+                    <li><strong>12 小时无人值守</strong>自动训练出 4 个模型</li>
+                    <li><strong>发布首周即进 OpenRouter 全球前三</strong></li>
+                    <li><strong>港股市值</strong>：2634 亿港元，较 IPO +409%</li>
+                </ul>
+            </div>
+            <div class="entry-significance">"开源 + 全能"路线商业可行性验证。首周冲进全球前三证明市场对兼具编程和长上下文能力模型的巨大刚需。</div>
+            <div class="entry-source">来源：<a href="https://news.qq.com/rain/a/20260601A05BUS00" target="_blank">智东西 / MiniMax</a></div>
+        </div>
+        
+        <!-- Entry 6 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🛠️</div>
+                <div class="entry-title">AI 编程进入"Agent 自治"时代：Claude Code / Cursor / Codex 三分天下</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-tools">Coding</span>
+                <span class="tag tag-tools">Agent</span>
+            </div>
+            <div class="entry-body">
+                <ul>
+                    <li><strong>Claude Code</strong>：SWE-Bench 领先，Auto Mode 全自主开发</li>
+                    <li><strong>Cursor</strong>：官方插件生态，年收入 $20 亿，Gartner 领导者</li>
+                    <li><strong>Codex</strong>：OpenAI 免费策略 + Enterprise Workflow Plugins</li>
+                    <li><strong>ECC 治理框架</strong>（GitHub 19 万 Stars）：
+                        <ul>
+                            <li>为 AI Agent 提供技能/本能/记忆/安全工程化增强</li>
+                            <li>支持 Claude Code、Cursor、Codex、OpenCode、Gemini 多平台</li>
+                            <li>核心理念："给自治 Agent 装上安全带和方向盘"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="entry-significance">从"代码补全"到"Agent 自治"的范式转换已完成。ECC 爆发增长证明开发者最关心的不再是"模型多强"，而是"如何治理失控的 AI Agent"。</div>
+            <div class="entry-source">来源：<a href="https://juejin.cn/post/7646622729529737256" target="_blank">掘金 / 腾讯云开发者</a></div>
+        </div>
+        
+        <!-- Entry 7 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">📊</div>
+                <div class="entry-title">OpenRouter 6 月双轨排行：DeepSeek 10.9T Token 领跑，中国占 46%</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-data">Analytics</span>
+                <span class="tag tag-china">Market</span>
+            </div>
+            <div class="entry-body">
+                <ul>
+                    <li><strong>DeepSeek 单品牌</strong>：占平台 17.6%（所有型号合计约 10.9T Token）</li>
+                    <li><strong>中国模型总占比</strong>：46%（可识别来源 Token 量）</li>
+                    <li><strong>Claude</strong>：按收入仍是最大来源，按量已被中国远超</li>
+                    <li><strong>平台规模</strong>：300+ 模型 / 60+ 提供商 / 月 ~100T Token / 800 万用户</li>
+                    <li><strong>六大趋势</strong>：1M 上下文标配 / MoE 主流 / Agent 必备 / 免费模型爆发 / 双轨评价 / 中国默认化</li>
+                </ul>
+            </div>
+            <div class="entry-significance">"Billing data does not lie"——按量计中国碾压，按收入计美国领先，这个价格剪刀差是行业最大结构性张力。</div>
+            <div class="entry-source">来源：<a href="https://pro.stockalarm.io/blog/openrouter-llm-rankings-investor-analysis" target="_blank">StockAlarm / VPSMac / MacGPU</a></div>
+        </div>
+        
+        <!-- Entry 8 -->
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🏭</div>
+                <div class="entry-title">英伟达 GTC 台北：AI 从"生成内容"进入"执行任务"，Agentic AI 为核心</div>
+            </div>
+            <div class="entry-meta">
+                <span class="tag tag-infra">Infrastructure</span>
+                <span class="tag tag-model">Agentic</span>
+            </div>
+            <div class="entry-body">
+                <ul>
+                    <li><strong>黄仁勋核心论断</strong>：AI 全面进入"执行任务"阶段，Agentic AI 是下一代核心工作负载</li>
+                    <li><strong>RTX Spark</strong>：首款 Arm PC 芯片，6144 CUDA + 20 核 Grace，128GB 统一内存，1 PFLOP AI 算力</li>
+                    <li><strong>Vera Rubin</strong>：35x Blackwell 吞吐，200 万零件/系统，Q3/Q4 量产</li>
+                    <li><strong>COMPUTEX 2026</strong>：1500 企业 / 33 国 / 6000 展位</li>
+                </ul>
+            </div>
+            <div class="entry-significance">"Agentic AI"定调与苹果 Core AI 形成呼应——行业从"谁的模型最强"转向"谁能让 Agent 最高效地执行任务"。</div>
+            <div class="entry-source">来源：<a href="https://news.qq.com/rain/a/20260601A06D2P00" target="_blank">腾讯新闻 / COMPUTEX</a></div>
+        </div>
+        
+        <!-- Quick News -->
+        <div class="quick-news">
+            <h2>📰 一周回顾快讯</h2>
+            <div class="quick-news-item">
+                <div class="quick-news-dot" style="background: var(--purple);"></div>
+                <div><strong>Anthropic S-1 秘密递交</strong> — $965B 估值，秋季上市目标，Goldman+JPM 承销</div>
+            </div>
+            <div class="quick-news-item">
+                <div class="quick-news-dot" style="background: var(--blue);"></div>
+                <div><strong>微软 Build 2026 七款 MAI 模型</strong> — MAI-Thinking-1 零蒸馏自研，减少对 OpenAI 依赖</div>
+            </div>
+            <div class="quick-news-item">
+                <div class="quick-news-dot" style="background: var(--green);"></div>
+                <div><strong>小米 MiMo-V2.5 永久降价</strong> — 最高降幅 99%，取消上下文窗口分档计费</div>
+            </div>
+            <div class="quick-news-item">
+                <div class="quick-news-dot" style="background: var(--orange);"></div>
+                <div><strong>Cursor 年收入 $20 亿</strong> — AI 编程 Agent 领域 Gartner 领导者象限</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>AI 每日日报 · 生成时间 2026-06-09 21:30 CST</p>
+        <p>数据来源：Web Search（8 searches + 2 web_fetch deep-dives）</p>
+    </div>
+</body>
+</html>
