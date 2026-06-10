@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年6月10日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --accent: #f59e0b;
+            --bg: #0f0f14;
+            --bg-card: #1a1a24;
+            --bg-card-hover: #22222e;
+            --text: #e8e8ed;
+            --text-muted: #9ca3af;
+            --border: #2d2d3a;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --gradient-2: linear-gradient(135deg, #f59e0b, #ef4444);
+            --gradient-3: linear-gradient(135deg, #10b981, #06b6d4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .subtitle strong {
+            color: var(--text);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .meta-tag {
+            padding: 0.25rem 0.6rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 6px;
+            color: var(--primary-light);
+        }
+
+        .card-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-body ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .card-body ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+        }
+
+        .card-body strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .insight {
+            margin-top: 1.2rem;
+            padding: 1rem 1.2rem;
+            background: rgba(245, 158, 11, 0.06);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .insight strong {
+            color: var(--accent);
+        }
+
+        /* Data Table */
+        .data-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .data-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .data-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .data-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        /* Trends */
+        .trends-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .trends-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .trend-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .trend-item:last-child {
+            border-bottom: none;
+        }
+
+        .trend-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-1);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            margin-right: 0.75rem;
+        }
+
+        .trend-title {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .trend-desc {
+            margin-top: 0.5rem;
+            padding-left: 2.4rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .card-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="date-badge">
+                    <span>📅</span>
+                    <span>2026年6月10日 · 周二</span>
+                </div>
+                <h1>AI 每日日报</h1>
+                <p class="subtitle">
+                    今日主线：<strong>Anthropic 双模型核弹 × 学术界多模态革命 × 中国 AI 资本狂潮</strong><br>
+                    Claude Fable 5/Mythos 5 同日落地，CVPR 2026 在丹佛完美收官，阿里成立 Token Foundry 事业部——AI 行业正在同时完成"能力升级 + 组织变革 + 资本整合"三重跃迁。
+                </p>
+            </div>
+        </header>
+
+        <!-- Entry 1 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">Anthropic 发布 Claude Fable 5 & Mythos 5：首次将"神话级"能力推向公众</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">IT之家</span>
+                <span class="meta-tag">Anthropic 官方</span>
+                <span class="meta-tag">2026-06-09</span>
+            </div>
+            <div class="card-body">
+                <p>Anthropic 深夜发布第五代 Claude 系列双模型：</p>
+                <ul>
+                    <li><strong>Claude Fable 5</strong>：面向所有用户开放，有史以来公开可用能力最强的 Claude 模型。在软件工程、知识工作、视觉理解、科学研究全面超越 Opus 系列。自主运行时间最长。</li>
+                    <li><strong>Claude Mythos 5</strong>：仅通过 Project Glasswing 向网络安全防御方开放。蛋白设计提速 ~10x，14 个蛋白目标中 9 个产出强候选方案。</li>
+                    <li><strong>安全创新</strong>：新分类器系统对网络安全/生化/蒸馏请求自动拦截并回退至 Opus 4.8 响应。两款模型为同一底座，仅安全护栏不同。</li>
+                    <li><strong>定价</strong>：$10/M 输入，$50/M 输出（与 Opus 4.8 持平）。</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>Anthropic 首次将 Mythos 级能力拆分为"公众可用版"与"受限版"双轨发布——不再是"全放"或"全锁"，而是"按场景分级开放"，这是 AI 安全治理的里程碑式实践。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 2 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">🎓</div>
+                <h3 class="card-title">CVPR 2026 丹佛收官：D4RT 斩获最佳论文，多模态 AI 占比翻倍</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">CVF 官方</span>
+                <span class="meta-tag">AI2Work</span>
+                <span class="meta-tag">2026-06-09</span>
+            </div>
+            <div class="card-body">
+                <p>计算机视觉顶会 CVPR 2026 在丹佛完美收官：</p>
+                <ul>
+                    <li><strong>创纪录规模</strong>：16,092 篇投稿（历史新高），4,089 篇录取（+42% YoY），10,000+ 参会者</li>
+                    <li><strong>最佳论文 D4RT</strong>（DeepMind/UCL/牛津）：统一 Transformer 从单一视频推断 4D 场景重建，实现 SOTA</li>
+                    <li><strong>多模态趋势</strong>：视觉-语言论文占比从 4.9% → 10.6%（近年最大单类别涨幅）</li>
+                    <li><strong>具身 AI 商业化</strong>：100+ 公司参展，NVIDIA/Tesla/Waymo 展示落地产品</li>
+                    <li><strong>亮点论文</strong>：SAM 3D、tttLRM（测试时训练进入视觉）、NitroGen（通用游戏智能体）</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>CVPR 2026 发出明确信号——2027 年主导部署的视觉架构将是根本性的多模态架构，视觉理解建立在语言和行动之上，而非纯粹识别。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 3 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">🏢</div>
+                <h3 class="card-title">阿里巴巴成立 Token Foundry 事业部：通义 + 未来生活实验室合并</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">凤凰科技</span>
+                <span class="meta-tag">时代财经</span>
+                <span class="meta-tag">2026-06-08</span>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>合并对象</strong>：通义大模型事业部 + 未来生活实验室</li>
+                    <li><strong>新实体</strong>：Token Foundry 事业部，CEO 吴泳铭直接负责</li>
+                    <li><strong>战略定位</strong>："创造 Token、输送 Token、应用 Token"三大环节统筹</li>
+                    <li><strong>人事变动</strong>：周靖人出任集团首席科学家，牵头成立 AI 未来研究院</li>
+                    <li>整合大模型研发与视频生成等 AI 应用能力，从"百花齐放"进入"集中火力"阶段</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>"Token Foundry"（Token 铸造厂）这个命名极具野心——不是做一个模型，而是要成为 Token 经济的基础设施提供者。CEO 直接挂帅意味着集团级战略押注。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 4 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">🍎</div>
+                <h3 class="card-title">Apple WWDC 2026：Siri AI 重生，全面拥抱 Gemini，库克最后一届</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">Apple Newsroom</span>
+                <span class="meta-tag">TechCrunch</span>
+                <span class="meta-tag">2026-06-09</span>
+            </div>
+            <div class="card-body">
+                <p>库克以 CEO 身份主持的最后一届 WWDC，也是苹果最 AI 密集的发布会：</p>
+                <ul>
+                    <li><strong>Siri AI</strong>：全面重构，底层接入 Gemini，支持第三方模型切换（ChatGPT/Claude）</li>
+                    <li><strong>iOS 27</strong>：Visual Intelligence、AI 照片编辑、Image Playground 升级</li>
+                    <li><strong>macOS Golden Gate</strong>：全新命名，深度集成 AI 能力</li>
+                    <li><strong>性能优化</strong>：内存 -20%、电池 +1-2h、AirDrop +80%</li>
+                    <li><strong>Core AI Framework</strong>：支持 Apple Silicon 本地模型部署 + Xcode Agent 编码工作流</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>苹果不做最强模型，做最强分发。20 亿+设备 × 第三方模型切换 = 为 DeepSeek/Qwen/Llama 开辟官方上设备通道——中国 AI 模型走向全球消费端的关键窗口。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 5 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">📈</div>
+                <h3 class="card-title">中国大模型"A+H"IPO 潮：智谱、MiniMax 双双冲刺科创板</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">证券时报</span>
+                <span class="meta-tag">新浪财经</span>
+                <span class="meta-tag">2026-06-01</span>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>智谱</strong>（港股市值 ~7000 亿港元）：董事会通过科创板 A 股发行，拟募资 150 亿元，构建"A+H"双资本平台</li>
+                    <li><strong>MiniMax</strong>：5/29 向上海证监局提交 IPO 辅导备案，辅导券商中信证券</li>
+                    <li>两家均于 2026 年 1 月前后脚登陆港股，仅 5 个月即启动 A 股进程</li>
+                    <li><strong>更广泛趋势</strong>：宇树科技、云深处等具身智能公司也在密集冲刺 A 股</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>从港股到 A 股仅 5 个月，速度前所未有。科创板正成为中国 AI 公司的"第二融资入口"——港股解决国际化估值，A 股解决人民币资本储备和国内投资者参与。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 6 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">💰</div>
+                <h3 class="card-title">DeepSeek 首轮外部融资 ¥500 亿：从"永不融资"到国产最大单轮</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">MSN</span>
+                <span class="meta-tag">搜狐</span>
+                <span class="meta-tag">2026-05/06</span>
+            </div>
+            <div class="card-body">
+                <p>梁文锋坚持三年的"不融资、不商业化、不路演"铁律正式打破：</p>
+                <ul>
+                    <li><strong>融资金额</strong>：~¥500 亿元（国产大模型单轮融资纪录）</li>
+                    <li><strong>投后估值</strong>：¥3,500-4,000 亿（~$520-590B）</li>
+                    <li><strong>投资方</strong>：腾讯（¥100 亿）、宁德时代（¥50 亿）、国家大基金、网易、京东</li>
+                    <li><strong>创始人出资</strong>：梁文锋个人 ¥200 亿（占比 40%，保持控制权）</li>
+                    <li><strong>V4.1 进展</strong>：定档 6 月发布，首次集成图像+音频输入</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>500 亿的信号不在金额——在于"国家大基金"入场。DeepSeek 从民间极客团队变成国家战略资产。GW 级算力布局意味着与 NVIDIA 超级集群正面竞争。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 7 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">🛠️</div>
+                <h3 class="card-title">OpenClaw v2026.6.1：Skill Workshop 技能治理 + Windows 原生 Agent 节点</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">腾讯云</span>
+                <span class="meta-tag">pangshare</span>
+                <span class="meta-tag">2026-06-03</span>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Skill Workshop</strong>：技能治理平台——创建、审核、版本管理、分发全生命周期</li>
+                    <li><strong>SQLite 状态引擎</strong>：从文件系统迁移至 SQLite，提升 Agent 状态持久化可靠性</li>
+                    <li><strong>Windows 原生支持</strong>：Windows 正式成为 AI Agent 执行节点，可访问屏幕和摄像头</li>
+                    <li><strong>Agent 恢复增强</strong>：CLI 恢复、跨平台工作流稳定性全面提升</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>Skill Workshop 标志着 OpenClaw 从"单体 Agent"向"Agent 生态平台"演进。Windows 原生支持意味着覆盖率从开发者群体扩展到企业桌面。
+                </div>
+            </div>
+        </article>
+
+        <!-- Entry 8 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">⏳</div>
+                <h3 class="card-title">GPT-5.6 即将发布：Codex 日志泄露，150 万 Token 上下文</h3>
+            </div>
+            <div class="card-meta">
+                <span class="meta-tag">36氪</span>
+                <span class="meta-tag">百度百科</span>
+                <span class="meta-tag">2026-05/06</span>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>代号</strong>：iris-alpha（GPT-5.6），ember-alpha、beacon-alpha 同系列</li>
+                    <li><strong>上下文窗口</strong>：150 万 tokens（较 GPT-5.5 的 105 万提升 43%）</li>
+                    <li><strong>发现方式</strong>：多名开发者在 Codex 后端日志中抓包，被描述为"金丝雀测试"</li>
+                    <li><strong>发布时间</strong>：预计 2026 年 6 月内</li>
+                    <li><strong>ChatGPT × Codex 合体</strong>：6/3 已官宣融合，~10 亿用户将直接获得 Agent 能力</li>
+                </ul>
+                <div class="insight">
+                    <strong>💡 编辑点评：</strong>6-8 周迭代节奏已成常态。150 万 token 上下文 + Agent 能力全民化 = OpenAI 正用"速度 × 规模"碾压竞争对手的精品路线。Anthropic 同日放出 Fable 5 绝非巧合。
+                </div>
+            </div>
+        </article>
+
+        <!-- Data Section -->
+        <section class="data-section">
+            <h2>📊 本期数据一览</h2>
+            <div class="data-grid">
+                <div class="data-item">
+                    <span class="data-label">Claude Fable 5 定价</span>
+                    <span class="data-value">$10/$50 per M</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">CVPR 2026 投稿量</span>
+                    <span class="data-value">16,092 篇</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">CVPR 2026 录取量</span>
+                    <span class="data-value">4,089 篇 (+42%)</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">智谱港股市值</span>
+                    <span class="data-value">~7,000 亿港元</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">DeepSeek 融资额</span>
+                    <span class="data-value">¥500 亿</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">DeepSeek 投后估值</span>
+                    <span class="data-value">~$520-590B</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">GPT-5.6 上下文窗口</span>
+                    <span class="data-value">150 万 tokens</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">ChatGPT 用户基数</span>
+                    <span class="data-value">~10 亿</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trends Section -->
+        <section class="trends-section">
+            <h2>🔮 趋势洞察</h2>
+            <div class="trend-item">
+                <span class="trend-number">1</span>
+                <span class="trend-title">安全分级开放成为新范式</span>
+                <p class="trend-desc">Anthropic 的 Fable/Mythos 双轨、苹果的第三方模型切换、CVPR D4RT 的闭源争议——行业正在"全开放"与"全封闭"之间找到务实中间地带。</p>
+            </div>
+            <div class="trend-item">
+                <span class="trend-number">2</span>
+                <span class="trend-title">中国 AI 资本三级加速</span>
+                <p class="trend-desc">DeepSeek ¥500 亿融资 + 智谱/MiniMax A+H 双上市 + 阿里 CEO 亲挂 Token Foundry——从技术竞赛升级为资本竞赛。</p>
+            </div>
+            <div class="trend-item">
+                <span class="trend-number">3</span>
+                <span class="trend-title">Agent 能力从产品走向基础设施</span>
+                <p class="trend-desc">OpenClaw Skill Workshop 治理平台、ChatGPT×Codex 合体面向 10 亿用户、Apple Core AI Framework 本地部署——Agent 正在变成操作系统级能力。</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>AI 每日日报 · 自动生成于 2026-06-10 21:30 CST</p>
+            <p style="margin-top: 0.5rem;">数据来源：Web Search (web_search — EN/CN multi-source aggregation)</p>
+        </footer>
+    </div>
+</body>
+</html>
