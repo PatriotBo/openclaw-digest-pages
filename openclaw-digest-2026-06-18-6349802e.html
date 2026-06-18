@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日日报 — 2026年6月18日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f11;
+            --surface: #1a1a1f;
+            --surface-2: #242429;
+            --border: #2e2e35;
+            --text: #e8e8ed;
+            --text-muted: #9a9aa8;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --green: #10b981;
+            --orange: #f59e0b;
+            --red: #ef4444;
+            --blue: #3b82f6;
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --teal: #14b8a6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .date-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e8e8ed 0%, #9a9aa8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        .keyword-tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .entry {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .entry:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .entry-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--surface-2);
+        }
+        .entry-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        .entry-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .entry-body {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+        .entry-body p { margin-bottom: 0.8rem; }
+        .entry-body strong { color: var(--text); font-weight: 600; }
+        .entry-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.8rem 0;
+        }
+        .entry-body ul li {
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+        }
+        .entry-body ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        .data-table th {
+            text-align: left;
+            padding: 0.6rem 0.8rem;
+            background: var(--surface-2);
+            color: var(--text);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 0.5rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .insight-box {
+            margin-top: 1.2rem;
+            padding: 1rem 1.2rem;
+            background: var(--accent-glow);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .insight-box::before {
+            content: '💡 ';
+        }
+        .summary-section {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+        .summary-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        .trend-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .trend-item:last-child { border-bottom: none; }
+        .trend-number {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            flex-shrink: 0;
+            width: 28px;
+        }
+        .trend-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .trend-text strong { color: var(--text); }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .color-green { color: var(--green); }
+        .color-orange { color: var(--orange); }
+        .color-red { color: var(--red); }
+        .color-blue { color: var(--blue); }
+        .color-purple { color: var(--purple); }
+        .color-pink { color: var(--pink); }
+        .color-cyan { color: var(--cyan); }
+        .color-teal { color: var(--teal); }
+        @media (max-width: 640px) {
+            .container { padding: 1.5rem 1rem; }
+            header { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.6rem; }
+            .entry { padding: 1.5rem; }
+            .entry-header { flex-direction: column; gap: 0.5rem; }
+            .keyword-tags { gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="date-badge">2026年6月18日 · 周三</div>
+            <h1>AI 每日日报</h1>
+            <p class="subtitle">AI治理制度竞争正式开幕：G7三巨头同台 vs 中国筹建世界AI合作组织</p>
+            <div class="keyword-tags">
+                <span class="keyword-tag">G7 AI峰会</span>
+                <span class="keyword-tag">ChatGPT 10亿用户</span>
+                <span class="keyword-tag">Agentjacking攻击</span>
+                <span class="keyword-tag">世界AI合作组织</span>
+                <span class="keyword-tag">WAIC 2026</span>
+                <span class="keyword-tag">昇腾910C训练突破</span>
+                <span class="keyword-tag">OpenCode登顶</span>
+                <span class="keyword-tag">OpenClaw v2026.6.8</span>
+            </div>
+        </header>
+
+        <!-- Entry 1 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🌍</div>
+                <div>
+                    <div class="entry-title">G7峰会：Altman、Amodei、Hassabis 三大AI巨头CEO首次同台</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-16</span>
+                        <span>📰 AIToolsRecap / 多家外媒</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>OpenAI的Sam Altman、Anthropic的Dario Amodei和Google DeepMind的Demis Hassabis齐聚法国埃维安莱班G7峰会（6月15-17日），<strong>三大竞争AI公司CEO首次同时出现在G7世界领导人面前</strong>。</p>
+                <ul>
+                    <li>法国担任G7轮值主席国，将AI列为峰会核心议程，Altman受马克龙亲自邀请</li>
+                    <li>议题聚焦前沿AI风险、青年安全、网络和生物威胁</li>
+                    <li>三位CEO近期共同致信美国国会，呼吁对合成DNA和AI生物威胁实施更严格监管</li>
+                    <li>Amodei参会背景微妙——Anthropic旗舰模型Fable 5仍受美国商务部出口管制限制</li>
+                </ul>
+            </div>
+            <div class="insight-box">AI治理从"各国各自为政"进入"产业领袖+国家元首联合决策"新阶段。三家万亿美元级AI公司的CEO首次同台，标志着AI已正式进入地缘政治核心议程。</div>
+        </article>
+
+        <!-- Entry 2 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">📈</div>
+                <div>
+                    <div class="entry-title">ChatGPT 突破10亿月活用户：史上最快消费者应用</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-02（本周持续发酵）</span>
+                        <span>📰 Reuters / Sensor Tower</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>OpenAI旗下ChatGPT正式突破<strong>10亿全球月活跃用户（MAU）</strong>，成为有史以来最快达到此里程碑的消费者应用，超越TikTok、Instagram和YouTube的同期增长速度。</p>
+                <table class="data-table">
+                    <tr><th>AI助手</th><th>月活用户</th><th>同比增长</th></tr>
+                    <tr><td><strong>ChatGPT</strong></td><td>10亿 MAU</td><td class="color-green">历史最快</td></tr>
+                    <tr><td>Meta AI</td><td>~6亿+</td><td class="color-green">+973%</td></tr>
+                    <tr><td>Claude</td><td>未披露</td><td class="color-green">+640%</td></tr>
+                </table>
+                <p>此里程碑正值OpenAI以$852B估值准备9月IPO，但市场并非一家独大——Claude 640%增长率支撑Anthropic $965B估值，Meta AI凭WhatsApp/Instagram集成以973%增速狂追。</p>
+            </div>
+            <div class="insight-box">AI助手市场正式进入"多极格局"。10亿MAU确立了AI助手为继社交媒体后最大消费者产品品类，但三家同步高速增长意味着赢家通吃格局并未形成。</div>
+        </article>
+
+        <!-- Entry 3 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🔓</div>
+                <div>
+                    <div class="entry-title">Agentjacking：新型攻击瞄准 Claude Code、Cursor、Codex</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-16</span>
+                        <span>📰 安全研究报告</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>一种名为<strong>"Agentjacking"</strong>的新型攻击正在针对AI编程代理，通过伪造Sentry错误消息劫持Claude Code、Cursor和Codex。攻击者注入虚假错误报告，当AI代理读取时执行嵌入的恶意指令。</p>
+                <ul>
+                    <li><strong class="color-red">85%利用成功率</strong>：测试中85%遇到伪造错误的AI代理会执行恶意指令</li>
+                    <li><strong>2,388个组织</strong>被确认受到暴露</li>
+                    <li>本月一种自我复制蠕虫通过AI编程工具攻陷了微软73个GitHub仓库</li>
+                </ul>
+                <p><strong>紧急防护建议</strong>：审计Sentry集成 → 审查AI代理活动日志 → 限制代理权限 → 将所有外部数据源视为不可信输入</p>
+            </div>
+            <div class="insight-box">AI编程代理攻击面急剧扩大。85%成功率意味着当前绝大多数AI编程代理对提示注入攻击几乎毫无防御。"Agent安全"正从学术课题变成生产级紧急工程。</div>
+        </article>
+
+        <!-- Entry 4 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🏛️</div>
+                <div>
+                    <div class="entry-title">中国宣布筹建"世界人工智能合作组织"，总部设在上海</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-17</span>
+                        <span>📰 新华社 / 国新办 / 第一财经</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>6月17日国新办新闻发布会上宣布，<strong>中国正在加紧筹建"世界人工智能合作组织"</strong>，欢迎各方加入，共促智能向善。该组织总部设在上海。</p>
+                <ul>
+                    <li>2025年7月中国政府首次倡议成立该组织</li>
+                    <li>截至2026年6月，已向全球约<strong>40个国家</strong>发出创始成员国邀约</li>
+                    <li>覆盖东盟、中亚、拉美、非洲、欧亚大陆</li>
+                    <li>定位：补齐全球AI多边治理机制短板，让发展中国家拥有更多话语权</li>
+                </ul>
+            </div>
+            <div class="insight-box">在G7峰会同期（6/15-17），中国另起炉灶宣布全球AI治理组织，形成"G7→西方主导" vs "世界AI合作组织→全球南方话语权"的治理双轨格局。这是AI从技术竞争延伸到制度竞争的标志性事件。</div>
+        </article>
+
+        <!-- Entry 5 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🎪</div>
+                <div>
+                    <div class="entry-title">WAIC 2026 倒计时30天：超300款AI产品全球首发</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-17</span>
+                        <span>📰 央视新闻 / 澎湃 / 36氪</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>2026世界人工智能大会将于<strong>7月17-20日在上海</strong>举办，6月17日召开倒计时30天发布会。</p>
+                <ul>
+                    <li>主题："智能伙伴，共创未来"</li>
+                    <li>三大片区：世博、张江、西岸</li>
+                    <li><strong>超300款AI产品全球首发</strong>（历届最多）</li>
+                    <li>近140场主题论坛，1400余位国际嘉宾</li>
+                    <li>展览面积超10万平方米</li>
+                    <li>首次自主举办AI世界级学术顶会（WAIC Academic）</li>
+                    <li>发布全新"Hi WAIC" APP生态开放平台</li>
+                </ul>
+            </div>
+            <div class="insight-box">WAIC第九届首次同步筹建全球治理高级别会议+自主学术顶会，标志着中国AI产业从"跟跑参会"到"主场定义议程"的质变。300款全球首发产品密度创历届之最。</div>
+        </article>
+
+        <!-- Entry 6 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🇨🇳</div>
+                <div>
+                    <div class="entry-title">昇腾910C完成1.6万亿参数DeepSeek-V4-Pro全参数训练</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-05（本周持续发酵）</span>
+                        <span>📰 深圳发布 / TechWeb / 新浪科技</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>深圳河套学院联合哈工大（深圳）、华为等团队，依托<strong>1000颗华为昇腾910C芯片</strong>，成功完成1.6万亿参数DeepSeek-V4-Pro大模型全参数后训练。</p>
+                <ul>
+                    <li>打破"国产芯片只能推理不能训练"的行业认知</li>
+                    <li>算力利用率超<strong>30%</strong>（海外顶级芯片团队实际~40%）</li>
+                    <li>关键训练算子效率提升14%</li>
+                    <li>第三方团队首次在昇腾芯片上完成万亿级全参数训练</li>
+                </ul>
+            </div>
+            <div class="insight-box">1000颗910C训练1.6万亿参数模型的成功，证明国产AI算力已从推理正式迈向训练——这是AI芯片自主化最难攻克的"最后一关"。30% vs 40%的利用率差距仍在可接受范围。</div>
+        </article>
+
+        <!-- Entry 7 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🏆</div>
+                <div>
+                    <div class="entry-title">OpenCode 登顶 LogRocket《AI开发工具实力榜》：开源Agent逆袭</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-16</span>
+                        <span>📰 威易网 / LogRocket</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>LogRocket 2026年6月版《AI开发工具实力榜》，开源编码代理<strong>OpenCode首次登顶</strong>，超越Cursor、Claude Code等商业强敌。</p>
+                <table class="data-table">
+                    <tr><th>排名</th><th>工具</th><th>定位</th></tr>
+                    <tr><td><strong class="color-green">#1</strong></td><td><strong>OpenCode</strong></td><td>开源·模型无关·社区王者</td></tr>
+                    <tr><td>#2</td><td>Claude Code</td><td>SWE-bench 80.8%，性能最强</td></tr>
+                    <tr><td>#3</td><td>Codex CLI</td><td>Terminal-Bench 83.4%，OpenAI首选</td></tr>
+                    <tr><td>#4</td><td>GitHub Copilot</td><td>企业/IDE稳定领导者</td></tr>
+                    <tr><td>#5</td><td>Cursor</td><td>$20/月，性价比之选</td></tr>
+                </table>
+                <p><strong>OpenCode核心数据</strong>：GitHub Stars 172K+，MAU 750万，支持75+模型，MIT许可证完全开源。</p>
+            </div>
+            <div class="insight-box">开源编程Agent首次击败所有商业竞品登顶。四个信号：开源反超闭源、"模型无关"成刚需、CLI轻量工作流复兴、社区力量不可忽视。但原始跑分上Claude Code仍领先。</div>
+        </article>
+
+        <!-- Entry 8 -->
+        <article class="entry">
+            <div class="entry-header">
+                <div class="entry-icon">🤖</div>
+                <div>
+                    <div class="entry-title">OpenClaw v2026.6.8 发布：221个PR聚焦"韧性与体验"</div>
+                    <div class="entry-meta">
+                        <span>📅 2026-06-16</span>
+                        <span>📰 ScenSmart / GitHub</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-body">
+                <p>OpenClaw v2026.6.8正式发布，<strong>10天3个Beta版本，221个PR合入</strong>。主题："韧性与体验"——系统不再脆弱，体验润物无声。</p>
+                <ul>
+                    <li><strong>渠道交付升级</strong>：Telegram结构化文本（表格/列表/blockquote），WhatsApp路由修复</li>
+                    <li><strong>Agent运行时加固</strong>：数十个异常场景恢复路径优化，"越来越难让Agent卡死"</li>
+                    <li><strong>新模型支持</strong>：GLM-5.2、Claude Haiku 4.5、Kimi K2.7 Code</li>
+                    <li><strong>用量页脚</strong>：凭据感知限制+原生模板渲染</li>
+                    <li><strong>Web搜索</strong>：免密钥提供商改为opt-in</li>
+                    <li><strong>内存系统</strong>：SQLite NFS兼容、embedding批次自动拆分</li>
+                </ul>
+            </div>
+            <div class="insight-box">OpenClaw从"能跑就行"到"跑得稳、跑得好"的工程化转型继续深入。Kimi K2.7 Code和GLM-5.2的加入进一步巩固"模型无关"定位，221 PR/10天的节奏体现成熟开源项目的工程纪律。</div>
+        </article>
+
+        <!-- Trend Summary -->
+        <section class="summary-section">
+            <h2>📊 本期趋势总结</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                <strong style="color: var(--accent);">今日主线</strong>：AI治理制度竞争正式开幕
+            </p>
+            <div class="trend-item">
+                <span class="trend-number">1</span>
+                <span class="trend-text"><strong>地缘政治双轨</strong>：G7三巨头CEO同台 vs 中国筹建世界AI合作组织——两个AI治理体系在同一周正式对撞</span>
+            </div>
+            <div class="trend-item">
+                <span class="trend-number">2</span>
+                <span class="trend-text"><strong>产品里程碑</strong>：ChatGPT 10亿MAU确立AI助手为继社交媒体后最大消费者产品品类</span>
+            </div>
+            <div class="trend-item">
+                <span class="trend-number">3</span>
+                <span class="trend-text"><strong>安全警报升级</strong>：Agentjacking 85%成功率 + 微软73仓库蠕虫 = AI编程代理安全已是生产级紧急事项</span>
+            </div>
+            <div class="trend-item">
+                <span class="trend-number">4</span>
+                <span class="trend-text"><strong>中国自主化加速</strong>：昇腾910C万亿参数训练 + 世界AI合作组织 + WAIC 300产品首发——硬件、制度、产业三管齐下</span>
+            </div>
+            <div class="trend-item">
+                <span class="trend-number">5</span>
+                <span class="trend-text"><strong>开源反超闭源</strong>：OpenCode登顶、OpenClaw 221 PR迭代——开源AI工具的社区飞轮效应正在形成不可逆优势</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>AI 每日日报 · 报告生成时间: 2026-06-18 21:30 CST</p>
+            <p>数据来源: Web Search (EN/CN multi-source aggregation)</p>
+        </footer>
+    </div>
+</body>
+</html>
