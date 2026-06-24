@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 日报 — 2026年6月24日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #222240;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b80;
+            --accent-blue: #4f8cff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-indigo: #6366f1;
+            --border-color: #2a2a3e;
+            --gradient-1: linear-gradient(135deg, #4f8cff 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(79, 140, 255, 0.1);
+            border: 1px solid rgba(79, 140, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .theme-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        .theme-box h2 {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .theme-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .theme-box strong {
+            color: var(--text-primary);
+        }
+
+        .news-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(79, 140, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .news-card:nth-child(1)::before { background: var(--accent-blue); }
+        .news-card:nth-child(2)::before { background: var(--accent-green); }
+        .news-card:nth-child(3)::before { background: var(--accent-purple); }
+        .news-card:nth-child(4)::before { background: var(--accent-orange); }
+        .news-card:nth-child(5)::before { background: var(--accent-red); }
+        .news-card:nth-child(6)::before { background: var(--accent-cyan); }
+        .news-card:nth-child(7)::before { background: var(--accent-pink); }
+        .news-card:nth-child(8)::before { background: var(--accent-indigo); }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .news-card:nth-child(1) .card-number { background: var(--accent-blue); }
+        .news-card:nth-child(2) .card-number { background: var(--accent-green); }
+        .news-card:nth-child(3) .card-number { background: var(--accent-purple); }
+        .news-card:nth-child(4) .card-number { background: var(--accent-orange); }
+        .news-card:nth-child(5) .card-number { background: var(--accent-red); }
+        .news-card:nth-child(6) .card-number { background: var(--accent-cyan); }
+        .news-card:nth-child(7) .card-number { background: var(--accent-pink); }
+        .news-card:nth-child(8) .card-number { background: var(--accent-indigo); }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .card-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        .card-body li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-body li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .card-body strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .card-insight {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(79, 140, 255, 0.05);
+            border-left: 2px solid rgba(79, 140, 255, 0.3);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .news-card {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-badge">📡 Run #38 · 8 entries</div>
+            <h1>AI 日报</h1>
+            <p class="subtitle">2026年6月24日 · 周三</p>
+        </header>
+
+        <div class="theme-box">
+            <h2>📊 今日主题：Agent 基建日——从模型到平台的集体转身</h2>
+            <p>整个 AI 行业正从"模型竞赛"转向 <strong>Agent 基建</strong>：Cursor 用自研模型 + Origin Git + 移动端构建 Agent 开发全链路；Google Interactions API 强制生态转向 Agent 范式；Anthropic Claude Tag 让 AI 从个人工具变为团队成员；Qwen-AgentWorld 为 Agent 训练提供环境模拟底座；Meta 把 AI Agent 塞进 299 美元墨镜里；Agentjacking 攻击暴露 Agent 架构的<strong>系统性信任缺陷</strong>。如果 2025 年的关键词是"大模型"，2026 上半年是"Agent"，那么下半年正式切换为"<strong>Agent 基建</strong>"。</p>
+        </div>
+
+        <div class="news-grid">
+            <!-- Card 1 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">1</div>
+                    <h3 class="card-title">Cursor 首届 Compile 大会三连发：自研 1.5T 大模型、Origin Git 平台、移动端 App</h3>
+                </div>
+                <div class="card-source">搜狐科技 / The Decoder / CSDN</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>自研基础大模型</strong>：1.5T+ 参数，从零训练，算力 10–20 倍提升，SpaceX 超 10 万张 GPU 支撑</li>
+                        <li><strong>Origin Git 平台</strong>：专为人 + Agent 协同设计，通过数千 Agent 并发读写压测，自动处理冲突/CI/Review</li>
+                        <li><strong>iOS 移动端</strong>：远程查看 Agent 状态、下达修改指令，开发流控延伸到口袋</li>
+                        <li>SpaceX 以 <strong>600 亿美元</strong>全股票交易收购 Anysphere 正在推进中</li>
+                    </ul>
+                    <div class="card-insight">95% 用量来自 Agent 模式——这解释了三项发布全部围绕 Agent 基建，Cursor 正从"AI IDE"蜕变为完整的 AI 开发平台。</div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">2</div>
+                    <h3 class="card-title">Anthropic 推出 Claude Tag：Slack 里的常驻 AI 同事，企业渗透率首超 OpenAI</h3>
+                </div>
+                <div class="card-source">36氪 / 至顶科技</div>
+                <div class="card-body">
+                    <ul>
+                        <li>常驻 Slack 频道的持续在线 Claude 实例，<strong>@Claude</strong> 即可指派任务</li>
+                        <li><strong>环境感知模式</strong>：持续监听频道上下文，主动跟进搁置任务，数天内自主推进项目</li>
+                        <li>多人协作：单个 Claude 实例与频道所有成员交互，共享上下文</li>
+                        <li>Anthropic 产品团队 <strong>65% 代码</strong>由 Claude Tag 内部版本创建</li>
+                    </ul>
+                    <div class="card-insight">AI 从"个人副驾"进化为"团队成员"——工作协作的范式正在被重新定义。</div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">3</div>
+                    <h3 class="card-title">阿里千问发布首个语言世界模型 Qwen-AgentWorld：模拟七大领域，超越 GPT-5.4</h3>
+                </div>
+                <div class="card-source">智东西 / InfoQ</div>
+                <div class="card-body">
+                    <ul>
+                        <li>业界首个<strong>原生语言世界模型</strong>（LWM），从 CPT 阶段就将环境建模设为训练目标</li>
+                        <li>覆盖文本类（MCP/Search/Terminal/SWE）+ GUI 类（Web/OS/Android）共<strong>七大领域</strong></li>
+                        <li>397B-A17B 版本在 AgentWorldBench 均分 <strong>58.71</strong>，超越 GPT-5.4（58.25）</li>
+                        <li>模型权重与评测基准已在 <strong>Hugging Face / ModelScope 完全开源</strong></li>
+                    </ul>
+                    <div class="card-insight">不替代真实环境，而为通用智能体提供环境模拟底座——语言世界建模可作为更强 Agent 的根基。</div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">4</div>
+                    <h3 class="card-title">Google 全面切换 Interactions API：Gemini 开发范式从"对话"转向"Agent 管理"</h3>
+                </div>
+                <div class="card-source">The Decoder / 钛媒体</div>
+                <div class="card-body">
+                    <ul>
+                        <li>取代 generateContent，引入 <strong>session-based</strong> 持久状态模型</li>
+                        <li>Managed Agents 独立 Linux 沙箱、后台长任务、Google Search/Maps 工具链</li>
+                        <li><strong>Flex 模式降低 50% 推理成本</strong>，为 Agent 批量任务提供经济路径</li>
+                        <li>服务端状态保留最长 <strong>55 天</strong></li>
+                    </ul>
+                    <div class="card-insight">Google 最明确的信号：AI 的未来是 Agent 而非 Chatbot——强制整个 Gemini 生态从 Q&A 转向多轮有状态 Agent 工作流。</div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">5</div>
+                    <h3 class="card-title">Agentjacking 攻击曝光：一行假 Bug 报告劫持 AI 编程 Agent，2388 家组织受影响</h3>
+                </div>
+                <div class="card-source">Tenet Security / 掘金</div>
+                <div class="card-body">
+                    <ul>
+                        <li>攻击者伪造 Sentry 错误事件，AI Agent 将恶意指令<strong>视为合法诊断步骤</strong>执行</li>
+                        <li><strong>2388 个组织</strong>暴露 DSN，超 100 家机构的 AI Agent 实际运行了验证代码</li>
+                        <li>受影响工具：Claude Code、Cursor、OpenAI Codex，横跨 Windows/macOS/CI</li>
+                        <li>攻击链每一步都是"授权"的——<strong>隐蔽性极高</strong></li>
+                    </ul>
+                    <div class="card-insight">不是某个厂商的 bug，而是 Agent 架构的系统性风险——只要 Agent 无法区分"数据"和"指令"，攻击就会持续存在。</div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">6</div>
+                    <h3 class="card-title">Meta 发布 Meta Glasses：299 美元 AI 眼镜，首款原生搭载 Muse Spark 多模态模型</h3>
+                </div>
+                <div class="card-source">36氪 / 智东西</div>
+                <div class="card-body">
+                    <ul>
+                        <li>首款原生搭载 <strong>Muse Spark</strong> 多模态端侧大模型，开机即 AI</li>
+                        <li>起售价 <strong>299 美元</strong>（约 2034 元），三款镜框 26 种配色组合</li>
+                        <li>实时翻译新增中文/日语/韩语等 14 种语言，共支持 <strong>20 种</strong></li>
+                        <li>Meta AI 眼镜累计已售 <strong>900 万副</strong>，去年销量翻三倍</li>
+                    </ul>
+                    <div class="card-insight">不用"智能眼镜"的框架卖产品，而用墨镜的价格 + AI 附加值重新定义品类。</div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">7</div>
+                    <h3 class="card-title">夏季达沃斯聚焦 AI：中国 900+ 大模型上线服务，网信办研制智能体规范</h3>
+                </div>
+                <div class="card-source">新华社 / 腾讯新闻</div>
+                <div class="card-body">
+                    <ul>
+                        <li>中国累计 <strong>900 余款大模型</strong>上线服务，日均 Token 消耗已突破百万亿级</li>
+                        <li>网信办研制 AI 生成内容标识、拟人化互动、<strong>智能体规范应用</strong>等制度</li>
+                        <li>腾讯企业微信 AI Agent "大圆"已进入内测；DeepSeek V4.1 本月发布</li>
+                        <li>"无电力，不智能"成与会共识，AI 与能源基建深度绑定</li>
+                    </ul>
+                    <div class="card-insight">900 款大模型的"数量爆发" + 智能体规范的"规则跟进"——中国 AI 进入"治理与应用并行"新阶段。</div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">8</div>
+                    <h3 class="card-title">AI 推理基础设施 Baseten 完成 15 亿美元 F 轮，估值 130 亿美元</h3>
+                </div>
+                <div class="card-source">今日头条 / AI 资讯简报</div>
+                <div class="card-body">
+                    <ul>
+                        <li>18 个月内<strong>第四轮融资</strong>，累计融资总额超 20 亿美元</li>
+                        <li>投资方阵容：<strong>英伟达</strong>、Greylock、CapitalG、IVP、Blackbird</li>
+                        <li>业务核心：为企业提供 AI 模型推理部署的基础设施</li>
+                        <li>Agent 工作负载从 demo 走向生产，<strong>推理侧算力需求爆发式增长</strong></li>
+                    </ul>
+                    <div class="card-insight">推理基础设施融资速度远超模型公司——AI 产业链价值重心正从"造模型"滑向"跑模型"。</div>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <p>报告生成时间: 2026-06-24 21:30 CST</p>
+            <p>数据来源: Web 多源搜索聚合（36氪、智东西、The Decoder、钛媒体、搜狐科技、掘金、InfoQ、腾讯新闻、今日头条、新华社等）</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-blue);">AI Daily Digest · Run #38</p>
+        </footer>
+    </div>
+</body>
+</html>
