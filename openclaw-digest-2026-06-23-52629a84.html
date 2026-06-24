@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 日报 — 2026年6月23日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #222240;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b80;
+            --accent-blue: #4f8cff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-indigo: #6366f1;
+            --border-color: #2a2a3e;
+            --gradient-1: linear-gradient(135deg, #4f8cff 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(79, 140, 255, 0.1);
+            border: 1px solid rgba(79, 140, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .theme-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        .theme-box h2 {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .theme-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .theme-box strong {
+            color: var(--text-primary);
+        }
+
+        .news-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(79, 140, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .news-card:nth-child(1)::before { background: var(--accent-blue); }
+        .news-card:nth-child(2)::before { background: var(--accent-green); }
+        .news-card:nth-child(3)::before { background: var(--accent-purple); }
+        .news-card:nth-child(4)::before { background: var(--accent-orange); }
+        .news-card:nth-child(5)::before { background: var(--accent-cyan); }
+        .news-card:nth-child(6)::before { background: var(--accent-pink); }
+        .news-card:nth-child(7)::before { background: var(--accent-indigo); }
+        .news-card:nth-child(8)::before { background: var(--accent-red); }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .news-card:nth-child(1) .card-number { background: var(--accent-blue); }
+        .news-card:nth-child(2) .card-number { background: var(--accent-green); }
+        .news-card:nth-child(3) .card-number { background: var(--accent-purple); }
+        .news-card:nth-child(4) .card-number { background: var(--accent-orange); }
+        .news-card:nth-child(5) .card-number { background: var(--accent-cyan); }
+        .news-card:nth-child(6) .card-number { background: var(--accent-pink); }
+        .news-card:nth-child(7) .card-number { background: var(--accent-indigo); }
+        .news-card:nth-child(8) .card-number { background: var(--accent-red); }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .card-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        .card-body li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-body li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .card-body strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .card-insight {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(79, 140, 255, 0.05);
+            border-left: 2px solid rgba(79, 140, 255, 0.3);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .news-card {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-badge">📡 Run #37 · 8 entries</div>
+            <h1>AI 日报</h1>
+            <p class="subtitle">2026年6月23日 · 周二</p>
+        </header>
+
+        <div class="theme-box">
+            <h2>📊 今日主题：国产 AI 的"降本 + 基建"双线作战</h2>
+            <p><strong>极致降本 + 系统建基</strong> — 豆包 2.1 Pro 编程追平 Opus 4.7 且成本砍 80%、何恺明组 258M 参数做文生图，"用更少做更多"成为中国玩家统一打法；DeepSeek 设 Harness 组补 Agent 工程层、光轮智能做物理 AI 数据底座，大家都在抢占"模型之上、应用之下"的基础设施层。与之对照，大洋彼岸是 SpaceX $60亿 算力长约的<strong>狂热</strong>与谷歌人才出走、美股跳水的<strong>泡沫焦虑</strong>同日并存。</p>
+        </div>
+
+        <div class="news-grid">
+            <!-- Card 1 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">1</div>
+                    <h3 class="card-title">火山引擎 FORCE 大会：豆包 2.1 Pro 编程追平 Opus 4.7，成本暴砍 80%</h3>
+                </div>
+                <div class="card-source">智东西 / 火山引擎</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>豆包 2.1 Pro</strong> 在 Coding / Agent / VLM 三方向跃升，编程能力接近 Claude Opus 4.7</li>
+                        <li>定价输入 6 元 / 输出 30 元，综合成本较 Opus 4.6–4.8 系列<strong>降低近 80%</strong></li>
+                        <li>2.1 Turbo 价格仅为 Pro 一半；Doubao-Seed-Evolving 每月迭代 2–4 次</li>
+                        <li>豆包日均 Token 突破 <strong>180 万亿</strong>（两年涨 1500 倍），MaaS 市场份额 49.5%</li>
+                    </ul>
+                    <div class="card-insight">编程追平 Opus、价格只要 1/5——字节用"国产降本"推平企业迁移的最后心理门槛。</div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">2</div>
+                    <h3 class="card-title">Seedance 2.5 亮相：单段 30 秒原生视频直出，从视频生成走向"世界模型"</h3>
+                </div>
+                <div class="card-source">中国新闻网 / 腾讯科技</div>
+                <div class="card-body">
+                    <ul>
+                        <li>单条视频原生时长拉至 <strong>30 秒</strong>（业界同类多为 15–20 秒，全球第一）</li>
+                        <li>最多支持 <strong>50 个全模态素材</strong>联合参考生成，支持局部编辑/动作调整</li>
+                        <li>配套发布 Seedream 5.0 Pro（圈选编辑+多图层）、Seed-Audio 1.0（影视级音效）</li>
+                        <li>已在具身智能、工业制造、智能驾驶落地，用于数据合成与场景仿真</li>
+                    </ul>
+                    <div class="card-insight">谭待称视频生成是"通往世界模型的路径之一"——把视频模型从娱乐工具重定位为实体产业基础设施。</div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">3</div>
+                    <h3 class="card-title">DeepSeek 新设 Harness 组："Model + Harness = Agent"系统布局智能体基建</h3>
+                </div>
+                <div class="card-source">界面新闻 / DeepSeek</div>
+                <div class="card-body">
+                    <ul>
+                        <li>核心公式 <strong>"Model + Harness = Agent"</strong>——模型之外补齐 Agent 工程层</li>
+                        <li>方向：上下文管理、长期记忆、Subagent 与 Multi-Agent、<strong>自进化 Agent</strong></li>
+                        <li>负责人崔添翼公开招募研究员/工程师/产品经理</li>
+                        <li>标志 DeepSeek 从"只做基础模型"转向"模型+产品化"双线作战</li>
+                    </ul>
+                    <div class="card-insight">配合 V4.1 灰度与 500 亿融资——DeepSeek 下一仗不在跑分榜，而在 Agent 产品落地。</div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">4</div>
+                    <h3 class="card-title">Claude Code 史诗级更新：支持 Artifacts，终端工作实时变成可分享网页看板</h3>
+                </div>
+                <div class="card-source">机器之心 / Anthropic</div>
+                <div class="card-body">
+                    <ul>
+                        <li>将终端对话过程实时转化为<strong>可交互、可分享的网页</strong></li>
+                        <li>页面随会话进展<strong>自动刷新</strong>，团队成员可在任意浏览器查看</li>
+                        <li>Beta 形式面向 Claude Team / Enterprise，支持 CLI 与桌面客户端</li>
+                        <li>直击痛点：非技术同事无需看终端日志即可掌握进展</li>
+                    </ul>
+                    <div class="card-insight">模型同质化下，竞争重心从"谁家模型强"转向"谁更懂团队怎么干活"。</div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">5</div>
+                    <h3 class="card-title">OpenClaw v2026.6.9：把 Codex、插件与远程节点执行收进同一条运行时</h3>
+                </div>
+                <div class="card-source">夜雨灵风 / SEN-X</div>
+                <div class="card-body">
+                    <ul>
+                        <li>归入 <strong>422 个合并 PR</strong>，重点夯实"长跑型 Agent"基础设施</li>
+                        <li>Codex 深度集成：自动插件批准、Spark OAuth 路由、remote-node exec 动态工具</li>
+                        <li>Gateway 把 Codex/插件/远程节点放进<strong>同一条执行路径</strong>，统一权限与回传</li>
+                        <li>Provider 插件独立发布、来源可追踪（StepFun 已上架）；恢复能力补强</li>
+                    </ul>
+                    <div class="card-insight">社区评价为"基础设施整理版"——价值在于让 Agent 敢跑更长的任务。</div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">6</div>
+                    <h3 class="card-title">算力军备 vs AI 泡沫：SpaceX 签 $60亿 算力协议，谷歌人才出走拖累美股</h3>
+                </div>
+                <div class="card-source">金十数据</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>SpaceX × Reflection AI</strong>：签署价值逾 60 亿美元算力协议</li>
+                        <li>美光 × Anthropic 签多年期存储供应；雪佛龙 × 微软签 20 年供电协议</li>
+                        <li>欧洲一次性发布创纪录的 <strong>35 台</strong>全新英伟达 AI 超算</li>
+                        <li>AI 泡沫担忧升温，<strong>谷歌人才出走</strong>引发美股科技股集体跳水</li>
+                    </ul>
+                    <div class="card-insight">一边天量算力与能源长约的军备竞赛，一边估值担忧与人才流失的退潮信号——加速器与刹车被同时踩下。</div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">7</div>
+                    <h3 class="card-title">何恺明组新作 MiniT2I：258M 参数做文生图，训练成本≈一次 ImageNet 实验</h3>
+                </div>
+                <div class="card-source">量子位</div>
+                <div class="card-body">
+                    <ul>
+                        <li>仅 <strong>258M 参数</strong>实现不错文生图效果（业界动辄数十亿参数）</li>
+                        <li>基于全新 <strong>MM-JiT</strong> 架构，直接在像素空间做扩散生成</li>
+                        <li>训练成本仅相当于<strong>一次标准 ImageNet 实验</strong></li>
+                        <li>核心洞察：文本经语言模型编码后，对生成模型只是"另一种上下文条件"</li>
+                    </ul>
+                    <div class="card-insight">在"大力出奇迹"成为默认信仰时，恺明组持续证明：架构创新比参数堆砌更值得追求。</div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">8</div>
+                    <h3 class="card-title">具身智能融资井喷：光轮智能 10 亿、巨人网络入局，优必选 Walker C1 发布</h3>
+                </div>
+                <div class="card-source">新华财经 / 量子位</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>光轮智能</strong>完成 10 亿元战略融资，巨人网络参投，估值超 150 亿元（物理 AI 数据/仿真/评测基建）</li>
+                        <li>正行创新近亿美元天使轮；昆仑行成立不到 90 天连融 3 轮、累计数十亿</li>
+                        <li><strong>优必选 Walker C1</strong>：53 自由度、2070 TOPS 端侧算力、自研 Thinker 大模型</li>
+                        <li>工信部拟立项人形机器人变电站、家电制造两项场景技术标准</li>
+                    </ul>
+                    <div class="card-insight">资本押注"物理 AI 基础设施"——不造本体，而做支撑机器人持续学习的数据与仿真底座。</div>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <p>报告生成时间: 2026-06-23 22:30 CST</p>
+            <p>数据来源: Web 多源搜索聚合（智东西、界面新闻、机器之心、量子位、金十数据、新华财经、夜雨灵风、SEN-X、腾讯科技等）</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-blue);">AI Daily Digest · Run #37</p>
+        </footer>
+    </div>
+</body>
+</html>
