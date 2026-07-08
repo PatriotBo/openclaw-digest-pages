@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 日报 — 2026年7月8日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #222240;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b80;
+            --accent-blue: #4f8cff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-indigo: #6366f1;
+            --border-color: #2a2a3e;
+            --gradient-1: linear-gradient(135deg, #4f8cff 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(79, 140, 255, 0.1);
+            border: 1px solid rgba(79, 140, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .theme-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        .theme-box h2 {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .theme-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .theme-box strong {
+            color: var(--text-primary);
+        }
+
+        .news-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(79, 140, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .news-card:nth-child(1)::before { background: var(--accent-blue); }
+        .news-card:nth-child(2)::before { background: var(--accent-green); }
+        .news-card:nth-child(3)::before { background: var(--accent-purple); }
+        .news-card:nth-child(4)::before { background: var(--accent-orange); }
+        .news-card:nth-child(5)::before { background: var(--accent-red); }
+        .news-card:nth-child(6)::before { background: var(--accent-cyan); }
+        .news-card:nth-child(7)::before { background: var(--accent-pink); }
+        .news-card:nth-child(8)::before { background: var(--accent-indigo); }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .news-card:nth-child(1) .card-number { background: var(--accent-blue); }
+        .news-card:nth-child(2) .card-number { background: var(--accent-green); }
+        .news-card:nth-child(3) .card-number { background: var(--accent-purple); }
+        .news-card:nth-child(4) .card-number { background: var(--accent-orange); }
+        .news-card:nth-child(5) .card-number { background: var(--accent-red); }
+        .news-card:nth-child(6) .card-number { background: var(--accent-cyan); }
+        .news-card:nth-child(7) .card-number { background: var(--accent-pink); }
+        .news-card:nth-child(8) .card-number { background: var(--accent-indigo); }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .card-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        .card-body li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-body li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .card-body strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .card-insight {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(79, 140, 255, 0.05);
+            border-left: 2px solid rgba(79, 140, 255, 0.3);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .news-card {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-badge">📡 Run #39 · 8 entries</div>
+            <h1>AI 日报</h1>
+            <p class="subtitle">2026年7月8日 · 周二</p>
+        </header>
+
+        <div class="theme-box">
+            <h2>📊 今日主题：三箭齐发——GPT-5.6、Grok 4.5、混元 Hy3 同周开放，前沿模型进入"周更"时代</h2>
+            <p>本周 AI 行业迎来史无前例的模型发布密度：<strong>OpenAI GPT-5.6</strong> 三模型家族（Sol/Terra/Luna）周四向公众开放，<strong>SpaceXAI Grok 4.5</strong>（1.5T 参数 + Cursor 数据训练）明天上线，腾讯<strong>混元 Hy3</strong>（295B MoE）已正式发布，美团 <strong>LongCat-2.0</strong>（1.6T 全国产芯片训练）开源冲击市场。与此同时，微软正用自研 MAI 模型替换 Office 中的第三方模型，豆包/千问在监管新规下下线拟人化智能体。当一个月内出现 <strong>16 款新模型</strong>时，"模型选择"本身正成为比"模型能力"更重要的工程问题。</p>
+        </div>
+
+        <div class="news-grid">
+            <!-- Card 1 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">1</div>
+                    <h3 class="card-title">OpenAI GPT-5.6 获美国政府放行，周四正式向公众开放</h3>
+                </div>
+                <div class="card-source">环球市场播报 / OpenAI 官网</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Sol（太阳）</strong>：旗舰版，编程/网络安全最强，输入 $5 / 输出 $30 每百万 token</li>
+                        <li><strong>Terra（大地）</strong>：均衡版，性能对标 GPT-5.5 但价格减半</li>
+                        <li><strong>Luna（月亮）</strong>：经济版，高吞吐场景，输入 $1 / 输出 $6</li>
+                        <li>新增 <strong>Max 深度推理</strong>和 <strong>Ultra 子代理</strong>模式</li>
+                        <li>此前因白宫国家安全审查仅向约 20 家受信合作伙伴开放</li>
+                    </ul>
+                    <div class="card-insight">首次采用天体命名体系——数字标识代际，Sol/Terra/Luna 标识持久能力层级，可独立迭代。前沿 AI 模型的政府审查正成为新常态。</div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">2</div>
+                    <h3 class="card-title">马斯克官宣 Grok 4.5 明日开放：Opus 级别、Cursor 数据训练、1.5T 参数</h3>
+                </div>
+                <div class="card-source">财联社 / The Information / ChatForest</div>
+                <div class="card-body">
+                    <ul>
+                        <li>基于 <strong>1.5T 参数 V9 基础模型</strong>，Colossus 集群（22万+ GPU）训练</li>
+                        <li>补充训练加入 <strong>Cursor IDE 交互数据</strong>（百万级真实编程会话），形成数据飞轮</li>
+                        <li>马斯克称"Opus 级别，但<strong>更快、Token 效率更高、成本更低</strong>"</li>
+                        <li>SpaceX 600 亿美元收购 Cursor，xAI 正式更名 <strong>SpaceXAI</strong></li>
+                        <li>与 GPT-5.6 <strong>同周发布</strong>，前沿模型竞争白热化</li>
+                    </ul>
+                    <div class="card-insight">当 IDE 数据成为模型训练的差异化资源，"谁拥有开发者工作流数据"将决定下一代编程模型的上限。</div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">3</div>
+                    <h3 class="card-title">微软在 Excel/Outlook 部署自研 MAI 模型，加速摆脱 OpenAI 与 Anthropic 依赖</h3>
+                </div>
+                <div class="card-source">彭博社 / 财联社 / 环球网</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Excel、Outlook 每周已有<strong>数万条 AI 提示词</strong>由 MAI 模型处理</li>
+                        <li>AI 负责人 Suleyman："目标是<strong>逐步降低、最终完全消除</strong>向 Anthropic 的支出"</li>
+                        <li>6 月 Build 大会发布 <strong>7 款自研模型</strong>，编码模型达 Opus 4.6 同等水平但成本更低</li>
+                        <li>MAI 已接入 <strong>GitHub Copilot</strong>，语音转写模型即将上线 Teams</li>
+                    </ul>
+                    <div class="card-insight">微软股价年内下跌近 20%——当 AI 成本侵蚀利润时，"自研替代外购"从战略选项变为生存需要。</div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">4</div>
+                    <h3 class="card-title">腾讯混元 Hy3 正式版发布：295B MoE、激活仅 21B、Apache 2.0 开源</h3>
+                </div>
+                <div class="card-source">环球网 / 腾讯混元官网 / GMI Cloud</div>
+                <div class="card-body">
+                    <ul>
+                        <li>MoE 架构 192 专家，总参 <strong>295B</strong>，每 token 激活仅 <strong>21B</strong>，256K 上下文</li>
+                        <li>SWE-Bench Verified <strong>78.0</strong>、GPQA Diamond <strong>90.4</strong></li>
+                        <li>WorkBuddy 任务成功率 72%→<strong>90%</strong>，平均耗时缩短 34%</li>
+                        <li>定价：输入 1元 / 输出 4元 每百万 tokens，<strong>Apache 2.0 完全开源</strong></li>
+                        <li>OpenRouter 两周处理 <strong>3.66 万亿 tokens</strong>，周环比增长 298%</li>
+                    </ul>
+                    <div class="card-insight">"小激活、大总参"——参数竞赛逼近边际时，把算力花在"想清楚"而非"堆更大"上。</div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">5</div>
+                    <h3 class="card-title">美团开源 LongCat-2.0：1.6T MoE 全流程国产 ASIC 训练，SWE-bench Pro 超 GPT-5.5</h3>
+                </div>
+                <div class="card-source">美团技术团队 / ThursdAI / EdgenTech</div>
+                <div class="card-body">
+                    <ul>
+                        <li>总参 <strong>1.6T</strong>，动态激活 33B~56B，原生 <strong>1M 上下文</strong></li>
+                        <li>全程使用 <strong>5 万卡国产 ASIC</strong> 芯片，无 NVIDIA GPU 参与</li>
+                        <li>SWE-bench Pro <strong>59.5</strong>（GPT-5.5 为 58.6），Terminal-Bench 2.1 得分 70.8</li>
+                        <li>曾以代号 <strong>"Owl Alpha"</strong> 匿名运行两月，月均 10.1T token 消耗</li>
+                        <li><strong>MIT License</strong> 开源，API $0.75/百万输入 token，缓存命中免费</li>
+                    </ul>
+                    <div class="card-insight">不仅证明了"国产芯片 + 万亿参数"路径的可行性，更用真实流量验证了市场接受度——中国开源模型全球用量占比已升至约 30%。</div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">6</div>
+                    <h3 class="card-title">豆包、千问同日官宣 7月15日下线智能体功能——AI 拟人化监管新规落地</h3>
+                </div>
+                <div class="card-source">中国经营报 / 科技日报 / 21世纪经济报道</div>
+                <div class="card-body">
+                    <ul>
+                        <li>字节豆包 + 阿里千问<strong>同步下线</strong>自建智能体功能，腾讯元宝已先行下线</li>
+                        <li>与<strong>《人工智能拟人化互动服务管理暂行办法》</strong>7月15日施行精确吻合</li>
+                        <li>监管要求：不得诱导情感依赖、不得向未成年人提供虚拟亲密关系服务</li>
+                        <li>仅针对<strong>关系型/拟人化智能体</strong>，办公/搜索/代码等任务型 Agent 不受影响</li>
+                    </ul>
+                    <div class="card-insight">AI Agent 发展并未退潮——被收缩的是"AI 女友/男友"，任务型 Agent 仍是竞争主线。大厂选择的是"收益有限、治理成本持续上升"的性价比最优解。</div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">7</div>
+                    <h3 class="card-title">OpenClaw v2026.7.1-beta：率先支持 GPT-5.6，正酝酿下一个正式版</h3>
+                </div>
+                <div class="card-source">OpenClaw Release Notes / 今日头条</div>
+                <div class="card-body">
+                    <ul>
+                        <li>v2026.7.1-beta.2（7月5日）：率先添加 <strong>GPT-5.6</strong> 模型家族全链路支持</li>
+                        <li>新增 <strong>External Harness Attachment</strong> 功能，扩展外部 Agent 连接能力</li>
+                        <li>v2026.6.11 正式版：<strong>308 个 PR</strong> 合并，全面提升通道/Agent/移动端稳定性</li>
+                        <li>GitHub Star <strong>342,000+</strong>、ClawHub 技能 <strong>13,729+</strong>、贡献者 1,200+</li>
+                    </ul>
+                    <div class="card-insight">OpenClaw 保持"最快适配新模型"的节奏——GPT-5.6 尚未正式公开，beta 版已完成全链路支持。</div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="news-card">
+                <div class="card-header">
+                    <div class="card-number">8</div>
+                    <h3 class="card-title">2026 世界人工智能大会下周上海开幕：300+ 新品首发、展览面积破 10 万平方米</h3>
+                </div>
+                <div class="card-source">第一财经 / 经济参考报</div>
+                <div class="card-body">
+                    <ul>
+                        <li>7月17-20日上海举行，展览面积首破 <strong>10 万平方米</strong></li>
+                        <li><strong>1100+ 家企业</strong>参展，300+ 款产品全球首发（含华为 Atlas 950）</li>
+                        <li>已推动 57 个核心场景落地，累计达成 <strong>162 亿元</strong>意向合作</li>
+                        <li>核心论坛：智能体互联网、Token 经济、算力互联互通</li>
+                        <li>北京 AI 核心产业规模达 <strong>4500 亿元</strong>、发改委披露重点行业 AI 渗透率突破 80%</li>
+                    </ul>
+                    <div class="card-insight">当 AI 从技术竞赛进入产业渗透深水区，WAIC 正成为中国 AI 产业链的最大展示窗口——"Token 经济"首次成为核心论坛主题。</div>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <p>报告生成时间: 2026-07-08 21:30 CST</p>
+            <p>数据来源: Web 多源搜索聚合（财联社、环球网、彭博社、腾讯新闻、第一财经、科技日报、21世纪经济报道、ThursdAI、The Information、ChatForest 等）</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-blue);">AI Daily Digest · Run #39</p>
+        </footer>
+    </div>
+</body>
+</html>
