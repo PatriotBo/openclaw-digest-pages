@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 日报 · 2026-07-20</title>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card-bg: #1a1a24;
+            --card-border: #2a2a3a;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --text: #e8e8f0;
+            --text-muted: #9494a8;
+            --link: #74b9ff;
+            --tag-bg: #2d2d44;
+            --gradient-start: #6c5ce7;
+            --gradient-end: #00cec9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        header .date {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .theme-banner {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,206,201,0.1));
+            border: 1px solid rgba(108,92,231,0.3);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .theme-banner p {
+            font-size: 1.05rem;
+            color: var(--accent-light);
+            font-style: italic;
+        }
+        .entry {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .entry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.15);
+        }
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .entry-number {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .entry h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .entry-meta {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            padding-left: 38px;
+        }
+        .entry-meta .source {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--tag-bg);
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
+        .entry-body {
+            padding-left: 38px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .entry-body p {
+            margin-bottom: 0.5rem;
+        }
+        .entry-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding-left: 38px;
+            font-size: 0.85rem;
+        }
+        .entry-link a {
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link);
+        }
+        .entry-link a:hover {
+            border-bottom-style: solid;
+        }
+        .summary-table {
+            width: 100%;
+            margin-top: 2.5rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .summary-table thead {
+            background: rgba(108,92,231,0.15);
+        }
+        .summary-table th {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .summary-table td {
+            padding: 0.9rem 1.2rem;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.9rem;
+        }
+        .summary-table tr:hover td {
+            background: rgba(108,92,231,0.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            header h1 { font-size: 1.6rem; }
+            .entry { padding: 1.2rem; }
+            .entry-body, .entry-meta, .entry-link { padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 日报</h1>
+            <p class="date">2026 年 7 月 20 日 · 星期日</p>
+        </header>
+
+        <div class="theme-banner">
+            <p>模型固化硅基、桌面智能体全面登场——AI 从"软件竞赛"走向"硬件定制+全平台渗透"</p>
+        </div>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">1</span>
+                <h2>谷歌曝光 "Frozen v2" 专用芯片：将 Gemini 架构直接写入硅片，能效提升 6–10 倍</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">The Information / 新浪财经</span>
+                <span class="source">2026-07-20</span>
+            </div>
+            <div class="entry-body">
+                <p>谷歌正在研发代号 "Frozen v2" 的专用服务器芯片，将 Gemini 模型底层架构永久固化进硬件，大幅减少推理计算步骤与数据搬运量。单位功耗可处理的 Token 数量将达到最新 TPU 的 6–10 倍，计划最早 2028 年部署。直接动因是谷歌内部 AI 算力严重短缺——已迫使谷歌云拒绝部分外部客户订单。Frozen v2 定位为 TPU 之外的全新产品线；谷歌押注 Gemini 底层架构将长期延续。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.163.com/dy/article/L2AEIA9E05568W0A.html" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">2</span>
+                <h2>Google Gemini Spark 登陆 macOS：远程操控电脑的 AI 智能体正式上桌</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">Gadgets360 / cnBeta</span>
+                <span class="source">2026-07-16</span>
+            </div>
+            <div class="entry-body">
+                <p>Google 将 Gemini Spark 智能体推向 macOS 桌面端，用户授权后可让 AI 直接操作本地文件——整理 PDF、从发票提取数据生成预算表、甚至从手机远程指挥 Mac 执行多步骤任务。7 月 16 日更新面向美国 Pro 订阅者扩展，新增 Dropbox、Canva、OpenTable 等第三方应用集成与自定义 MCP 协议支持。桌面 AI 智能体竞争（Claude Desktop / Copilot / OpenClaw）全面升温。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.gadgets360.com/ai/news/google-gemini-spark-macos-expansion-features-11712542" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">3</span>
+                <h2>Meta 发布 Muse Spark 1.1：扎克伯格时隔三年发帖，All-in 智能体编程</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">AI 前线 / 163.com</span>
+                <span class="source">2026-07-10</span>
+            </div>
+            <div class="entry-body">
+                <p>Meta 正式推出多模态智能体编程模型 Muse Spark 1.1，CEO Zuckerberg 时隔三年首次在 X 平台发帖站台，称其"价格极低但能力极强"。模型在工具调用、计算机操作、跨应用流程编排等智能体任务中超越竞品，同步上线公开 Meta Model API。Meta 正式加入 OpenAI / Anthropic 的智能体编程大战。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.163.com/dy/article/L1G00USI05566ZHB.html" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">4</span>
+                <h2>谷歌 Gemini 3.5 Pro 延期数月：编程能力未达标，内部矛盾公开化</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">彭博社 / IT 之家</span>
+                <span class="source">2026-07-17</span>
+            </div>
+            <div class="entry-body">
+                <p>据彭博社援引 10 名谷歌现任及前员工消息，旗舰模型 Gemini 3.5 Pro 已较原定 6 月发布推迟数月，核心瓶颈在于编程能力始终未达内部目标。消息曝光当日 Alphabet 股价下跌 4%。内部多团队争抢 AI 编程产品主导权，加之保守派工程师文化阻力，进一步拖慢进度。OpenAI GPT-5.6 Sol 和 Meta Muse Spark 1.1 同期发布，令谷歌处境更加被动。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.163.com/dy/article/L21AO8H50511B8LM.html" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">5</span>
+                <h2>AI IDE 格局巨变：Cursor 收购 Continue.dev、Windsurf 更名 Devin Desktop、Claude Code 百万上下文</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">PorkiCoder / oday-bakkour.com</span>
+                <span class="source">2026-07-04</span>
+            </div>
+            <div class="entry-body">
+                <p>三大事件重塑 AI IDE：① Cursor 收购开源插件 Continue.dev，团队全员加入，项目归档；② Windsurf 正式更名 Devin Desktop，Cascade 于 7/1 EOL，转型"智能体舰队指挥中心"；③ Claude Code 以 Sonnet 5 为默认，原生 100 万 Token 上下文，后台 Agent 自动 commit+push+开 PR。Cursor 同步推出 iOS Beta 和 90 秒 Bugbot 代码审查。</p>
+            </div>
+            <div class="entry-link"><a href="https://porkicoder.com/blog/posts/early-july-2026-ai-ide-news-cursor-ios-copilot-models-and-devin-desktop.html" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">6</span>
+                <h2>OpenClaw v2026.7.1 发布：Control UI 全面改版 + GPT-5.6 / Hy3 / Muse Spark 1.1 集成</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">OpenClaw 官方 / ClawSpiral</span>
+                <span class="source">2026-07-13</span>
+            </div>
+            <div class="entry-body">
+                <p>OpenClaw 发布夏季最大更新 v2026.7.1：Control UI 改版为浏览器式统一工作区，支持多会话并排、实时任务视图、拖放布局；新增 GPT-5.6 Sol/Terra/Luna、腾讯 Hy3、Meta Muse Spark 1.1 模型支持；强化 Codex 编码 Agent 工作流。v2026.7.2-beta.3 已进入测试，新增远程编码会话、本地 llama.cpp GGUF 推理、ClickClack 频道集成。</p>
+            </div>
+            <div class="entry-link"><a href="https://docs.openclaw.ai/zh-CN/releases/2026.7.1" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">7</span>
+                <h2>阿里 × 清华获 ICML 2026 杰出论文：揭示扩散语言模型"灵活性陷阱"</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">机器之心 / 今日头条</span>
+                <span class="source">2026-07-05</span>
+            </div>
+            <div class="entry-body">
+                <p>阿里巴巴与清华大学合作论文《The Flexibility Trap》入选 ICML 2026 杰出论文（获奖率千分之一）。研究发现扩散语言模型（dLLM）允许任意顺序生成 token 的"灵活性"在推理任务中反而是陷阱——模型绕过高不确定性逻辑节点导致"熵退化"。HumanEval 上从左到右能解出而任意顺序解不出的题占 21.3%。团队提出 JustGRPO：强化学习阶段强制从左到右生成即可恢复推理能力。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.toutiao.com/article/7659353960775549494" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">8</span>
+                <h2>KVpop：用 12% 记忆保留 97% 推理能力，长文本推理瓶颈迎来新解</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">科技行者 / 163.com</span>
+                <span class="source">2026-07-15</span>
+            </div>
+            <div class="entry-body">
+                <p>约翰内斯·开普勒大学与 NXAI 联合发布 KVpop（arXiv:2607.05061），让大模型在推理时主动预判"哪些 KV 缓存条目未来有用"并丢弃无用条目。实验表明 KV 缓存压缩 88% 后，数学推理能力仍保留 97%–100%。这一工作直击 Transformer 长文本推理核心瓶颈：线性增长的 KV 缓存导致显存爆炸与速度下降。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.163.com/dy/article/L1T0730A0511DTVV.html" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>领域</th>
+                    <th>关键信号</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>芯片/硬件</td>
+                    <td>谷歌 Frozen v2 专用推理芯片曝光，效率 6–10× TPU</td>
+                </tr>
+                <tr>
+                    <td>桌面智能体</td>
+                    <td>Gemini Spark 登陆 macOS，可远程操控电脑</td>
+                </tr>
+                <tr>
+                    <td>模型竞争</td>
+                    <td>Gemini 3.5 Pro 延期；Meta Muse Spark 1.1 / GPT-5.6 Sol 抢跑</td>
+                </tr>
+                <tr>
+                    <td>AI IDE</td>
+                    <td>Cursor 收购 Continue.dev；Windsurf → Devin Desktop；Claude Code 百万上下文</td>
+                </tr>
+                <tr>
+                    <td>开源 Agent</td>
+                    <td>OpenClaw v2026.7.1 大版本；本地 GGUF 推理进入 beta</td>
+                </tr>
+                <tr>
+                    <td>学术前沿</td>
+                    <td>ICML 杰出论文揭示 dLLM 灵活性陷阱；KVpop 压缩 88% 缓存保性能</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            <p>本日报由 AI 自动生成 · 信息截至 2026-07-20 21:30 CST</p>
+            <p style="margin-top: 0.5rem;">Powered by OpenClaw Daily Digest</p>
+        </footer>
+    </div>
+</body>
+</html>
