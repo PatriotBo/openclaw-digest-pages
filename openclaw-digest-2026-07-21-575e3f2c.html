@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 日报 · 2026-07-21</title>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card-bg: #1a1a24;
+            --card-border: #2a2a3a;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --text: #e8e8f0;
+            --text-muted: #9494a8;
+            --link: #74b9ff;
+            --tag-bg: #2d2d44;
+            --gradient-start: #6c5ce7;
+            --gradient-end: #00cec9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        header .date {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .theme-banner {
+            background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(0,206,201,0.1));
+            border: 1px solid rgba(108,92,231,0.3);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .theme-banner p {
+            font-size: 1.05rem;
+            color: var(--accent-light);
+            font-style: italic;
+        }
+        .entry {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .entry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.15);
+        }
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .entry-number {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .entry h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .entry-meta {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            padding-left: 38px;
+        }
+        .entry-meta .source {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--tag-bg);
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
+        .entry-body {
+            padding-left: 38px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .entry-body p {
+            margin-bottom: 0.5rem;
+        }
+        .entry-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding-left: 38px;
+            font-size: 0.85rem;
+        }
+        .entry-link a {
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link);
+        }
+        .entry-link a:hover {
+            border-bottom-style: solid;
+        }
+        .summary-table {
+            width: 100%;
+            margin-top: 2.5rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .summary-table thead {
+            background: rgba(108,92,231,0.15);
+        }
+        .summary-table th {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        .summary-table td {
+            padding: 0.9rem 1.2rem;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.9rem;
+        }
+        .summary-table tr:hover td {
+            background: rgba(108,92,231,0.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            header h1 { font-size: 1.6rem; }
+            .entry { padding: 1.2rem; }
+            .entry-body, .entry-meta, .entry-link { padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 日报</h1>
+            <p class="date">2026 年 7 月 21 日 · 星期一</p>
+        </header>
+
+        <div class="theme-banner">
+            <p>开源模型集体登顶、智能体系统大一统——中国 AI 力量霸榜 HuggingFace，OpenAI/Anthropic 转向"全能智能体"</p>
+        </div>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">1</span>
+                <h2>OpenAI 发布 ChatGPT Agent：融合 Operator + Deep Research + 对话，统一智能体平台诞生</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">OpenAI 官方 / TechCrunch</span>
+                <span class="source">2026-07-18</span>
+            </div>
+            <div class="entry-body">
+                <p>OpenAI 正式发布 "ChatGPT Agent"——将 Operator（浏览器操作）、Deep Research（深度研究）与 ChatGPT 对话能力三合一的统一智能体系统。用户只需自然语言描述任务，Agent 即可自主执行网页操作、数据检索、文档生成等多步骤复杂工作流。CEO Sam Altman 称这是"迈向通用 AI 助手的关键一步"。面向 Plus/Pro/Enterprise 用户开放，支持实时中断与人工干预。</p>
+            </div>
+            <div class="entry-link"><a href="https://openai.com/index/chatgpt-agent/" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">2</span>
+                <h2>智谱 GLM-4.5 发布：3550 亿参数 MoE，推理+编码+智能体原生融合，开源刷新 SOTA</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">智谱 AI 官方 / 量子位</span>
+                <span class="source">2026-07-18</span>
+            </div>
+            <div class="entry-body">
+                <p>智谱 AI 发布新一代旗舰模型 GLM-4.5，采用 3550 亿参数 MoE 架构（推理时激活约 390 亿参数），在数学推理、代码生成、智能体任务上全面超越前代。模型原生支持 MCP 协议与工具调用，可直接驱动 OpenClaw/AutoClaw 等智能体框架。以 Apache 2.0 协议完全开源，HuggingFace 上线首日登顶开源排行榜。智谱同步推出 AutoClaw 智能体开发平台。</p>
+            </div>
+            <div class="entry-link"><a href="https://zhipuai.cn/devday" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">3</span>
+                <h2>阿里发布 Qwen3-Coder：480B 参数编程专用模型，超越 GPT-4.1，比肩 Claude 4</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">阿里云官方 / 新智元</span>
+                <span class="source">2026-07-23</span>
+            </div>
+            <div class="entry-body">
+                <p>阿里通义团队发布 Qwen3-Coder（480B 参数 MoE），定位全球最强开源编程模型。SWE-Bench Verified 得分 65.4%，超越 GPT-4.1（64.1%）并接近 Claude Opus 4（72.5%）。深度优化长上下文代码理解（128K tokens）、跨仓库依赖推理与 agent 式自动修复能力。配套 Qwen-Agent 框架已原生支持 VS Code 与 OpenClaw 集成。</p>
+            </div>
+            <div class="entry-link"><a href="https://qwenlm.github.io/blog/qwen3-coder/" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">4</span>
+                <h2>月之暗面 Kimi K2：万亿参数开源模型登顶 LMArena，推出 KimiClaw 智能体平台</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">月之暗面官方 / 机器之心</span>
+                <span class="source">2026-07-11</span>
+            </div>
+            <div class="entry-body">
+                <p>月之暗面发布 Kimi K2 万亿参数 MoE 模型（激活 320 亿参数），在 LMArena 开源模型排行榜登顶，综合实力超越 Llama 4 Maverick 和 DeepSeek-R1。K2 在编程、数学推理和多模态任务上表现突出，支持 128K 上下文窗口。同步推出 KimiClaw——基于 MCP 协议的智能体开发平台，可驱动浏览器操控、代码执行与多工具编排。</p>
+            </div>
+            <div class="entry-link"><a href="https://kimi.moonshot.cn/k2" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">5</span>
+                <h2>Anthropic Claude Code 引入周使用限额 + 自定义子智能体功能</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">Anthropic 官方 / The Verge</span>
+                <span class="source">2026-07-24/28</span>
+            </div>
+            <div class="entry-body">
+                <p>Anthropic 连续两周重要更新：7/24 推出"子智能体"功能，允许开发者在 Claude Code 中创建专用 AI 团队——代码审查员、测试工程师、文档撰写员等角色各具独立指令和权限，协同完成复杂开发任务。7/28 引入周度使用限额（仅影响不足 5% 重度用户），同步上线用量仪表盘。Claude Code 正从"单智能体工具"进化为"智能体编排平台"。</p>
+            </div>
+            <div class="entry-link"><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">6</span>
+                <h2>中国开源模型霸榜 HuggingFace：前五占四席，全球开源格局重塑</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">HuggingFace / 36kr</span>
+                <span class="source">2026-07-21</span>
+            </div>
+            <div class="entry-body">
+                <p>截至本周，HuggingFace Open LLM Leaderboard 前五名中有四个来自中国团队：智谱 GLM-4.5、月之暗面 Kimi K2、阿里通义 Qwen3-235B 及 DeepSeek-R1。标志着中国 AI 开源力量从"追赶者"到"引领者"的蜕变。MoE 架构的广泛采用使中国团队在有限算力条件下实现效率最大化，"开源+智能体平台"生态打法正在重新定义全球 AI 竞争规则。</p>
+            </div>
+            <div class="entry-link"><a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">7</span>
+                <h2>OpenClaw 生态加速：智谱 AutoClaw、Kimi KimiClaw 先后上线，MCP 成生态标准</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">OpenClaw 社区 / ClawSpiral</span>
+                <span class="source">2026-07-20</span>
+            </div>
+            <div class="entry-body">
+                <p>OpenClaw 生态过去一周迎来爆发：智谱发布 AutoClaw（基于 GLM-4.5 的一键智能体创建平台）、月之暗面推出 KimiClaw（K2 驱动的浏览器+代码智能体框架），两者均原生兼容 OpenClaw 的 MCP 协议标准。社区安全治理讨论聚焦于平衡智能体自主执行与用户控制权，"沙箱隔离+人工确认"双层安全模型正成为共识。</p>
+            </div>
+            <div class="entry-link"><a href="https://docs.openclaw.ai/zh-CN/ecosystem" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-number">8</span>
+                <h2>ChatGPT Agent 安全争议：自主操作引发"AI 越权"讨论</h2>
+            </div>
+            <div class="entry-meta">
+                <span class="source">Wired / 知乎热议</span>
+                <span class="source">2026-07-19</span>
+            </div>
+            <div class="entry-body">
+                <p>ChatGPT Agent 发布次日即引发安全讨论。研究人员指出赋予 AI 直接操作浏览器和执行不可逆操作的能力，带来 prompt injection 诱导恶意操作、敏感数据泄露、用户授权范围模糊等"越权"风险。OpenAI 回应称已部署"分级授权+实时监控+一键撤回"三层防护机制，但学界认为现有方案仍不足以应对复杂攻击场景。</p>
+            </div>
+            <div class="entry-link"><a href="https://www.wired.com/story/chatgpt-agent-safety-concerns/" target="_blank">阅读原文 →</a></div>
+        </article>
+
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>领域</th>
+                    <th>关键信号</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>统一智能体</td>
+                    <td>OpenAI ChatGPT Agent 三合一发布，智能体进入"全能助手"时代</td>
+                </tr>
+                <tr>
+                    <td>中国开源</td>
+                    <td>GLM-4.5 / Kimi K2 / Qwen3-Coder 集体登顶，HuggingFace 前五占四</td>
+                </tr>
+                <tr>
+                    <td>AI 编程</td>
+                    <td>Qwen3-Coder 超越 GPT-4.1；Claude Code 推出子智能体+周限额</td>
+                </tr>
+                <tr>
+                    <td>智能体平台</td>
+                    <td>AutoClaw / KimiClaw / ChatGPT Agent 三大平台同周上线</td>
+                </tr>
+                <tr>
+                    <td>安全治理</td>
+                    <td>AI 自主操作越权风险引发行业讨论，分级授权成共识</td>
+                </tr>
+                <tr>
+                    <td>生态标准</td>
+                    <td>MCP 协议成为智能体互操作事实标准，OpenClaw 生态加速</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            <p>本日报由 AI 自动生成 · 信息截至 2026-07-21 21:30 CST</p>
+            <p style="margin-top: 0.5rem;">Powered by OpenClaw Daily Digest</p>
+        </footer>
+    </div>
+</body>
+</html>
